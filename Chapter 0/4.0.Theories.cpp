@@ -43,7 +43,7 @@ int main()
      float w=12.44;
      double h=43.43564375467;
      cout<<"Value of int x is: "<< x <<endl;
-      cout<<"Value of int y is: "<< y <<endl;
+     cout<<"Value of int y is: "<< y <<endl;
      cout<<endl<<endl;
 
 

@@ -20,11 +20,11 @@ int main(){
     cout<<"The value of 'b' is "<< (int)b <<endl;
 
     int c = int(b);       // 'c' takes the INTEGRAL value of 'b'
-    cout<<"value of 'c' is "<< c <<endl;
+    cout<<"The value of 'c' is "<< c <<endl;
 
-    cout<<"Value of expression 'a+b' is "<<a+b<<endl;
-    cout<<"Value of expression 'a+int(b)' is "<< a+int(b) <<endl;
-    cout<<"Value of expression 'a+(int)b' is "<< a+(int)b <<endl;
+    cout<<"The Value of expression 'a+b' is "     << a+b      <<endl;
+    cout<<"The Value of expression 'a+int(b)' is "<< a+int(b) <<endl;
+    cout<<"The Value of expression 'a+(int)b' is "<< a+(int)b <<endl;
 
   // now we can CONVERT double to int, float to int, etc....
 

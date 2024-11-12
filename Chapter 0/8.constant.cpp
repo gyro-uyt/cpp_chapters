@@ -15,9 +15,9 @@ int main(){
     const float pi = 3.14;
     cout<<"Now the Value of const pi cant be changed after using const, "<< pi <<endl;
     
-    // pi = 65;  // This gives ERROR, 'pi' has now become READ OLNY variable, it reamins CONST.
-        // This is usefull for fixing the values of some variables like pie,e,G,g,...etc
-        // it prevents mistake over future as you/else may change values that shouldn't be changed MISTANELY
+       // pi = 65;  // This gives ERROR, 'pi' has now become READ OLNY variable, it reamins CONST.
+      // This is usefull for fixing the values of some variables like pie,e,G,g,...etc
+     // it prevents mistake over future as you/else may change values that shouldn't be changed MISTANELY
 
     cout<<"Changing will give errors, it reamains const as "<< pi <<endl;
     

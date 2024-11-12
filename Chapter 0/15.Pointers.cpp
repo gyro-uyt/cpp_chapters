@@ -10,7 +10,7 @@ int main(){
     //*     "&x" --------> (Adddress of x) operator.
     cout<<"Address of 'a' from '&a' is: "<< &a <<endl;     // '&a' is ADDRESS OF 'a' Simply
 
-    // "int*" makes a pointer vaiable 'b'           
+    //*     "int*" makes a pointer vaiable 'b'           
     int* b = &a;   // 'int*' defined a variable 'b' which Holds the Address of 'a'
     cout<<"Address of 'a' from 'b' is: "<< b <<endl;    
 
