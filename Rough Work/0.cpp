@@ -1,37 +1,14 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
-struct Person {
-    // Member variables
-    std::string name;
-    int age;
-    double height;
+int main(){
+    float x = 36;
+    float & y = x;      // "&y" points the value of 'y' towards 'x', y = x
+    cout<< &x <<endl<< &y <<endl;
 
-    // Member function to display person's info
-    void displayInfo() {
-        std::cout << "Name: " << name << "\nAge: " << age << "\nHeight: " << height << " cm" << std::endl;
-    }
-
-    // Member function to check if the person is an adult
-    bool isAdult() {
-        return age >= 18;
-    }
-};
-
-int main() {
-    // Creating an instance of the Person struct
-    Person person1;
-    person1.name = "Alice";
-    person1.age = 25;
-    person1.height = 170.5;
-
-    // Using the member functions
-    person1.displayInfo();
-    if (person1.isAdult()) {
-        std::cout << person1.name << " is an adult." << std::endl;
-    } else {
-        std::cout << person1.name << " is not an adult." << std::endl;
-    }
-
+    y=69;              // changing 'y' changes 'x' too, as both are same Person
+    cout<< x <<endl;
+    cout<< y <<endl;  
+    cout<< &x <<endl<< &y <<endl;
     return 0;
 }

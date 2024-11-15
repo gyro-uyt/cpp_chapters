@@ -4,8 +4,10 @@ int main(){
   //   *******************************REFERENCE VARIABLES**********************************
   // Rohan ------> Monty -------> Bablu --------> CoderN,,, SAME person with Different NAMES  
     float x = 36;
-    float & y = x;      // "&y" points the value of 'y' towards 'x', y = x
-
+    float & y = x;      // "&y" points the value of 'y' towards 'x', y = x    // address of 'y' equal 'x'
+  //*  A reference variable y is declared, which refers to the same memory location as x.
+  //   y becomes an alias for x. Any changes made to y will directly affect x (and vice versa).
+    y=69;              // changing 'y' changes 'x' too, as both are same Person
     cout<< x <<endl;
     cout<< y <<endl;        
 
