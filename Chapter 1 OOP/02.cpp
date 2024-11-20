@@ -1,22 +1,90 @@
-// OOPs - Classes and Objects
-// c++  ---> initially called c++ with classes by strousstroup
-// Structures had limitations:
-//     i) Members are public
-//    ii) Methods were not there
-// Classes ---> Structures + many more....
-//         ---> can have methods and properties
-//         ---> can make few members as Public & few as Private
-// Structures in c++ are typedefed
-// you can  declare objects along with the class declaration like this;
-//  ex.  class Employee{
-//          ---code here---
-//      } harry, pratham, abhay
-// harry.salary = 8 ---> gives error if salary is private
-// by default everything in class is PRIVATE
+// OOPs - Classes and objects
+
+// C++ --> initially called --> C with classes by stroustroup
+// class --> extension of structures (in C)
+// structures had limitations
+//      - members are public
+//      - No methods
+// classes --> structures + more
+// classes --> can have methods and properties
+// classes --> can make few members as private & few as public
+// structures in C++ are typedefed
+// you can declare objects along with the class declarion like this:
+/* class Employee{
+            // Class definition
+        } harry, rohan, lovish; */
+// harry.salary = 8 makes no sense if salary is private
+
+// Nesting of member functions
+
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main(){
+class binary
+{
+private:                    // by Default ALL the Functions in 'class' are PRIVATE
+    string s;
+    void chk_bin(void);
+
+public:
+    void input_binary(void);
+    void ones_compliment(void);
+    void display(void);
+};
+
+void binary::input_binary(void)
+{
+    cout << "Enter a binary number" << endl;
+    cin >> s;
+}
+
+void binary::chk_bin(void)
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s.at(i) != '0' && s.at(i) != '1')
+        {
+            cout << "Incorrect binary format" << endl;
+            exit(0);
+        }
+    }
+}
+
+void binary::ones_compliment(void)
+{
+    chk_bin();
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s.at(i) == '0')
+        {
+            s.at(i) = '1';
+        }
+       else
+        {
+            s.at(i) = '0';
+        }
+    }
+}
+
+void binary::display(void)
+{
+    cout<<"Displaying your binary number"<<endl;
+    for (int i = 0; i < s.length(); i++)
+    {
+        cout << s.at(i);
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    binary b;
+    b.input_binary();
+    // b.chk_bin();
+    b.display();
+    b.ones_compliment();
+    b.display();
 
     return 0;
 }
