@@ -14,7 +14,7 @@ class Employee
         int d,e;
 
     void setData(int a1, int b1, int c1);       // Declaration, now u can define the function anywhere in the coder
-    void getData();
+    void setData();
 };      
 //* class Ends with semi-colan( ; )
 
@@ -30,12 +30,12 @@ int main(){
     Pratham.d = 59;
     Pratham.e = 89;
     Pratham.setData(3,5,8);     
-    Pratham.getData();
+    Pratham.setData();
     
     return 0;
 }
 
-void Employee :: getData(){
+void Employee :: setData(){
     cout<<"The value of 'a' is: "<< a <<endl;
     cout<<"The value of 'b' is: "<< b <<endl;
     cout<<"The value of 'c' is: "<< c <<endl;
