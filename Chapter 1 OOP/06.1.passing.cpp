@@ -17,8 +17,8 @@ public:
     }
     void sumComplex(Complex x, Complex y)
     {
-        a = x.a + y.a;
-        b = x.b + y.b;
+        a = x.a + y.a; // x=c1 & y=c2
+        b = x.b + y.b; // (x.b)--->'c1' ki 'b' value + (y.b)--->'c2' ki 'b' value
     }
 };
 
