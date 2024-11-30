@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-class Employee
+class Employee  // in general, class names often start with a capital letter, this convention, known as PascalCase
 {               // 'public' and 'private' are Two Specifiers of 'class'
     private:
         int a,b,c;
