@@ -1,8 +1,11 @@
 {
     "files.associations": {
+        ".fantomasignore": "ignore",
         "iostream": "cpp",
         "ostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iosfwd": "cpp",
+        "fstream": "cpp"
     },
     "files.exclude": {
         "**/!(*.*)":true,

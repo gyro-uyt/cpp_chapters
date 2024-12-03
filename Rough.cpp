@@ -1,15 +1,15 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int main() {
-	// your code goes here
-	int X,Y;
-	cout<<"Enter the Number of stoves: ";
-	cin>> X;
-	cout<<"Enter the time in minutes: ";
-	cin>>Y;
-	int z;
-	z=Y/X;
+int main(){
+	int i,j;
+	cout<<"Enter row & column\n";
+	cin>>i>>j;
+	int matrix[i][j];
+	for (int m = 0; m < i; m++)
+	{
+		
+	}
 	
-
+	return 0;
 }
