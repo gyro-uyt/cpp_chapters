@@ -1,15 +1,19 @@
-#include <iostream>
-using namespace std;
+#include <wx/wx>
 
-int main(){
-	int i,j;
-	cout<<"Enter row & column\n";
-	cin>>i>>j;
-	int matrix[i][j];
-	for (int m = 0; m < i; m++)
-	{
-		
-	}
-	
-	return 0;
+class MyApp : public wxApp {
+public:
+    virtual bool OnInit();
+};
+
+class MyFrame : public wxFrame {
+public:
+    MyFrame() : wxFrame(NULL, wxID_ANY, "Hello wxWidgets!") {}
+};
+
+wxIMPLEMENT_APP(MyApp);
+
+bool MyApp::OnInit() {
+    MyFrame *frame = new MyFrame();
+    frame->Show(true);
+    return true;
 }
