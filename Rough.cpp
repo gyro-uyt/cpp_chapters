@@ -1,19 +1,59 @@
-#include <wx/wx>
+#include <iostream>
+using namespace std;
 
-class MyApp : public wxApp {
+class c1;
+class c2;
+
+void exchange(c1 &obj1, c2 &obj2);
+
+class c1
+{
+    int a;
+
+    // Declare exchange as a friend
+    friend void exchange(c1 &obj1, c2 &obj2);
+
 public:
-    virtual bool OnInit();
+    void setData(int x) { a = x; }
+    void getData() const { cout << a << " "; }
 };
 
-class MyFrame : public wxFrame {
+class c2
+{
+    int b;
+
+    // Declare exchange as a friend
+    friend void exchange(c1 &obj1, c2 &obj2);
+
 public:
-    MyFrame() : wxFrame(NULL, wxID_ANY, "Hello wxWidgets!") {}
+    void setData(int y) { b = y; }
+    void getData() const { cout << b << endl; }
 };
 
-wxIMPLEMENT_APP(MyApp);
+void exchange(c1 &obj1, c2 &obj2)
+{
+    int temp = obj1.a;
+    obj1.a = obj2.b;
+    obj2.b = temp;
+}
 
-bool MyApp::OnInit() {
-    MyFrame *frame = new MyFrame();
-    frame->Show(true);
-    return true;
+int main()
+{
+    c1 o1;
+    c2 o2;
+
+    o1.setData(5);
+    o2.setData(7);
+
+    cout << "Before exchange: ";
+    o1.getData();
+    o2.getData();
+
+    exchange(o1, o2);
+
+    cout << "After exchange: ";
+    o1.getData();
+    o2.getData();
+
+    return 0;
 }
