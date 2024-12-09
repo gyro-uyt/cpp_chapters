@@ -1,15 +1,12 @@
 #include <iostream>
 using namespace std;
-
 class c1;
 class c2;
-
 void exchange(c1 &obj1, c2 &obj2);
 
 class c1
 {
     int a;
-
     // Declare exchange as a friend
     friend void exchange(c1 &obj1, c2 &obj2);
 
@@ -21,7 +18,6 @@ public:
 class c2
 {
     int b;
-
     // Declare exchange as a friend
     friend void exchange(c1 &obj1, c2 &obj2);
 
