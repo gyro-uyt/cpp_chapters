@@ -1,10 +1,17 @@
-time = int(input("What hour of day is it mister: "))
+import time # built-in module --> necessary to import
+# cwqtt = time.strftime('%H:%M:%S')
+# print(cwqtt)
+ghnta = time.strftime('%H')
+# print(ghnta)
 
-if (0 <= time < 12):
+# wqtt = int(input("What hour of day is it mister: "))
+wqtt = int(ghnta)
+# print(wqtt)
+
+if (0 <= wqtt < 12):
     print("Good Morning sir")
-elif (12 <= time < 17):
+elif (12 <= wqtt < 17):
     print("Good Evening sir")
-elif (17 <= time < 23):
+elif (17 <= wqtt < 24):
     print("Good Evening sir")
-else:
-    print("Enter the hour in 24-hours format in integral value !")
+
