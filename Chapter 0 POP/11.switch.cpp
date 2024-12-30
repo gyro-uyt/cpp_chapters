@@ -10,7 +10,7 @@ int main(){
     switch (age){
         case 18:
             cout<<"Welcome FRESHERS"<<endl<<endl;
-            break;
+            break;  // if not used, then following case is Ran
 
         case 22:
             cout<<"20th Centuary Boys assemble here"<<endl<<endl;
