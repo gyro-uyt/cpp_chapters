@@ -12,7 +12,7 @@ hour = int(time.strftime('%H'))     # time.strftime() gives result in String
 if (0 <= hour < 12):
     print("Good Morning sir")
 elif (12 <= hour < 17):
-    print("Good Evening sir")
+    print("Good Afternoon sir")
 elif (17 <= hour < 24):
     print("Good Evening sir")
 
