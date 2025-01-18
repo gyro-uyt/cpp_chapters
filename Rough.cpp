@@ -1,35 +1,38 @@
 #include <iostream>
 using namespace std;
 
-int findmax(int* arr, int size);
+int main() {
+  // int a, b;
+  // cout << "Enter 2 integers to compare:" << endl;
+  // cin >> a >> b;
+  // (a > b) ? cout << ("print a > b") << endl : cout << ("print a < b") <<
+  // endl;
 
+  // int i, p=10;
+  // cout<<sizeof(i)<<endl;
+  // cout<<sizeof(p)<<endl;
 
-int main(){
-    int size;
-    cout<<"Enter size of the array: ";
-    cin>> size;
+  // struct Employee {
 
-    int arr[size];
-    cout<<"Enter "<<size<<" elements of the array:"<<endl;
-    for(int i=0; i<size; i++)
-    {
-        cin>>arr[i];
-    }
+  //   int id;
 
-    int max = findmax(arr, size);
-    cout<<"The maximum number in the array is: "<< max;
+  //   string name;
 
-    return 0;
-}
-int findmax(int* arr, int size)
-{
-    int max = *arr;  // Initialize max with the first element
-    for (int i = 1; i < size; i++)  // Start from index 1
-    {
-        if (*(arr + i) > max)  // Compare using pointer arithmetic
-        {
-            max = *(arr + i);
-        }
-    }
-    return max;
+  // } emp1, *ptr;
+
+  // Employee uday;
+  // uday.id = 23;
+  // uday.name = "heelo";
+  // cout << uday.name << endl;
+  // cout << uday.id << endl;
+
+  struct Point {
+    int x;
+    int y;
+  };
+  Point pt = {10, 20};
+  Point *ptr = &pt;
+  cout << ptr-> x <<endl;
+
+  return 0;
 }
