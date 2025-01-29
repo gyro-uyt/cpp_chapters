@@ -8,7 +8,7 @@ print(b)
 
 # this Won't sum as 'a' and 'b' are strings, it Concatenates
 print("sum is:", a+b)
-print("real sum is:", int(a)+int(b))
+print("real sum is:", int(a)+int(b))    # use typecasting to correctly do the desired operation
 
 # input with messages
 x1 = int(input("Enter the value of x1: "))  # ---> this also a method of type-casting

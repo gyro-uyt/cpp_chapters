@@ -1,0 +1,30 @@
+.container{
+    border: 2px solid;
+    height: 600px;
+
+}
+.box{
+    border: 1px solid red;
+    height: 125px;
+    width: 125px;
+    display: inline-block;
+}
+
+#box-1{
+    position: static;
+}
+#box-2{
+    /* relaive doesn't affects it normal position */
+    position: relative; 
+    top: 150px;
+    left: 100px;
+}
+#box-3{
+    position: absolute;
+    top: 200px;
+}
+#box-4{
+    position: fixed;
+    top: 150px;
+}
+/* learn sticky */

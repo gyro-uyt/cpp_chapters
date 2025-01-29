@@ -1,6 +1,7 @@
 s1 = "Hey, my name is Gaurav"
 length = len(s1)
 print(length)
+print(len(s1))
 
 print(s1[0:3])  # this is the format of string slicing [n:m] ---> it prints from index 'n' to index 'm-1'
 print(s1[1:3])  # including 1 But not 3

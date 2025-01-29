@@ -1,0 +1,17 @@
+.box {
+    border: 8px double blue;
+    color: red;
+    height: 200px;
+    width: 300px;
+    padding: 15px;
+    margin: 50px auto;
+    /* background-color: yellow; */
+    background-image: url(https://img.freepik.com/premium-photo/yellow-blue-abstract-creative-background-blue-abstract-background-geometric-background_481527-28134.jpg?semt=ais_hybrid);
+    /* background-image: linear-gradient(to left, blue,yellow,green); */
+}
+
+body{
+    background-image: url(https://img.freepik.com/premium-photo/yellow-blue-abstract-creative-background-blue-abstract-background-geometric-background_481527-28134.jpg?semt=ais_hybrid);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,30 @@
+/* Unversal selector whole html */
+*{
+    margin: 0;
+}
+
+/* h1 inside header will only be selected */
+.header h1{
+    background-color: black;
+    color: gold;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    /* how to use google fonts in css? */
+}
+
+.header nav{
+    background-color: rgb(248, 255, 48);
+    padding: 10px;
+}
+
+.header nav ul{
+    list-style: none;
+}
+.header nav ul li a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}

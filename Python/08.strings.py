@@ -4,13 +4,16 @@ s3 = "\nthis is another \"string\""
 s4 = '''\nHELLO he said to me,
     how are you 
     where are you'''
-# print(s1, s2, s3, S4, sep=' ~ ')
+print(s1, s2, s3, s4, sep=' ~ ')
 
 # in Python, String is like an Array of Characters
-# print(s1[0])  # counting starts from '0'
+print(s1[0])  # counting starts from '0'
 # print(s1[1])
 # print(s1[2])
 # print(s1[3])
 
-for Character in s1:
-    print(Character)
+# for Character in s1:
+#     print(Character)
+
+for zulu in s1:
+    print(zulu)

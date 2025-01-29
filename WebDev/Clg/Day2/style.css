@@ -1,0 +1,15 @@
+.card {
+    border: 5px solid rebeccapurple;
+    padding: 20px;
+    margin: 20px;
+    height: 100px;
+}
+
+img {
+    height: fit-content;
+    width: 50%;
+}
+
+p {
+    text-align: justify;
+}
