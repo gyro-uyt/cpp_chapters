@@ -1,0 +1,7 @@
+How to view you html outputs on your Mobile?
+>>1 run ipconfig and copy IPv4 address (windows)
+>>2 run this for Manjaro, ip -4 addr show | grep "inet" | awk '{print $2}' | cut -d/ -f1
+    mine came as 192.168.27.109
+>>3 search live preview in settings and replace Live preview: host IP(127.0.0.1) with this IPv4
+>>4 Now simply go to ur html file and right click then show preview,
+>>5 copy the url address of the output and run it on your mobile, to see outputs on your mobile.

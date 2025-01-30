@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(223, 222, 222);
+}
+header {
+  background-color: cadetblue;
+  font-family:Arial, Helvetica, sans-serif;
+  text-align: center;
+  border: solid thistle 5px;
+  box-shadow: 0 0 4px;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 20px;
+  margin: 20px 10px;
+}
+#looks {
+  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 34px;
+}
+#list {
+  color: rgb(40, 86, 88);
+}
+#list a {
+  text-decoration: none;
+  color: rgb(174, 0, 122);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+
+.master {
+  border: solid darkcyan 4px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgb(122, 121, 121);
+  height: max-content;
+  width:max-content;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin:auto;
+  /* this setting saved the day */
+
+}
+.section {
+  border: solid 3px rgb(223, 222, 222);
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 80, 80, 0.708);
+  padding: 5px;
+  width: 330px;
+}
+.section h2 {
+  text-align: center;
+}
