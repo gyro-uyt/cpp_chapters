@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <title>CEM || Propose</title>
-</head>
-<body>
-    <header>
-        <h1>Campus Event Manager</h1>
-        <nav>   <!-- navigation bar -->
-            <ul>
-                <li>
-                    <a href="home.html">Home</a>
-                </li>
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
-                <li>
-                    <a href="propose.html">Propose</a>
-                </li>
-                <li>
-                    <a href="register.html">Register</a>
-                </li>
-            </ul>
-        </nav>
+  <head>
+    <title>CEM || Propose</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>Campus Event Manager</h1>
+      <nav>
+        <!-- navigation bar -->
+        <ul>
+          <li>
+            <a href="home.html">Home</a>
+          </li>
+          <li>
+            <a href="events.html">Events</a>
+          </li>
+          <li>
+            <a href="propose.html">Propose</a>
+          </li>
+          <li>
+            <a href="register.html">Register</a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    
-    
-</body>
+
+    <main>
+      <section class="propose">
+        <form>
+          <h3>Propose an Event</h3>
+          <label for="title">Event Title:</label>
+          <input id="title" type="text" placeholder="Enter the event title" />
+
+          <label for="date">Event Date: </label>
+          <input type="date" id="date" />
+
+          <label for="venue">Event Venue: </label>
+          <input type="text" id="venue" placeholder="Enter event venue" />
+
+          <label for=""></label>
+          <input type="text" />
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p><b>&copy;</b>2025 All Rights Reserved.</p>
+    </footer>
+  </body>
 </html>

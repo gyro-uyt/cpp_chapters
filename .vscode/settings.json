@@ -1,14 +1,21 @@
 {
-    "files.associations": {
-        ".fantomasignore": "ignore",
-        "iostream": "cpp",
-        "ostream": "cpp",
-        "string": "cpp",
-        "iosfwd": "cpp",
-        "fstream": "cpp"
-    },
-    "files.exclude": {
-        "**/!(*.*)":true,
-        "**/*.out":true
-    }
+  "files.associations": {
+    ".fantomasignore": "ignore",
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "string": "cpp",
+    "iosfwd": "cpp",
+    "fstream": "cpp"
+  },
+  "files.exclude": {
+    "**/!(*.*)": true,
+    "**/*.out": true
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
