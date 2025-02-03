@@ -10,18 +10,20 @@ def harmean(a, b):
 def isGreater(a, b):
     if (a > b):
         print("First number is greater")
+    elif(a==b):
+        print("Both numbers are same")
     else:
-        print("Second number is greater or equal")
+        print("Second number is greater")
 
 # use of "pass" ---> declaration of the function
 
 
 def isLesser(a, b):
-    pass  # writting means we can define this function later
+    pass  # writting pass means we can define this function later
 
 
 a = 9
-b = 8
+b = 9
 harmean(a, b)
 isGreater(a, b)
 

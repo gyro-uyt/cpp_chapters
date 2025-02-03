@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Images</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <!-- image -->
+    <img class="image" src="./The-Batman-2021.jpg" height="350" alt="Loading..." />
+    <!-- src(source) should be in same folder, either height or width should always be specified, by default html takes height/width in pixels, just type the number and it becomes that much pixel, it shows 'alt' when 'src' is unavailable -->
+
+    <!-- break tag used to give a line space -->
+    <br />
+
+    <!-- table -->
+    <table>
+      <!-- Captions -->
+      <caption>
+        Student Details
+      </caption>
+
+      <!-- table header -->
+      <thead>
+        <!-- table row -->
+        <tr>
+          <!-- table heading -->
+          <th>Name</th>
+          <th>Section</th>
+          <th>Height</th>
+          <th>Class</th>
+          <th>Monolouge</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <!-- table data -->
+          <td>Pratham</td>
+          <td>B1</td>
+          <td>165cm</td>
+          <td colspan="2">Hello Topper</td>
+          <!-- colspan means how many columns it'll take by default it is 1 column, similarly we have rowspan -->
+        </tr>
+
+        <tr>
+          <td>Archit</td>
+          <td>A1</td>
+          <td>169cm</td>
+          <td>Topper</td>
+          <td>Hello</td>
+        </tr>
+
+        <tr>
+          <!-- this is rowspan=2, now the next column's 1st data will start from 2nd box, as 1st is preoccupied by this  -->
+          <td rowspan="2">Uday Thakur</td>
+          <td>B2</td>
+          <td>164cm</td>
+          <td colspan="2" style="text-align: center">ohh bhai</td>
+          <!-- <td>bhaii</td> -->
+        </tr>
+
+        <tr>
+          <td>Xo1</td>
+          <td colspan="3">This is colspan=3 in td</td>
+        </tr>
+      </tbody>
+
+      <!-- table footer -->
+      <tfoot>
+        <tr>
+          <td>Footer</td>
+          <td>File</td>
+          <td>Here</td>
+          <td>use of</td>
+          <td>in css</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

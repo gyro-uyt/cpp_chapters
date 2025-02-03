@@ -4,7 +4,7 @@
 # print("Enter your age admirinal: ")
 a = int(input("Enter your age admirinal: "))
 match (a):  # these () are totally Optional
-    case (18):  # these () are totally Optional
+    case 18:  # these () are totally Optional
         print("Congratulations on becoming an adult")
     case (22):
         print("Darth Vader is the True Lord")

@@ -35,6 +35,7 @@ header {
   width:max-content;
   padding: 20px;
   display: flex;
+  /* flex-direction: column; */
   gap: 20px;
   justify-content: center;
   margin:auto;
