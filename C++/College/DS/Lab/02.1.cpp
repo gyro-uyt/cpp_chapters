@@ -32,5 +32,11 @@ int main()
     cout << n3.data << endl;
     cout << n4.data << endl;
 
+    // seeing the output of n1.next
+    cout << n1.next << endl;
+    cout << n2.next << endl;
+    cout << n3.next << endl;
+    cout << n4.next << endl;
+
     return 0;
 }
