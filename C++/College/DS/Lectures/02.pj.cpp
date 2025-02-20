@@ -12,17 +12,20 @@ int main()
     Node *head = nullptr, *newNode = nullptr, *temp = nullptr;
     int choice = 1;
 
-    while (choice)
+// In C and C++, any non-zero value is treated as true and 0 is treated as false.
+// while (choice) is shorthand for while (choice != 0).
+// The loop will continue until the user inputs 0.
+    while (choice != 0)
     {
         newNode = new Node; // Allocate memory in C++ using 'new'
         // newNode = (struct Node*)malloc(sizeof(struct Node));
 
         cout << "Enter data: ";
-        cin >> newNode->data; // C++ input
+        cin >> newNode->data;
         // printf("Enter data");
         // scanf("%d", &newNode->data);
 
-        newNode->next = nullptr; // C++ uses nullptr instead of 0
+        newNode->next = nullptr;
         // newNode->next = 0;
 
         if (head == nullptr)
@@ -45,8 +48,8 @@ int main()
     temp = head;
     cout << "Linked list data: ";
     while (temp != nullptr)
-    {                              // C++ uses nullptr
-        cout << temp->data << " "; // C++ output
+    {
+        cout << temp->data << " ";
         // printf("%d", temp->data);
 
         temp = temp->next;
@@ -61,6 +64,7 @@ int main()
         delete toDelete; // C++ uses 'delete' to free memory
         // free(toDelete);
     }
+    cout << endl;
 
     return 0;
 }

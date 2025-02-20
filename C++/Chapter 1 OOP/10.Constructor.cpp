@@ -19,13 +19,13 @@ public:
         cout << "Your number is " << a << " + " << b << "i" << endl;
     }
 };
-
 Complex ::Complex(void) // ----> This is a default constructor as it takes no parameters
 {
     a = 10;
     b = 0;
     cout << "Hello world" << endl; // gets executed each time a object is initialised
 }
+
 int main()
 {
     Complex c1, c2, c3;
@@ -38,7 +38,6 @@ int main()
     return 0;
 }
 /* Characteristics of Constructors
-
 1. It should be declared in Public section of the class
 2. They are automatically invoked whenever the object is created
 3. They cannot return values and do not have return types
