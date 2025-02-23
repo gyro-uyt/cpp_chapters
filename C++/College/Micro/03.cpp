@@ -1,4 +1,4 @@
-// 1 Build a quiz application that manages questions, answers and user scores using OOPs.
+//1 Build a quiz application that manages questions, answers and user scores using OOPs.
 
 #include <iostream>
 using namespace std;
