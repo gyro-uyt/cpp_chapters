@@ -5,7 +5,8 @@
     "ostream": "cpp",
     "string": "cpp",
     "iosfwd": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "valarray": "cpp"
   },
   "files.exclude": {
     "**/!(*.*)": true,
