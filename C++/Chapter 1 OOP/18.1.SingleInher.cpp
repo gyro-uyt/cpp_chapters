@@ -8,7 +8,7 @@ public:
     int data2;
 
     void setData();
-    int getData1();
+    int getData1();    //getData1() is used to access private data member for to be used in Derived class
     int getData2();
 };
 void Base ::setData()
