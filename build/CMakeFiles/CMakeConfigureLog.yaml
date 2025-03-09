@@ -516,3 +516,607 @@ events:
       Running the CXX compiler's linker: "/usr/bin/ld" "-v"
       GNU ld (GNU Binutils) 2.44
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The system is: Linux - 6.13.5-arch1-1 - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /home/linuxbrew/.linuxbrew/bin/gcc-14 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/aura/BX/cpp_chapters/build/CMakeFiles/3.31.6/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /home/linuxbrew/.linuxbrew/bin/g++-14 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/aura/BX/cpp_chapters/build/CMakeFiles/3.31.6/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-aYb63o"
+      binary: "/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-aYb63o"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-aYb63o'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_52060
+        [1/2] /home/linuxbrew/.linuxbrew/bin/gcc-14   -v -o CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o -c /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs
+        COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/gcc-14
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (Homebrew GCC 14.2.0_1) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52060.dir/'
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/cc1 -quiet -v -imultiarch x86_64-linux-gnu -iprefix /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/ /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCCompilerABI.c -isysroot /home/linuxbrew/.linuxbrew/nonexistent -idirafter /home/linuxbrew/.linuxbrew/include -idirafter /usr/include/x86_64-linux-gnu -idirafter /usr/include -quiet -dumpdir CMakeFiles/cmTC_52060.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccJy9pE0.s
+        GNU C17 (Homebrew GCC 14.2.0_1) version 14.2.0 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 14.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include"
+        ignoring nonexistent directory "/usr/include/x86_64-linux-gnu"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include
+         /home/linuxbrew/.linuxbrew/include
+         /usr/include
+        End of search list.
+        Compiler executable checksum: f544e07670433b76ee736fc389056b9b
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52060.dir/'
+         as -v --64 -o CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o /tmp/ccJy9pE0.s
+        GNU assembler version 2.44 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44
+        COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/
+        LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.'
+        [2/2] : && /home/linuxbrew/.linuxbrew/bin/gcc-14  -v -Wl,-v CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o -o cmTC_52060   && :
+        Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs
+        COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/gcc-14
+        COLLECT_LTO_WRAPPER=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (Homebrew GCC 14.2.0_1) 
+        COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/
+        LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52060' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52060.'
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD4DFy8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_52060 /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../.. -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o -rpath /home/linuxbrew/.linuxbrew/lib -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o
+        collect2 version 14.2.0
+        /usr/bin/ld -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD4DFy8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_52060 /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../.. -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o -rpath /home/linuxbrew/.linuxbrew/lib -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o
+        GNU ld (GNU Binutils) 2.44
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52060' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52060.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include]
+          add: [/home/linuxbrew/.linuxbrew/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include]
+        collapse include dir [/home/linuxbrew/.linuxbrew/include] ==> [/home/linuxbrew/.linuxbrew/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include;/home/linuxbrew/.linuxbrew/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-aYb63o']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_52060]
+        ignore line: [[1/2] /home/linuxbrew/.linuxbrew/bin/gcc-14   -v -o CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o -c /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs]
+        ignore line: [COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/gcc-14]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (Homebrew GCC 14.2.0_1) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52060.dir/']
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/cc1 -quiet -v -imultiarch x86_64-linux-gnu -iprefix /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/ /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCCompilerABI.c -isysroot /home/linuxbrew/.linuxbrew/nonexistent -idirafter /home/linuxbrew/.linuxbrew/include -idirafter /usr/include/x86_64-linux-gnu -idirafter /usr/include -quiet -dumpdir CMakeFiles/cmTC_52060.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccJy9pE0.s]
+        ignore line: [GNU C17 (Homebrew GCC 14.2.0_1) version 14.2.0 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include"]
+        ignore line: [ignoring nonexistent directory "/usr/include/x86_64-linux-gnu"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include]
+        ignore line: [ /home/linuxbrew/.linuxbrew/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: f544e07670433b76ee736fc389056b9b]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52060.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o /tmp/ccJy9pE0.s]
+        ignore line: [GNU assembler version 2.44 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44]
+        ignore line: [COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.']
+        ignore line: [[2/2] : && /home/linuxbrew/.linuxbrew/bin/gcc-14  -v -Wl -v CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o -o cmTC_52060   && :]
+        ignore line: [Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs]
+        ignore line: [COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/gcc-14]
+        ignore line: [COLLECT_LTO_WRAPPER=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (Homebrew GCC 14.2.0_1) ]
+        ignore line: [COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52060' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52060.']
+        link line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD4DFy8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_52060 /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../.. -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o -rpath /home/linuxbrew/.linuxbrew/lib -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccD4DFy8.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [--dynamic-linker] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/lib/ld.so] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_52060] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o]
+          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14]
+          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc]
+          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../..] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../..]
+          arg [-L/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> dir [/home/linuxbrew/.linuxbrew/lib/gcc/current]
+          arg [-L/home/linuxbrew/.linuxbrew/lib] ==> dir [/home/linuxbrew/.linuxbrew/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_52060.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/lib] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+        linker tool for 'C': /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD4DFy8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14]
+        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc]
+        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../..] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current]
+        collapse library dir [/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> [/home/linuxbrew/.linuxbrew/lib/gcc/current]
+        collapse library dir [/home/linuxbrew/.linuxbrew/lib] ==> [/home/linuxbrew/.linuxbrew/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+        implicit dirs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current;/home/linuxbrew/.linuxbrew/lib/gcc/current;/home/linuxbrew/.linuxbrew/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the C compiler's linker: "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD4DFy8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so" "-v"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the C compiler's linker: "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD4DFy8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so" "-V"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the C compiler's linker: "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccD4DFy8.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so" "--version"
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-cvxj1N"
+      binary: "/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-cvxj1N"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-cvxj1N'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_ae85e
+        [1/2] /home/linuxbrew/.linuxbrew/bin/g++-14   -v -o CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o -c /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs
+        COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-14
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (Homebrew GCC 14.2.0_1) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ae85e.dir/'
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -iprefix /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/ -D_GNU_SOURCE /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -isysroot /home/linuxbrew/.linuxbrew/nonexistent -idirafter /home/linuxbrew/.linuxbrew/include -idirafter /usr/include/x86_64-linux-gnu -idirafter /usr/include -quiet -dumpdir CMakeFiles/cmTC_ae85e.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cceuoErn.s
+        GNU C++17 (Homebrew GCC 14.2.0_1) version 14.2.0 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 14.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/x86_64-pc-linux-gnu"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/backward"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu"
+        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include"
+        ignoring nonexistent directory "/usr/include/x86_64-linux-gnu"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/x86_64-pc-linux-gnu
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/backward
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include
+         /home/linuxbrew/.linuxbrew/include
+         /usr/include
+        End of search list.
+        Compiler executable checksum: 1e86c243778bfb0d88ab3bf63725e809
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ae85e.dir/'
+         as -v --64 -o CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o /tmp/cceuoErn.s
+        GNU assembler version 2.44 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44
+        COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/
+        LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.'
+        [2/2] : && /home/linuxbrew/.linuxbrew/bin/g++-14  -v -Wl,-v CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ae85e   && :
+        Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs
+        COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-14
+        COLLECT_LTO_WRAPPER=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (Homebrew GCC 14.2.0_1) 
+        COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/
+        LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae85e' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ae85e.'
+         /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_ae85e /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../.. -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -rpath /home/linuxbrew/.linuxbrew/lib -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o
+        collect2 version 14.2.0
+        /usr/bin/ld -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_ae85e /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../.. -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -rpath /home/linuxbrew/.linuxbrew/lib -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o
+        GNU ld (GNU Binutils) 2.44
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae85e' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ae85e.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/x86_64-pc-linux-gnu]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/backward]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed]
+          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include]
+          add: [/home/linuxbrew/.linuxbrew/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/x86_64-pc-linux-gnu] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14/x86_64-pc-linux-gnu]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/backward] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14/backward]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed]
+        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include]
+        collapse include dir [/home/linuxbrew/.linuxbrew/include] ==> [/home/linuxbrew/.linuxbrew/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14/x86_64-pc-linux-gnu;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14/backward;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include;/home/linuxbrew/.linuxbrew/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/aura/BX/cpp_chapters/build/CMakeFiles/CMakeScratch/TryCompile-cvxj1N']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_ae85e]
+        ignore line: [[1/2] /home/linuxbrew/.linuxbrew/bin/g++-14   -v -o CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o -c /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs]
+        ignore line: [COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-14]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (Homebrew GCC 14.2.0_1) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ae85e.dir/']
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -iprefix /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/ -D_GNU_SOURCE /home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -isysroot /home/linuxbrew/.linuxbrew/nonexistent -idirafter /home/linuxbrew/.linuxbrew/include -idirafter /usr/include/x86_64-linux-gnu -idirafter /usr/include -quiet -dumpdir CMakeFiles/cmTC_ae85e.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cceuoErn.s]
+        ignore line: [GNU C++17 (Homebrew GCC 14.2.0_1) version 14.2.0 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/x86_64-pc-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/backward"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include"]
+        ignore line: [ignoring nonexistent directory "/usr/include/x86_64-linux-gnu"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/x86_64-pc-linux-gnu]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../../../../include/c++/14/backward]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed]
+        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/../../../../include]
+        ignore line: [ /home/linuxbrew/.linuxbrew/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 1e86c243778bfb0d88ab3bf63725e809]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ae85e.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o /tmp/cceuoErn.s]
+        ignore line: [GNU assembler version 2.44 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44]
+        ignore line: [COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [[2/2] : && /home/linuxbrew/.linuxbrew/bin/g++-14  -v -Wl -v CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ae85e   && :]
+        ignore line: [Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/specs]
+        ignore line: [COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-14]
+        ignore line: [COLLECT_LTO_WRAPPER=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-14 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 14.2.0_1' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --with-boot-ldflags='-static-libstdc++ -static-libgcc ' --disable-multilib --enable-default-pie]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (Homebrew GCC 14.2.0_1) ]
+        ignore line: [COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae85e' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ae85e.']
+        link line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_ae85e /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../.. -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -rpath /home/linuxbrew/.linuxbrew/lib -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccIUMpvl.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [--dynamic-linker] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/lib/ld.so] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_ae85e] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o]
+          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14]
+          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc]
+          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../..] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../..]
+          arg [-L/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> dir [/home/linuxbrew/.linuxbrew/lib/gcc/current]
+          arg [-L/home/linuxbrew/.linuxbrew/lib] ==> dir [/home/linuxbrew/.linuxbrew/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_ae85e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-rpath] ==> ignore
+          arg [/home/linuxbrew/.linuxbrew/lib] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o]
+          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+        linker tool for 'CXX': /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o]
+        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14]
+        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc]
+        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/../../..] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current]
+        collapse library dir [/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> [/home/linuxbrew/.linuxbrew/lib/gcc/current]
+        collapse library dir [/home/linuxbrew/.linuxbrew/lib] ==> [/home/linuxbrew/.linuxbrew/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/Scrt1.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crti.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtbeginS.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtendS.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/crtn.o]
+        implicit dirs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current;/home/linuxbrew/.linuxbrew/lib/gcc/current;/home/linuxbrew/.linuxbrew/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so" "-v"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so" "-V"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/home/linuxbrew/.linuxbrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so" "--version"
+      
+...

@@ -1,7 +1,7 @@
-set(CMAKE_CXX_COMPILER "/usr/bin/c++")
+set(CMAKE_CXX_COMPILER "/home/linuxbrew/.linuxbrew/bin/g++-14")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
-set(CMAKE_CXX_COMPILER_VERSION "14.2.1")
+set(CMAKE_CXX_COMPILER_VERSION "14.2.0")
 set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_CXX_COMPILER_WRAPPER "")
 set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "17")
@@ -31,10 +31,10 @@ set(CMAKE_CXX_COMPILER_RANLIB "/home/linuxbrew/.linuxbrew/bin/gcc-ranlib-14")
 set(CMAKE_LINKER "/usr/bin/ld")
 set(CMAKE_LINKER_LINK "")
 set(CMAKE_LINKER_LLD "")
-set(CMAKE_CXX_COMPILER_LINKER "/usr/bin/ld")
-set(CMAKE_CXX_COMPILER_LINKER_ID "GNU")
-set(CMAKE_CXX_COMPILER_LINKER_VERSION 2.44)
-set(CMAKE_CXX_COMPILER_LINKER_FRONTEND_VARIANT GNU)
+set(CMAKE_CXX_COMPILER_LINKER "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/bin/../libexec/gcc/x86_64-pc-linux-gnu/14/lto-wrapper -plugin-opt=-fresolution=/tmp/ccIUMpvl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so")
+set(CMAKE_CXX_COMPILER_LINKER_ID "")
+set(CMAKE_CXX_COMPILER_LINKER_VERSION )
+set(CMAKE_CXX_COMPILER_LINKER_FRONTEND_VARIANT )
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
@@ -87,19 +87,19 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/include/c++/14.2.1;/usr/include/c++/14.2.1/x86_64-pc-linux-gnu;/usr/include/c++/14.2.1/backward;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include;/usr/local/include;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed;/usr/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14/x86_64-pc-linux-gnu;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include/c++/14/backward;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed/x86_64-linux-gnu;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14/include-fixed;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/include;/home/linuxbrew/.linuxbrew/include;/usr/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1;/usr/lib;/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/x86_64-pc-linux-gnu/14;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc;/home/linuxbrew/.linuxbrew/Cellar/gcc/14.2.0_1/lib/gcc/current;/home/linuxbrew/.linuxbrew/lib/gcc/current;/home/linuxbrew/.linuxbrew/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "")
 
 set(CMAKE_CXX_COMPILER_IMPORT_STD "")
 ### Imported target for C++23 standard library
-set(CMAKE_CXX23_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Unsupported generator: Unix Makefiles")
+set(CMAKE_CXX23_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Toolchain does not support discovering `import std` support")
 
 
 ### Imported target for C++26 standard library
-set(CMAKE_CXX26_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Unsupported generator: Unix Makefiles")
+set(CMAKE_CXX26_COMPILER_IMPORT_STD_NOT_FOUND_MESSAGE "Toolchain does not support discovering `import std` support")
 
 
 

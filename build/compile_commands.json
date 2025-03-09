@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/aura/BX/cpp_chapters/build",
+  "command": "/home/linuxbrew/.linuxbrew/bin/g++-14 -I/home/linuxbrew -g -std=gnu++11 -o CMakeFiles/Main.cpp.dir/rough.cpp.o -c /home/aura/BX/cpp_chapters/rough.cpp",
+  "file": "/home/aura/BX/cpp_chapters/rough.cpp",
+  "output": "CMakeFiles/Main.cpp.dir/rough.cpp.o"
+}
+]
