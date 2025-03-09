@@ -1,39 +1,25 @@
+#include <SFML/Graphics.hpp>
 #include <iostream>
-using namespace std;
-class X
-{
-public:
-    int x,y;
-};
-int main(){
-    X a={10};
-    cout<<a.x<< " ";
-    cout<<a.y<< " ";
+
+int main() {
+    // Print SFML version
+    std::cout << "SFML Version: " << SFML_VERSION_MAJOR << "." << SFML_VERSION_MINOR << std::endl;
+
+    // Create a window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Test Window");
+
+    // Main loop
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) { // Close the window when X is clicked
+                window.close();
+            }
+        }
+
+        window.clear(sf::Color::Black); // Clear the window with black color
+        window.display(); // Display the window
+    }
+
     return 0;
 }
-
-// #include <iostream>
-// using namespace std;
-// class Point
-// {
-//     Point()
-//     {
-//         cout<<"Constructor called";
-//     }
-// };
-// int main(){
-//     Point t1;
-//     return 0;
-// }
-
-// #include <iostream>
-// using namespace std;
-// class Test
-// {
-//     public:
-//     Test(){cout<<"Hello from Test()";}
-// }a,b,c;
-// int main(){
-//     cout<<"Main started"<<endl;
-//     return 0;
-// }

@@ -60,6 +60,7 @@ Object-Oriented Design:
 
 Object Independence:
     Changes to the Sameer object do not affect the Sumitra object and vice versa. Both have separate copies of the attributes Id and age.
+    We use static member if we want to get changes on every object
 
 Reusability:
     The Employee class can be reused to create more employee objects in the future, reducing redundancy and improving maintainability.
