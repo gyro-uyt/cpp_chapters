@@ -1,2 +1,8 @@
 C++/Chapter 1 OOP/15.copyConst
 C++/Chapter 1 OOP/14.dynamicObjConst
+
+*.json
+
+build/.cache/clangd/index/Texture.hpp.C1CA0198CC114E45.idx
+
+*.idx

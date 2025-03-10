@@ -28,23 +28,82 @@ using namespace std;
 
 class Student
 {
+protected:
+    int roll_num;
+public:
+    void set_rollnum(int rn)
+    {
+        roll_num = rn;
+    }
+    void print_rollnum(void)
+    {
+        cout<<"Your Roll Number is "<<roll_num<<endl;
+    }   
 };
 
-class Test : public Student
+class Test : virtual public Student
 {
+protected:
+    float maths, physics;
+public:
+    void set_marks(int m, int p)
+    {
+        maths = m;
+        physics = p;
+    }
+    void print_marks(void)
+    {
+        cout<<"Your result:"<<endl
+            <<"Maths -> "<<maths<<endl
+            <<"Physics -> "<<physics<<endl;
+    }
 };
 
-class Sports : public Student
+class Sports : virtual public Student
 {
+protected:
+    float score;
+public:
+    void set_score(int scr)
+    {
+        score = scr;
+    }
+    void print_score(void)
+    {
+        cout<<"PT -> "<<score<<endl;
+    }
 };
 
 class Result : public Test, public Sports
 {
+    float total;
+public:
+    void set_total(void)
+    {
+        total = maths + physics + score;
+    }
+    void print_result(void)
+    {
+        set_total();
+        print_rollnum();
+        print_marks();
+        print_score();
+        cout<<"Your total score is "<<total<<"/300"<<endl;
+    }
 };
 
 
 int main()
 {
+    int rn,m,p,pt;
+    cout<<"Enter student's Roll Number and marks obtained in Mathematics, Physics & PT"<<endl;
+    cin>>rn>>m>>p>>pt;
+
+    Result Santosh;
+    Santosh.set_rollnum(rn);
+    Santosh.set_marks(m,p);
+    Santosh.set_score(pt);
+    Santosh.print_result();
 
     return 0;
 }
