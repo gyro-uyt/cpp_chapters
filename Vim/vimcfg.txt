@@ -1,0 +1,39 @@
+set number         " Show line numbers
+syntax on         " Enable syntax highlighting
+set tabstop=4     " Set tab width to 4 spaces
+set shiftwidth=4  " Indent by 4 spaces
+set expandtab     " Use spaces instead of tabs
+set autoindent    " Automatically indent new lines
+set ignorecase    " Ignore case in searches
+set smartcase     " Case-sensitive search if uppercase is used
+set hlsearch      " Highlight search results
+set incsearch     " Show search results as you type
+set wildmenu      " Enhanced command-line completion
+set wrap          " Automatically wrap text that extends beyond the screen length
+nnoremap <F5> :w<CR>:!g++ % -o program && ./program<CR>
+syntax enable
+set background=dark
+colorscheme gruvbox
+"colorscheme desert
+set nocompatible
+
+set termguicolors
+set laststatus=2      " Always show the status line
+set statusline=%F     " Show full file path
+
+let g:airline#extensions#tabline#enabled = 1 " Show filename in tab bar
+let g:airline_powerline_fonts = 1 " Enable Powerline fonts (if installed)
+
+set termguicolors
+
+let g:indentLine_char = '│'
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes' " Optional: extra themes
+Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+Plug 'morhetz/gruvbox'
+
+call plug#end()
