@@ -1,24 +1,127 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
+using namespace std;
 
-int main() {
-    // Print SFML version
-    std::cout << "SFML Version: " << SFML_VERSION_MAJOR << "." << SFML_VERSION_MINOR << std::endl;
+class Queue
+{
+private:
+    int front, rear, capacity;
+    int *arr;
 
-    // Create a window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Test Window");
+public:
+    Queue(int size)
+    {
+        capacity = size;
+        arr = new int[size];
+        front = -1;
+        rear = -1;
+    }
 
-    // Main loop
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) { // Close the window when X is clicked
-                window.close();
-            }
+    ~Queue()
+    {
+        delete[] arr;
+    }
+
+    void enqueue(int value)
+    {
+        if (rear == capacity - 1)
+        {
+            cout << "Queue Overflow! Cannot enqueue " << value << endl;
+            return;
         }
+        if (front == -1)
+            front = 0; // Set front when first element is inserted
+        arr[++rear] = value;
+        cout << value << " enqueued into queue." << endl;
+    }
 
-        window.clear(sf::Color::Black); // Clear the window with black color
-        window.display(); // Display the window
+    void dequeue()
+    {
+        if (front == -1 || front > rear)
+        {
+            cout << "Queue Underflow! No elements to dequeue." << endl;
+            return;
+        }
+        cout << "Element dequeued: " << arr[front++] << endl;
+
+        if (front > rear) // Reset queue when all elements are dequeued
+        {
+            front = -1;
+            rear = -1;
+        }
+    }
+
+    void peek()
+    {
+        if (front == -1 || front > rear)
+        {
+            cout << "Queue is empty!" << endl;
+            return;
+        }
+        cout << "Front element is: " << arr[front] << endl;
+    }
+
+    void display()
+    {
+        if (front == -1 || front > rear)
+        {
+            cout << "Queue is empty!" << endl;
+            return;
+        }
+        cout << "Queue elements: ";
+        for (int i = front; i <= rear; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main()
+{
+    int capacity, choice, value;
+    cout << "Enter the size of the queue: ";
+    cin >> capacity;
+
+    Queue q(capacity);
+
+    while (true)
+    {
+        cout << "\nEnter your choice:\n"
+             << "1. Enqueue\n"
+             << "2. Dequeue\n"
+             << "3. Peek\n"
+             << "4. Display\n"
+             << "5. Exit\n"
+             << "Choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            cout << "Enter the element: ";
+            cin >> value;
+            q.enqueue(value);
+            break;
+
+        case 2:
+            q.dequeue();
+            break;
+
+        case 3:
+            q.peek();
+            break;
+
+        case 4:
+            q.display();
+            break;
+
+        case 5:
+            cout << "Exiting program...\n";
+            return 0;
+
+        default:
+            cout << "Invalid choice! Please enter a valid option.\n";
+        }
     }
 
     return 0;
