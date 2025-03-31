@@ -1,0 +1,2 @@
+This is written in file 36.2.sample.txt.
+this is 2nd line
