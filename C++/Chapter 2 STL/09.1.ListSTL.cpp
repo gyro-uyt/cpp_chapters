@@ -98,8 +98,19 @@ int main()
     display1(list2);
 
     // merging the list
-    list1.merge(list2);
+    list1.merge(list2); // merge() merges two sorted lists, 
+    // It assumes both lists are already sorted in ascending order, list2 becomes empty after merging.
     cout<<"Merge list1 with list2: ";
+    display1(list1); // list2 is getting displayed first bcz. its elements are smaller
+
+    // list1.splice(list1.end(), list2); // This appends list2's elements at the end of list1 without sorting.
+
+    cout<<"list2: ";
+    display1(list2);    // empty now
+
+    // Reversing the list
+    cout<<"Reverse list1: ";
+    list1.reverse();
     display1(list1);
 
     return 0;
