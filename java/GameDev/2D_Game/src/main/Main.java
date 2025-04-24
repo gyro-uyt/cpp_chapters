@@ -9,7 +9,14 @@ public class Main {
         window.setResizable(false);
         window.setTitle("aura-gaming");
 
+        GamePanel gamePanel = new GamePanel();
+        window.add(gamePanel);
+
+        window.pack();  // causes this Window to be sized to fit the preferred size and layouts of its subcomponents(=GamePanel)
+
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+
+        gamePanel.startGameThread();
     }
 }
