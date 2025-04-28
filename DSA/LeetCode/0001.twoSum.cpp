@@ -24,10 +24,20 @@ public:
 int main()
 {
     int target = 6;
-    vector<int> vec={1,4,4,2,44,53};
+    vector<int> vec = {1, 4, 4, 2, 44, 53};
+    vector<int> soln;
 
     Solution s1;
-    s1.twoSum(vec, target);
+    soln = s1.twoSum(vec, target);
+    for (int i = 0; i < soln.size(); i++)
+    {
+        cout << soln[i];
+        if (i != (soln.size() - 1))
+        {
+            cout << ", ";
+        }
+    }
+    cout << endl;
 
     return 0;
 }

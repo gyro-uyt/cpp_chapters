@@ -6,7 +6,9 @@
     "string": "cpp",
     "iosfwd": "cpp",
     "fstream": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "chrono": "cpp",
+    "functional": "cpp"
   },
   "files.exclude": {
     "**/!(*.*)": true,
@@ -18,5 +20,11 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
   }
 }
