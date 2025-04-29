@@ -1,43 +1,36 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
-vector<int> twoSum(vector<int> &numbers, int target)
+vector<int> convert(string s)
 {
-    int left = 0;
-    int right = numbers.size() - 1;
-
-    while (left < right)
+    vector<int> vec;
+    for (int i = 0; i < s.size(); i++)
     {
-        int sum = numbers[left] + numbers[right];
-
-        if (sum == target)
-            return {left + 1, right + 1}; // 1-based indexing
-        else if (sum < target)
-            left++;
-        else
-            right--;
+        if (s[i] == 'I')
+            vec.push_back(1);
+        else if (s[i] == 'V')
+            vec.push_back(5);
+        else if (s[i] == 'X')
+            vec.push_back(10);
+        else if (s[i] == 'L')
+            vec.push_back(50);
+        else if (s[i] == 'C')
+            vec.push_back(100);
+        else if (s[i] == 'D')
+            vec.push_back(500);
+        else if (s[i] == 'M')
+            vec.push_back(1000);
     }
-
-    return {}; // No solution found
+    return vec;
 }
-
 int main()
 {
-    vector<int> numbers = {2, 7, 11, 15};
-    int target = 9;
-
-    vector<int> result = twoSum(numbers, target);
-
-    if (!result.empty())
-    {
-        cout << "Indices: " << result[0] << " and " << result[1] << endl;
-    }
-    else
-    {
-        cout << "No pair found." << endl;
-    }
-
+    string s1 = "XVI";
+    vector<int> v1 = convert(s1);
+    for(int val: v1)
+        cout<<val<<" ";
+    cout<<endl;
+    cout<<v1[1]<<endl;
     return 0;
 }
