@@ -1,5 +1,8 @@
 package main;
 
+import entity.Player;
+import tile.TileManager;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +14,7 @@ public class GamePanel extends JPanel implements Runnable {
     final int scale = 3;
     // now we can make our retro style game, also Enjoy it on today's monitors, now player's size = 16x3 = 48x48p
 
-    final int tileSize = originalTileSize * scale;  // 48x48 tile
+    public final int tileSize = originalTileSize * scale;  // 48x48 tile
 
     // this is screen size of 4:3
     final int maxScreenCol = 16;
@@ -25,13 +28,15 @@ public class GamePanel extends JPanel implements Runnable {
     // Even during a short key touch, the update() get's called so many times and add 4(speed) to playerY each time
     int FPS = 60;
 
+    TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    Player player = new Player(this, keyH);
 
-    // Set player's default position
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;    // this means the player moves 4px
+    // Set player's default position    (this is just for testing, well use values from Player class
+//    int playerX = 100;
+//    int playerY = 100;
+//    int playerSpeed = 4;    // this means the player moves 4px
 
     // Constructor of this Game Panel
     public GamePanel() {
@@ -41,6 +46,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);   // better rendering performance, if true then all drawing from this component will be done in an offscreen painting buffer
         this.addKeyListener(keyH);  // added keyHandler to this GamePanel
         this.setFocusable(true);    // with this, this GamePanel can be "focused" to receive key input
+
     }
 
     public void startGameThread() {
@@ -140,16 +146,17 @@ public class GamePanel extends JPanel implements Runnable {
      */
 
     public void update() {
+        player.update();
         // we change playerPosition here
         // in java upper left corner is X:0 Y:0, X value increases to the right & Y value increases as they go down
-        if (keyH.upPressed)
-            playerY -= playerSpeed;
-        else if (keyH.downPressed)
-            playerY += playerSpeed;
-        else if (keyH.rightPressed)
-            playerX += playerSpeed;
-        else if (keyH.leftPressed)
-            playerX -= playerSpeed;
+//        if (keyH.upPressed)
+//            playerY -= playerSpeed;
+//        else if (keyH.downPressed)
+//            playerY += playerSpeed;
+//        else if (keyH.rightPressed)
+//            playerX += playerSpeed;
+//        else if (keyH.leftPressed)
+//            playerX -= playerSpeed;
 
     }
 
@@ -161,11 +168,16 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
         // This Graphics2D class extends the Graphics class to provide more sophisticated control over geometry, coordinate transformations, color management, and text layout
         // assume 'g' as your paint brush to draw on the screen
-        g2.setColor(Color.white);   // sets a color to use for drawing objects
-
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+//        g2.setColor(Color.cyan);   // sets a color to use for drawing objects
+//
+//        g2.fillRect(playerX, playerY, tileSize, tileSize);
         // draws a rectangle and fill it with the specified color, x & y are coordinates, next 2 are widths & height
         // now, it draws a rectangle of size tileSize X tileSize at coordinates (100, 100) and fills it with the White color
+
+        tileM.draw(g2); // draw Tiles first than Player
+
+        player.draw(g2);
+
         g2.dispose();   // it disposes of this graphics context and release any system resources that it is using
 
     }
