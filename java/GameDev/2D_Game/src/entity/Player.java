@@ -38,32 +38,28 @@ public class Player extends Entity {
             down2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/down-2.png"));
             left1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/left-1.png"));
             left2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/left-2.png"));
-            right1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right-1.png"));
-            right2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right-2.png"));
+            right1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right-1-H.png"));
+            right2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/right-2-H.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void update() {
-        // now the player sprite doesn't change unless the keys as pressed, if this condition not there then it changes sprite continuously
+
         if (keyH.leftPressed || keyH.downPressed || keyH.upPressed || keyH.rightPressed) {
             if (keyH.upPressed) {
                 direction = "up";
                 y -= speed;
-//            playerY -= playerSpeed;
             } else if (keyH.downPressed) {
                 direction = "down";
                 y += speed;
-//            playerY += playerSpeed;
             } else if (keyH.rightPressed) {
                 direction = "right";
                 x += speed;
-//            playerX += playerSpeed;
             } else if (keyH.leftPressed) {
                 direction = "left";
                 x -= speed;
-//            playerX -= playerSpeed;
             }
 
             // update() is called 60 times per second, so now for every 15 frames we change sprite, by this we can control it's speed by which image is changing
@@ -80,9 +76,6 @@ public class Player extends Entity {
     }
 
     public void draw(Graphics2D g2) {
-//        g2.setColor(Color.cyan);
-//        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
-//        g2.fillRect(playerX, playerY, tileSize, tileSize);
 
         BufferedImage image = null;
         switch (direction) {
@@ -120,7 +113,6 @@ public class Player extends Entity {
                 break;
         }
 
-        // draws image
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }
 }

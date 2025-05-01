@@ -66,3 +66,9 @@ Terminal
  SUP+M ---> Exits Hyprland
  Sup+R ---> Searches
 
+Windows-gitBash
+
+git tag -a tagName -m "message is written here for tag"
+git push --tags
+
+
