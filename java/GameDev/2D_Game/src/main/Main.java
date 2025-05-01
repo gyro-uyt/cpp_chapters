@@ -20,3 +20,4 @@ public class Main {
         gamePanel.startGameThread();
     }
 }
+// v1.1 all with comments
