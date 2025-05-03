@@ -21,10 +21,10 @@ public class TileManager {
         this.gp = gp;
 
         tile = new Tile[10];    // we created 10 different types of tile e.g. water, wall, grass, etc.
-        mapTileNumber = new int[gp.maxScreenCol][gp.maxScreenRow];
+        mapTileNumber = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/map01.txt");
+        loadMap("/maps/world01.txt");
     }
 
     public void getTileImage() {
@@ -34,10 +34,21 @@ public class TileManager {
             // NOTE: removing the '/' from the start of the file name the path will now be relative to the resources' directory.
             tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/grass.png")));
 //            If the resource is not found, and you use Objects.requireNonNull(), it will throw an IllegalArgumentException, and you'll get a clear error message telling you which resource is missing
+
             tile[1] = new Tile();
             tile[1].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/wall.png")));
+
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/water.png")));
+
+            tile[3] = new Tile();
+            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/earth.png")));
+
+            tile[4] = new Tile();
+            tile[4].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/tree.png")));
+
+            tile[5] = new Tile();
+            tile[5].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/sand.png")));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,24 +63,17 @@ public class TileManager {
 
             int col = 0, row = 0;
 
-            while (col < gp.maxScreenCol && row < gp.maxScreenRow) {
+            while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
 
                 String line = br.readLine();    // read a line of text
-                while (col < gp.maxScreenCol) {
-                    // This "line.split(" ")" means the program splits the line where space is inserted so you can split them and put them individually into the array. If no space is inserted in the map file, the program cannot render your map correctly.
-                    //
-                    //Basically, you can use any symbol for splitting lines. Space is just one way to handle it.
-                    //
-                    //Another example:
-                    //String numbers[] = line.split("&");
-                    //(Then insert  &  between numbers in the map file)
+                while (col < gp.maxWorldCol) {
                     String[] numbers = line.split(" ");    // Splits this string around matches of the given regular expression
                     int number = Integer.parseInt(numbers[col]);    // use col as an index for numbers[] array
 
                     mapTileNumber[col][row] = number;   // we store the Extracted numbers in the mapTileNumber[][]
                     col++;  // Continues this until everything in the numbers[] is stored in the mapTileNumber[][]
                 }
-                if (col == gp.maxScreenCol) {
+                if (col == gp.maxWorldCol) {
                     col = 0;
                     row++;
                 }
@@ -82,21 +86,32 @@ public class TileManager {
 
     public void draw(Graphics2D g2) {
 
-        int x = 0, y = 0;
-        int row = 0, col = 0;
+        // 2. Implementing Camera
+        int worldRow = 0, worldCol = 0;
 
-        while (col < gp.maxScreenCol && row < gp.maxScreenRow) {
+        while (worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
 
-            int tileNumber = mapTileNumber[col][row];   // Extract a tile number which is stored in mapTileNumber[0][0]
-            g2.drawImage(tile[tileNumber].image, x, y, gp.tileSize, gp.tileSize, null);
-            col++;
-            x += gp.tileSize;
+            int tileNumber = mapTileNumber[worldCol][worldRow];   // Extract a tile number which is stored in mapTileNumber[0][0]
 
-            if (col == gp.maxScreenCol) {
-                col = 0;
-                x = 0;
-                row++;
-                y += gp.tileSize;
+            int worldX = worldCol * gp.tileSize;
+            int worldY = worldRow * gp.tileSize;
+            int screenX = worldX - gp.player.worldX + gp.player.worldY;
+            int screenY = worldY - gp.player.worldY + gp.player.worldX;
+
+            // Render only the tiles which are visible on the screen
+            if (worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
+                    worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
+                    worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
+                    worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
+
+                g2.drawImage(tile[tileNumber].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            }
+            worldCol++;
+
+
+            if (worldCol == gp.maxWorldCol) {
+                worldCol = 0;
+                worldRow++;
             }
         }
     }

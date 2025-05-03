@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 public class Entity {
 
-    public int x, y;
+    public int worldX, worldY;
     public int speed;
 
     // it describes an image with an accessible buffer of image data. (We use this to store our image files)

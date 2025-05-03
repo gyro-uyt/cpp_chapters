@@ -13,10 +13,16 @@ public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
 
+    public final int screenX;   // this indicates where the player is drawn on the screen
+    public final int screenY;   // we'll lock this at Centre of the Screen by default
+
     public Player(GamePanel gp, KeyHandler keyH) {
 
         this.gp = gp;
         this.keyH = keyH;
+
+        screenX = (gp.screenWidth / 2) - (gp.tileSize / 2); // You subtract half of the tile size
+        screenY = (gp.screenHeight / 2) - (gp.tileSize / 2); // so that the tile's center aligns with the screen's center, not its top-left corner
 
         setDefaultValues();
         getPlayerImage();
@@ -24,8 +30,8 @@ public class Player extends Entity {
 
     public void setDefaultValues() {
 
-        x = 100;
-        y = 100;
+        worldX = gp.tileSize * 23;    // this is the default location where player will be Spawned
+        worldY = gp.tileSize * 21;
         speed = 4;
         direction = "down";
     }
@@ -50,16 +56,16 @@ public class Player extends Entity {
         if (keyH.leftPressed || keyH.downPressed || keyH.upPressed || keyH.rightPressed) {
             if (keyH.upPressed) {
                 direction = "up";
-                y -= speed;
+                worldY -= speed;
             } else if (keyH.downPressed) {
                 direction = "down";
-                y += speed;
+                worldY += speed;
             } else if (keyH.rightPressed) {
                 direction = "right";
-                x += speed;
+                worldX += speed;
             } else if (keyH.leftPressed) {
                 direction = "left";
-                x -= speed;
+                worldX -= speed;
             }
 
             // update() is called 60 times per second, so now for every 15 frames we change sprite, by this we can control it's speed by which image is changing
@@ -113,6 +119,6 @@ public class Player extends Entity {
                 break;
         }
 
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
     }
 }

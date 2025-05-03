@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    // Screen Settings
+    // SCREEN SETTINGS
     final int originalTileSize = 16;    // 16x16 tile, for Player/npc/any character
     final int scale = 3;
     public final int tileSize = originalTileSize * scale;  // 48x48 tile
@@ -20,12 +20,19 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenWidth = tileSize * maxScreenCol;    // 768p
     public final int screenHeight = tileSize * maxScreenRow;   // 576p
 
+    // WORLD SETTINGS
+    public final int maxWorldCol = 50;
+    public final int maxWorldRow = 50;
+    public final int worldWidth = tileSize * maxWorldCol;
+    public final int worldHeight = tileSize * maxWorldRow;
+
+    // FPS
     int FPS = 60;
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
-    Player player = new Player(this, keyH);
+    public Player player = new Player(this, keyH);
 
     public GamePanel() {
 
