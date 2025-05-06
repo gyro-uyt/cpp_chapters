@@ -2,18 +2,20 @@
 # 1) built-in functions ---> min(), max(), len(), sum(), type(), range(), dict(), list(), tuple(), set(), print(), etc.
 # 2) user-defined functions ---> We can create functions to perform specific tasks as per our needs
 
+
 def harmean(a, b):
-    hmean = (2*(a*b))/(a+b)
+    hmean = (2 * (a * b)) / (a + b)
     print("Harmonic mean of", a, "&", b, "is", hmean)
 
 
 def isGreater(a, b):
-    if (a > b):
+    if a > b:
         print("First number is greater")
-    elif(a==b):
+    elif a == b:
         print("Both numbers are same")
     else:
         print("Second number is greater")
+
 
 # use of "pass" ---> declaration of the function
 

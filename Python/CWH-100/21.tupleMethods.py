@@ -4,9 +4,9 @@
 
 countries = ("Spain", "Italy", "India", "England", "Germany")
 temp = list(countries)
-temp.append("Russia")       #add item 
-temp.pop(3)                 #remove item
-temp[2] = "Finland"         #change item
+temp.append("Russia")  # add item
+temp.pop(3)  # remove item
+temp[2] = "Finland"  # change item
 countries = tuple(temp)
 print(countries)
 
@@ -17,6 +17,6 @@ lst3 = (0, 1, 2, 3, 2, 31, 1, 3, 2, 3)
 res = lst3.count(3)
 res = lst3.index(3)
 # res = lst3.index(311)
-res = lst3.index(3, 4, 8)   # find index of '3' from '4' to '(8-1)'
+res = lst3.index(3, 4, 8)  # find index of '3' from '4' to '(8-1)'
 res = len(lst3)
-print('Count of 3 in lst3 is:', res)
+print("Count of 3 in lst3 is:", res)

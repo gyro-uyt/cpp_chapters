@@ -58,7 +58,7 @@ print(
 dict1 = {
     "name": "Sakshi",
     "age": 20,
-    "canVote": True, 
+    "canVote": True,
 }  # A dictionary is an unordered collection of data containing a
 # key:value pair. The key:value pairs are enclosed within curly brackets.
 print(dict1)

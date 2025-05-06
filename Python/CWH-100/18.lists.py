@@ -23,8 +23,8 @@ print(lst1[4])
 print()
 
 print(lst1[-3])  # negative indicing
-print(lst1[len(lst1)-3])
-print(lst1[5-3])
+print(lst1[len(lst1) - 3])
+print(lst1[5 - 3])
 print(lst1[2])
 print()
 
@@ -75,9 +75,9 @@ print()
 lst = [i for i in range(4)]
 print(lst)
 
-lst2 = [i*i for i in range(10)]
+lst2 = [i * i for i in range(10)]
 print(lst2)
-lst2 = [i*i for i in range(10) if i % 2 == 0]
+lst2 = [i * i for i in range(10) if i % 2 == 0]
 print(lst2)
 
 # Example 1: Accepts items with the small letter “o” in the new list

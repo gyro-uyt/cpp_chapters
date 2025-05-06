@@ -18,7 +18,9 @@ print(intro2, "<--- this is from fstrings")
 print(f"{4*20}", "<--- this arithmetic in string via fstrings")
 
 txt = "For only {price:.2f} dollars!"
-print(txt.format(price = 59.54666543546))
+print(txt.format(price=59.54666543546))
 
 value = 45.7824235
-print(f"Cost of New CDM is {value:.3f}")    # value:.3f means it will print value upto 3 decimal points 
+print(
+    f"Cost of New CDM is {value:.3f}"
+)  # value:.3f means it will print value upto 3 decimal points

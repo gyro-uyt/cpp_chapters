@@ -8,8 +8,9 @@
 #    In case we don’t pass the arguments with a key = value syntax, then it is necessary to pass the arguments in the
 #    correct positional order and the number of arguments passed should match with actual function definition.
 
+
 def avg1(a, b):  # ---> 'a' and 'b' are Required Arguements
-    x = (a+b)/2
+    x = (a + b) / 2
     print(x)
 
 
@@ -27,15 +28,15 @@ print()
 
 
 def avg2(a=2, b=6):  # ---> defualt arguements
-    x = (a+b)/2
+    x = (a + b) / 2
     print(x)
 
 
-avg2()          # uses default values of 'a' and 'b'
-avg2(5)         # value of 'a' is Changed and default value of 'b' is used
-avg2(5, 15)     # a=5 and b=15, both default values changed
-avg2(a=5)       # a=5 and defualt value of 'b' is used as it's unchanged
-avg2(b=15)      # b=15 and defualt value of 'a' is used as it's unchanged
+avg2()  # uses default values of 'a' and 'b'
+avg2(5)  # value of 'a' is Changed and default value of 'b' is used
+avg2(5, 15)  # a=5 and b=15, both default values changed
+avg2(a=5)  # a=5 and defualt value of 'b' is used as it's unchanged
+avg2(b=15)  # b=15 and defualt value of 'a' is used as it's unchanged
 # avg2(x=9)     # use only arguements which are defined
 avg2(b=15, a=5)  # order doesn't matters as long as variables are Correctly defined
 print()
@@ -53,12 +54,7 @@ def avg3(*num):  # *num is a tuple
     print(sum / len(num))
 
 
-
-
-
-
-
-avg3(4, 5, 6, 8, 33)    # variable lenght arguement
+avg3(4, 5, 6, 8, 33)  # variable lenght arguement
 avg3(9, 99, 34, 66, 24, 58, 69)
 print()
 
@@ -70,6 +66,7 @@ print()
 def namee(**name):
     # print(type(name)) ---> dictionary
     print(name["fname"], name["mname"], name["lname"])
+
 
 # name()
 namee(mname="Shah", lname="Soni", fname="Pratham")

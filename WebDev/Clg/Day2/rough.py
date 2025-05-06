@@ -9,6 +9,7 @@ display_board = """     _______
 current_equation = []
 max_tokens = 5
 
+
 def update_display():
     global display_board, current_equation
     display_board = """     _______
@@ -20,7 +21,7 @@ def update_display():
                         _______"""  # Reset the board on each update
     if not current_equation:
         display_board += "\r\nNo equation entered yet."
-    
+
     equation = ""
     for token in current_equation:
         if isinstance(token, int) and 1 <= token < 10:
@@ -30,11 +31,14 @@ def update_display():
     display_board += f"\r\n[{equation}]"
     print(display_board)
 
+
 def parse_input():
     global current_equation, max_tokens
     while len(current_equation) < max_tokens:
         try:
-            token = input("Enter a number or operator (-: 5,7,9; +**/: > < = ) [Press Enter to finish]: ").strip()
+            token = input(
+                "Enter a number or operator (-: 5,7,9; +**/: > < = ) [Press Enter to finish]: "
+            ).strip()
             if token == "":
                 break  # Finish input if Enter is pressed without any input
             elif token.isdigit():
@@ -45,8 +49,9 @@ def parse_input():
                 print("Invalid input. Please enter a valid number or operator.")
         except ValueError:
             print("Error: Invalid input.")
-    
+
     update_display()  # Update the display after input
+
 
 def game_over():
     global score, display_board, current_equation
@@ -61,6 +66,7 @@ def game_over():
                         _______"""  # Reset the board
     score = 0  # Reset the score
     update_display()  # Update the display
+
 
 # Example function calls for testing
 parse_input()  # Gather input

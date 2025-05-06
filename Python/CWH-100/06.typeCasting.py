@@ -5,13 +5,13 @@
 #        example
 a = 3  # --->int
 b = 5.5  # --->float
-print(a+b)  # --->float --->implicit conversion
+print(a + b)  # --->float --->implicit conversion
 
 x1 = 1
 x2 = 2
-print(x1+x2)
+print(x1 + x2)
 
 y1 = "1"  # --->string
 y2 = "2"  # --->string
-print(y1+y2)  # as y1 & y2 are strings, + Concatinates it
-print(int(y1)+int(y2))  # ---> this is typeCasting
+print(y1 + y2)  # as y1 & y2 are strings, + Concatinates it
+print(int(y1) + int(y2))  # ---> this is typeCasting
