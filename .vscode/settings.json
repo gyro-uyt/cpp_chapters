@@ -8,7 +8,8 @@
     "fstream": "cpp",
     "valarray": "cpp",
     "chrono": "cpp",
-    "functional": "cpp"
+    "functional": "cpp",
+    "vector": "cpp"
   },
   "files.exclude": {
     "**/!(*.*)": true,
