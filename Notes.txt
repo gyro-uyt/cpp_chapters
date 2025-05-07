@@ -72,3 +72,14 @@ git tag -a tagName -m "message is written here for tag"
 git push --tags
 
 
+CS50P
+	Submissions
+		submit50 cs50/problems/2022/python/camel
+		(Replace camel with your current assignment.)
+
+Python ~fish
+	Use the Fish-compatible activation script like this:
+		source venv/bin/activate.fish
+	Then install black:
+		pip install black
+
