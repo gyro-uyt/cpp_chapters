@@ -9,7 +9,18 @@
     "valarray": "cpp",
     "chrono": "cpp",
     "functional": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "atomic": "cpp",
+    "cwchar": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "istream": "cpp",
+    "new": "cpp",
+    "stdexcept": "cpp",
+    "streambuf": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp"
   },
   "files.exclude": {
     "**/!(*.*)": true,

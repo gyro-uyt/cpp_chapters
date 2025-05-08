@@ -138,6 +138,12 @@ int main() {
     vec1.erase(vec1.begin() + 2, vec1.begin() + 4); // deletes all elements from the given Starting address to Ending address
     printVec(vec1);
 
+// erase() returns the next valid iterator (i.e., the element that comes after the one erased).
+    vector<int>::iterator itr5 = vec1.begin();
+    itr5 = vec1.erase(itr5);
+    cout<<"erase itr.erase = ";
+    printVec(vec1);
+
 // Insertion
 
     vector<int> vec3(2, 100);   // {100, 100}
