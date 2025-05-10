@@ -7,22 +7,42 @@ using namespace std;
 
 class Solution {
   public:
-    int removeElement(vector<int> &nums, int val) {
-        int ini_num_of_elements = nums.size();
-        for(int i = 0; i < ini_num_of_elements; i++) {
-            if(nums[i] == val)
-                nums.pop_back();
+    int removeElement(vector<int>& nums, int val) {
+
+        for(vector<int>::iterator itr = nums.begin(); itr < nums.end();) {
+            if(*itr == val) {
+                itr = nums.erase(itr);  // erase() returns the next valid iterator (i.e., the element that comes after the one erased).
+            } else
+                itr++;
         }
+        return nums.size();
     }
 };
+
+void pt(vector<int> &nums) {
+    for(vector<int>::iterator it = nums.begin(); it < nums.end(); it++) {
+        cout << *(it) << " ";
+    }
+    cout << endl;
+}
 
 int main() {
     vector<int> vec1 = {0, 1, 2, 2, 3, 0, 4, 2};
     int val1 = 2;
 
     Solution s1;
-    int n = s1.removeElement(vec1, val1);
-    cout << n << endl;
+    s1.removeElement(vec1, val1);
+
+    pt(vec1);
+
+    // vector<int>::iterator itr = vec1.begin();
+    // vec1.erase(itr + 2);
+    // pt(vec1);
+    // vec1.erase(itr + 2);
+    // pt(vec1);
+    // vec1.erase(itr + 5);
+    // pt(vec1);
+
 
     return 0;
 }
