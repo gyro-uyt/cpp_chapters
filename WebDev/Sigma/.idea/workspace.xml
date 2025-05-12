@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e023d6d-a4a6-4b7e-8c42-f5cd3302ef38" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/GameDev/2D_Game/src/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/01/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,26 +13,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2wY8FN4jMqVe2n24i3AfDaww0qG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "linux__aura",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/BX/cpp_chapters/WebDev/Sigma",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;linux__aura&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/BX/cpp_chapters/WebDev/Sigma&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -52,6 +48,11 @@
       <option name="presentableId" value="Default" />
       <updated>1746207042580</updated>
       <workItem from="1746207043415" duration="121000" />
+      <workItem from="1746906472513" duration="134000" />
+      <workItem from="1746906627663" duration="3000" />
+      <workItem from="1746906643841" duration="293000" />
+      <workItem from="1746906944675" duration="2000" />
+      <workItem from="1746906955496" duration="2000" />
     </task>
     <servers />
   </component>
