@@ -13,7 +13,6 @@ class Question {
 
   public:
     Question() {}
-
     Question(string q, string opt1, string opt2, string opt3, string opt4, int correct) {
         question = q;
         options[0] = opt1;
@@ -22,11 +21,9 @@ class Question {
         options[3] = opt4;
         correctAnswer = correct;
     }
-
     bool isEmpty() const {
         return question.empty();
     }
-
     int ask() const {
         cout << "\n" << question << endl;
         for(int i = 0; i < 4; ++i)
@@ -44,7 +41,6 @@ class Question {
                 break;
             }
         }
-
         if(userAnswer == correctAnswer) {
             cout << "✅ Correct!\n";
             return 1;
@@ -68,14 +64,12 @@ class Quiz {
 
   public:
     Quiz() : questionCount(0) {}
-
     void loadQuestionsFromFile(const string& filename) {
         ifstream file(filename);
         if(!file) {
             cout << "Error: Could not open " << filename << "\n";
             return;
         }
-
         string q, opt1, opt2, opt3, opt4;
         int correct;
         while(getline(file, q) && questionCount < maxQuestions) {
@@ -85,13 +79,10 @@ class Quiz {
             getline(file, opt4);
             file >> correct;
             file.ignore(); // Skip newline
-
             questions[questionCount++] = Question(q, opt1, opt2, opt3, opt4, correct);
         }
-
         file.close();
     }
-
     int conduct() const {
         int score = 0;
         for(int i = 0; i < questionCount; ++i) {
@@ -100,7 +91,6 @@ class Quiz {
         }
         return score;
     }
-
     int totalQuestions() const {
         return questionCount;
     }
