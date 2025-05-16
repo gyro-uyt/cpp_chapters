@@ -2,55 +2,46 @@
 #include <iostream>
 using namespace std;
 
-struct node
-{
+struct node {
     int data;
     node *left;
     node *right;
 
-    node(int value)
-    {
+    node(int value) {
         data = value;
         left = NULL;
         right = NULL;
     }
 };
-void preOrder(node *root)
-{
-    if (root != NULL)
-    {
+void preOrder(node *root) {
+    if(root != NULL) {
         cout << root->data << " ";
         preOrder(root->left);
         preOrder(root->right);
     }
 }
-void postOrder(node *root)
-{
-    if (root != NULL)
-    {
+void postOrder(node *root) {
+    if(root != NULL) {
         postOrder(root->left);
         postOrder(root->right);
         cout << root->data << " ";
     }
 }
-void inOrder(node *root)
-{
-    if (root!=NULL)
-    {
+void inOrder(node *root) {
+    if(root != NULL) {
         inOrder(root->left);
-        cout<<root->data<<" ";
-        inOrder(root->right);    
+        cout << root->data << " ";
+        inOrder(root->right);
     }
 }
-    /*
-            2
-           / \
-          4   5
-         /   / \
-        3   9   1
-    */
-    int main()
-{
+/*
+        2
+       / \
+      4   5
+     /   / \
+    3   9   1
+*/
+int main() {
     node *p1 = new node(2);
     node *p2 = new node(4);
     node *p3 = new node(5);
@@ -72,9 +63,9 @@ void inOrder(node *root)
     postOrder(p1);
     cout << endl;
 
-    cout<<"Inorder: ";
+    cout << "Inorder: ";
     inOrder(p1);
-    cout<<endl;
-    
+    cout << endl;
+
     return 0;
 }
