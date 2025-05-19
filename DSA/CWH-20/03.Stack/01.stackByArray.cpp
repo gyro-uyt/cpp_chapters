@@ -6,7 +6,7 @@ Stack
 
         |     |
         |  6  |
-        |  5  |  
+        |  5  |
         |  3  |     this is like the stack of plates stored one above other
         |_____|     last plate to come is the first one to go
 
@@ -19,7 +19,41 @@ Stack
 #include <iostream>
 using namespace std;
 
-int main() {
+struct Stack {
+    int size;
+    int top;
+    int* arr;
+};
+class Methods {
+  public:
+    int isEmpty(Stack* ptr) {
+        // if(ptr->top == -1)
+        //     return 1;
+        // else
+        //     return 0;
+        return ptr->top == -1;
+    }
+    int isFull(Stack* ptr) {
+        return ptr->top == ptr->size - 1;
+    }
+};
 
+int main() {
+    Stack *s1;
+    s1->size = 80;
+    s1->top = -1;
+    // s1.arr = (int*) malloc(s1.size * sizeof(int));
+    s1->arr = new int[s1->size];
+    Methods m;
+
+    // Pushing an element manually into the stack
+    s1->arr[0]=69;
+    s1->top++;
+
+    if(m.isEmpty(s1))
+        cout<<"Stack is empty\n";
+    else    
+        cout<<"Stack is not empty\n";
+    
     return 0;
 }
