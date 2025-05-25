@@ -46,5 +46,6 @@ int main() {
     l1.insertAtBegining(3);
     l1.insertAtEnd(5);
     l1.display();
+    
     return 0;
 }
