@@ -57,11 +57,11 @@ int main()
 }
 /*
  How Inheritance actually Works?
- >Inheritance does NOT copy members. It just allows access to the base class’s public and protected members.
- >Each derived object contains a hidden base class object inside it.
- >Base class functions are called on this internal base object.
- >Private members exist but are inaccessible outside their class.
- >Only constructors are not inherited—they must be explicitly called. 
+    >Inheritance does NOT copy members. It just allows access to the base class’s public and protected members.
+    >Each derived object contains a hidden base class object inside it.
+    >Base class functions are called on this internal base object.
+    >Private members exist but are inaccessible outside their class.
+    >Only constructors are not inherited—they must be explicitly called. 
 */
 /*
  Why are Base Class Constructors Automatically Called but Not Inherited?
