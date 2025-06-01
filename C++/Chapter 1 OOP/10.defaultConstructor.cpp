@@ -37,10 +37,11 @@ int main()
     Complex a1; //* the moment a object is created Constructor is invoked automatically.
     return 0;
 }
-/* Characteristics of Constructors
-1. It should be declared in Public section of the class
-2. They are automatically invoked whenever the object is created
-3. They cannot return values and do not have return types
-4. It can have default arguements
-5. We cannot refer to their address
+/* 
+Characteristics of Constructors
+    1. It should be declared in Public section of the class
+    2. They are automatically invoked whenever the object is created
+    3. They cannot return values and do not have return types
+    4. It can have default arguements
+    5. We cannot refer to their address
 */

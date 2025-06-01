@@ -6,7 +6,6 @@
       \ /
        D
 Here:
-
     B and C both inherit from A.
     D inherits from both B and C.
 
