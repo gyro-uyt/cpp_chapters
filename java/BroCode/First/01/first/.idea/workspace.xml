@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="37ea684a-0b73-44a3-9527-58af6d63d9f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/first.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Eighth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Eleventh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fifteenth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fifth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/First.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fourteenth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fourth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ninth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Second.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Seventh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sixth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tenth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Third.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Thirteenth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twelfth.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2xvIWQAI0UEL8JS9j1ElXJM4xet" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Eighth.executor": "Run",
+    "Application.Eleventh.executor": "Run",
+    "Application.Fifteenth.executor": "Run",
+    "Application.Fifth.executor": "Run",
+    "Application.Fourteenth.executor": "Run",
+    "Application.Fourth.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Ninth.executor": "Run",
+    "Application.Second.executor": "Run",
+    "Application.Seventh.executor": "Run",
+    "Application.Sixteenth.executor": "Run",
+    "Application.Sixth.executor": "Run",
+    "Application.Tenth.executor": "Run",
+    "Application.Thirteenth.executor": "Run",
+    "Application.Twelfth.executor": "Run",
+    "Application.third.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "linux__aura",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37ea684a-0b73-44a3-9527-58af6d63d9f5" name="Changes" comment="" />
+      <created>1748812152642</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748812152642</updated>
+    </task>
+    <servers />
+  </component>
+</project>
