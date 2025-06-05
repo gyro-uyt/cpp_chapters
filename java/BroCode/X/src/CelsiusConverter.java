@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class First {
+public class CelsiusConverter {
     public static void main(String[] args) {
 
         // Create a window(JFrame)

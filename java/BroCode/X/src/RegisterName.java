@@ -1,9 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Second {
+public class RegisterName {
     public static void main(String[] args) {
 
         // Setting frame
@@ -30,24 +28,11 @@ public class Second {
         final String[] lastName = {""};
 
         // Add action to the buttons
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                firstName[0] = field1.getText();
-            }
-        });
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                lastName[0] = field2.getText();
-            }
-        });
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String combinedName = firstName[0] +" "+ lastName[0];
-                label3.setText(combinedName);
-            }
+        button1.addActionListener(e -> firstName[0] = field1.getText());
+        button2.addActionListener(e -> lastName[0] = field2.getText());
+        button3.addActionListener(e -> {
+            String combinedName = firstName[0] + " " + lastName[0];
+            label3.setText(combinedName);
         });
 
         // Add Everything to the frame
