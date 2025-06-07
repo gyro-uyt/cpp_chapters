@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Third {
+public class Methods {
     public static void main(String[] args) {
 
         // method -> a block of reusable code that is executed when called (), it's function of C++

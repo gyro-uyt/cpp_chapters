@@ -1,6 +1,6 @@
 import java.util.Scanner;
 // Countdown Timer
-public class Second {
+public class ThreadBasic {
     public static void main(String[] args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);

@@ -83,3 +83,5 @@ Python ~fish
 	Then install black:
 		pip install black
 
+Windows
+	charactermap
