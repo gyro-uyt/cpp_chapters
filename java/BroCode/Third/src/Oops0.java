@@ -1,9 +1,11 @@
-public class Oops {
+public class Oops0 {
     public static void main(String[] args) {
 
         // Object = An entity that holds data (attributes), and can perform actions (methods/functions), it is a reference data type.
 
-        Car car = new Car();
+        // Overloaded constructors -> Allow a class to have multiple constructors with different parameter list. Enable objects to be initialised in various ways.
+
+        Car0 car = new Car0();
 
         System.out.println(car.Company);
         System.out.println(car.model1);
