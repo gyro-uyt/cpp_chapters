@@ -8,7 +8,7 @@ public class Super2 {
         // Person had 2 subclass Student & Employee
         // Person class's constructor needs first & last to initialise, hence when creating subclass constructor
         // we use super(first, last) to give the superclass their arguments
-        
+
         Person2 person2 = new Person2("Joturo", "Kujo");
         person2.showName();
 
