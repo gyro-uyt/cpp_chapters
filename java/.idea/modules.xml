@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BroCode/01/01.iml" filepath="$PROJECT_DIR$/BroCode/01/01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BroCode/02/02.iml" filepath="$PROJECT_DIR$/BroCode/02/02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BroCode/03/03.iml" filepath="$PROJECT_DIR$/BroCode/03/03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BroCode/04/04.iml" filepath="$PROJECT_DIR$/BroCode/04/04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BroCode/05/05.iml" filepath="$PROJECT_DIR$/BroCode/05/05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BroCode/06/06.iml" filepath="$PROJECT_DIR$/BroCode/06/06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GameDev/2D_Game/2D_Game.iml" filepath="$PROJECT_DIR$/GameDev/2D_Game/2D_Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GameDev/Experimental/Experimental.iml" filepath="$PROJECT_DIR$/GameDev/Experimental/Experimental.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BroCode/X/X.iml" filepath="$PROJECT_DIR$/BroCode/X/X.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calc/calc.iml" filepath="$PROJECT_DIR$/calc/calc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaCWH/javaCWH.iml" filepath="$PROJECT_DIR$/javaCWH/javaCWH.iml" />
+    </modules>
+  </component>
+</project>

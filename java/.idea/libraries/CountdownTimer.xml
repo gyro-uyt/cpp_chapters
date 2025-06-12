@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CountdownTimer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BroCode/X/src/CountdownTimer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
