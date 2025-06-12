@@ -21,4 +21,8 @@ public class Car0 {
     int getPrice(){
         return this.price;
     }
+
+    void setPrice(int price){
+        this.price = price;
+    }
 }

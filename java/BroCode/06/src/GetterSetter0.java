@@ -7,7 +7,10 @@ public class GetterSetter0 {
 
         Car0 car0 = new Car0("Charger", "Yellow", 15000);
 
-        car0.color = "Black";   // Modifiable
+        car0.color = "Black";   // Modifiable, color is public
+//        car0.model = "Dream"; // model is pvt, can't be modified
+
+        car0.setPrice(10000);   // setter method
 
         System.out.println(car0.getColor() + " " + car0.getModel() + " " + car0.getPrice());
 
