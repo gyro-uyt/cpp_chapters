@@ -1,58 +1,29 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 
-        int row;
-        int column;
-
-        System.out.println("*Welcome To the Tic-Tac-Toe*");
-        System.out.println();
-
-        Scanner scanner = new Scanner(System.in);
-
-//        X | O |
-//        ----------
-//          | X |
-//        ----------
-//        O |   | X
-
-        Board board = new Board();
+        Interaction interaction = new Interaction();
+        Core core = new Core();
         Display display = new Display();
-        display.show(board.board);
 
-        System.out.println("Make a Move:");
-        row = scanner.nextInt();
-        column = scanner.nextInt();
-        board.updateUser(row, column);
-        display.show(board.board);
-        board.AiPlays();
-        display.show(board.board);
+        interaction.welcome();
 
-        System.out.println("Make a Move:");
-        row = scanner.nextInt();
-        column = scanner.nextInt();
-        board.updateUser(row, column);
-        display.show(board.board);
-        board.AiPlays();
-        display.show(board.board);
+        display.showMatrix(interaction.matrix);
+        interaction.userMove();
+        display.showMatrix(interaction.matrix);
 
-        System.out.println("Make a Move:");
-        row = scanner.nextInt();
-        column = scanner.nextInt();
-        board.updateUser(row, column);
-        display.show(board.board);
-        board.AiPlays();
-        display.show(board.board);
+        interaction.computerMove();
+        display.showMatrix(interaction.matrix);
 
-        System.out.println("Make a Move:");
-        row = scanner.nextInt();
-        column = scanner.nextInt();
-        board.updateUser(row, column);
-        display.show(board.board);
-        board.AiPlays();
-        display.show(board.board);
+        interaction.userMove();
+        display.showMatrix(interaction.matrix);
 
+        interaction.computerMove();
+        display.showMatrix(interaction.matrix);
 
+        interaction.userMove();
+        display.showMatrix(interaction.matrix);
+
+        interaction.computerMove();
+        display.showMatrix(interaction.matrix);
     }
 }
