@@ -9,8 +9,10 @@ public class Interaction {
     int computerColumn;
     boolean gameOver = false;
     boolean xoOnly;
+    boolean restart = false;
     String playerChar;
     String computerChar;
+    String playAgain;
     String[][] matrix = {
             {"-", "-", "-"},
             {"-", "-", "-"},
@@ -22,6 +24,7 @@ public class Interaction {
     Random random = new Random();
 
     void welcome() {
+        System.out.println();
         System.out.println("+-------------+");
         System.out.println("|  Welcme to  |");
         System.out.println("| Tic Tac Toe |");
@@ -48,23 +51,32 @@ public class Interaction {
 
         boolean valid = false;
         do {
-            System.out.println("\nMake your move,");
-            System.out.print("Row (1/2/3): ");
-            userRow = scanner.nextInt();
-            this.userRow--;
+            try {
 
-            System.out.print("Column (1/2/3): ");
-            userColumn = scanner.nextInt();
-            this.userColumn--;
 
-            if (userRow < 3 && userColumn < 3 && validMove(userRow, userColumn)) {
-                matrix[userRow][userColumn] = playerChar;
-                countMoves++;
-                valid = true;
-            } else {
-                System.out.println("W: Make a Valid Move");
+                System.out.println("\nMake your move,");
+                System.out.print("Row (1/2/3): ");
+                userRow = scanner.nextInt();
+                this.userRow--;
+
+                System.out.print("Column (1/2/3): ");
+                userColumn = scanner.nextInt();
+                this.userColumn--;
+
+                scanner.nextLine(); // Consume leftover newline
+
+                if (userRow < 3 && userColumn < 3 && validMove(userRow, userColumn)) {
+                    matrix[userRow][userColumn] = playerChar;
+                    countMoves++;
+                    valid = true;
+                } else {
+                    System.out.println("W: Make a Valid Move");
+                }
+            }catch (NumberFormatException e){
+                System.out.println("W: Enter only numbers (1/2/3)");
             }
         } while (!valid);
+
         winCondition();
     }
 
@@ -117,5 +129,15 @@ public class Interaction {
                         (matrix[0][0].equals(symbol) && matrix[1][1].equals(symbol) && matrix[2][2].equals(symbol)) ||
                         (matrix[0][2].equals(symbol) && matrix[1][1].equals(symbol) && matrix[2][0].equals(symbol))
         );
+    }
+
+    void exit() {
+        System.out.println("\n*** THANKS FOR PLAYING ***");
+    }
+
+    void playAgain() {
+        System.out.print("\nDo you Wanna Play Again (Y/N): ");
+        playAgain = scanner.nextLine().toUpperCase();
+        restart = playAgain.equals("Y");
     }
 }

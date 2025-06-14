@@ -4,20 +4,34 @@ public class Main {
         Interaction interaction = new Interaction();
         Display display = new Display();
 
-        interaction.welcome();
-        interaction.getPlayerChar();
-        display.showMatrix(interaction.matrix);
+        do {
+            interaction.welcome();
+            interaction.getPlayerChar();
 
-        while (!interaction.gameOver) {
-            interaction.userMove();
+            // Reset the game board and state before starting again
+            interaction.matrix = new String[][] {
+                    {"-", "-", "-"},
+                    {"-", "-", "-"},
+                    {"-", "-", "-"}
+            };
+            interaction.countMoves = 0;
+            interaction.gameOver = false;
+
             display.showMatrix(interaction.matrix);
 
-            if (interaction.gameOver) {
-                break;
+            while (!interaction.gameOver) {
+                interaction.userMove();
+                display.showMatrix(interaction.matrix);
+
+                if (interaction.gameOver) {
+                    break;
+                }
+
+                interaction.computerMove();
+                display.showMatrix(interaction.matrix);
             }
-
-            interaction.computerMove();
-            display.showMatrix(interaction.matrix);
-        }
+            interaction.exit();
+            interaction.playAgain();
+        } while (interaction.restart);
     }
 }
