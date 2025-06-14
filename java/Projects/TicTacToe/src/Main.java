@@ -5,6 +5,7 @@ public class Main {
         Display display = new Display();
 
         interaction.welcome();
+        interaction.getPlayerChar();
         display.showMatrix(interaction.matrix);
 
         while (!interaction.gameOver) {

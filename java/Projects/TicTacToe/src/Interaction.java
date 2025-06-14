@@ -8,6 +8,7 @@ public class Interaction {
     int computerRow;
     int computerColumn;
     boolean gameOver = false;
+    boolean xoOnly;
     String playerChar;
     String computerChar;
     String[][] matrix = {
@@ -15,7 +16,7 @@ public class Interaction {
             {"-", "-", "-"},
             {"-", "-", "-"}
     };
-    static int countMoves;
+    int countMoves;
 
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
@@ -26,19 +27,21 @@ public class Interaction {
         System.out.println("| Tic Tac Toe |");
         System.out.println("+-------------+");
         System.out.println();
-        getPlayerChar();
     }
 
     void getPlayerChar() {
-        System.out.print("Pick (X or O): ");
-        this.playerChar = scanner.nextLine();
-        this.playerChar = this.playerChar.toUpperCase();
-        if (playerChar.equals("X")) {
-            computerChar = "O";
-        } else {
-            computerChar = "X";
-        }
-        System.out.println();
+        do {
+            System.out.print("Pick (X or O): ");
+            this.playerChar = scanner.nextLine().trim().toUpperCase();
+            System.out.println();
+            if (playerChar.equals("X") || playerChar.equals("O")) {
+                computerChar = playerChar.equals("X") ? "O" : "X";
+                xoOnly = true;
+            } else {
+                System.out.println("W: Enter only 'X' or 'O'");
+                xoOnly = false;
+            }
+        } while (!xoOnly);
     }
 
     void userMove() {
@@ -54,7 +57,7 @@ public class Interaction {
             userColumn = scanner.nextInt();
             this.userColumn--;
 
-            if (validMove(userRow, userColumn)) {
+            if (userRow < 3 && userColumn < 3 && validMove(userRow, userColumn)) {
                 matrix[userRow][userColumn] = playerChar;
                 countMoves++;
                 valid = true;
@@ -81,116 +84,38 @@ public class Interaction {
     }
 
     void winCondition() {
-        // User Wins
-        if (matrix[0][0].equals(matrix[0][1]) && matrix[0][0].equals(matrix[0][2]) && matrix[0][0].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        } else if (matrix[1][0].equals(matrix[1][1]) && matrix[1][0].equals(matrix[1][2]) && matrix[1][0].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        } else if (matrix[2][0].equals(matrix[2][1]) && matrix[2][0].equals(matrix[2][2]) && matrix[2][0].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        } else if (matrix[0][0].equals(matrix[1][0]) && matrix[0][0].equals(matrix[2][0]) && matrix[0][0].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        } else if (matrix[0][1].equals(matrix[1][1]) && matrix[0][1].equals(matrix[2][1]) && matrix[0][1].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        } else if (matrix[0][2].equals(matrix[1][2]) && matrix[0][2].equals(matrix[2][2]) && matrix[0][2].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        } else if (matrix[0][0].equals(matrix[1][1]) && matrix[0][0].equals(matrix[2][2]) && matrix[0][0].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        } else if (matrix[0][2].equals(matrix[1][1]) && matrix[0][2].equals(matrix[2][0]) && matrix[0][2].equals(playerChar)) {
-            System.out.println();
-            System.out.println("+-+-+-+-+");
-            System.out.println("You, Wins");
-            System.out.println("+-+-+-+-+\n");
-            gameOver = true;
-        }
 
-        // Computer Wins
-        if (matrix[0][0].equals(matrix[0][1]) && matrix[0][0].equals(matrix[0][2]) && matrix[0][0].equals(computerChar)) {
+        if (checkWin(playerChar)) {
+            System.out.println();
+            System.out.println("+-+-+-+-+");
+            System.out.println("You, Wins");
+            System.out.println("+-+-+-+-+\n");
+            gameOver = true;
+        } else if (checkWin(computerChar)) {
             System.out.println();
             System.out.println("--------------");
             System.out.println("Computer, Wins");
             System.out.println("--------------\n");
             gameOver = true;
-        } else if (matrix[1][0].equals(matrix[1][1]) && matrix[1][0].equals(matrix[1][2]) && matrix[1][0].equals(computerChar)) {
-            System.out.println();
-            System.out.println("--------------");
-            System.out.println("Computer, Wins");
-            System.out.println("--------------\n");
-            gameOver = true;
-        } else if (matrix[2][0].equals(matrix[2][1]) && matrix[2][0].equals(matrix[2][2]) && matrix[2][0].equals(computerChar)) {
-            System.out.println();
-            System.out.println("--------------");
-            System.out.println("Computer, Wins");
-            System.out.println("--------------\n");
-            gameOver = true;
-        } else if (matrix[0][0].equals(matrix[1][0]) && matrix[0][0].equals(matrix[2][0]) && matrix[0][0].equals(computerChar)) {
-            System.out.println();
-            System.out.println("--------------");
-            System.out.println("Computer, Wins");
-            System.out.println("--------------\n");
-            gameOver = true;
-        } else if (matrix[0][1].equals(matrix[1][1]) && matrix[0][1].equals(matrix[2][1]) && matrix[0][1].equals(computerChar)) {
-            System.out.println();
-            System.out.println("--------------");
-            System.out.println("Computer, Wins");
-            System.out.println("--------------\n");
-            gameOver = true;
-        } else if (matrix[0][2].equals(matrix[1][2]) && matrix[0][2].equals(matrix[2][2]) && matrix[0][2].equals(computerChar)) {
-            System.out.println();
-            System.out.println("--------------");
-            System.out.println("Computer, Wins");
-            System.out.println("--------------\n");
-            gameOver = true;
-        } else if (matrix[0][0].equals(matrix[1][1]) && matrix[0][0].equals(matrix[2][2]) && matrix[0][0].equals(computerChar)) {
-            System.out.println();
-            System.out.println("--------------");
-            System.out.println("Computer, Wins");
-            System.out.println("--------------\n");
-            gameOver = true;
-        } else if (matrix[0][2].equals(matrix[1][1]) && matrix[0][2].equals(matrix[2][0]) && matrix[0][2].equals(computerChar)) {
-            System.out.println();
-            System.out.println("--------------");
-            System.out.println("Computer, Wins");
-            System.out.println("--------------\n");
-            gameOver = true;
-        }
-
-        // tie
-        if (countMoves==9 && !gameOver){
+        } else if (countMoves == 9 && !gameOver) {
             System.out.println();
             System.out.println("***********");
             System.out.println("It's a Draw");
             System.out.println("***********\n");
-            gameOver=true;
+            gameOver = true;
         }
     }
 
+    boolean checkWin(String symbol) {
+        return (
+                (matrix[0][0].equals(symbol) && matrix[0][1].equals(symbol) && matrix[0][2].equals(symbol)) ||
+                        (matrix[1][0].equals(symbol) && matrix[1][1].equals(symbol) && matrix[1][2].equals(symbol)) ||
+                        (matrix[2][0].equals(symbol) && matrix[2][1].equals(symbol) && matrix[2][2].equals(symbol)) ||
+                        (matrix[0][0].equals(symbol) && matrix[1][0].equals(symbol) && matrix[2][0].equals(symbol)) ||
+                        (matrix[0][1].equals(symbol) && matrix[1][1].equals(symbol) && matrix[2][1].equals(symbol)) ||
+                        (matrix[0][2].equals(symbol) && matrix[1][2].equals(symbol) && matrix[2][2].equals(symbol)) ||
+                        (matrix[0][0].equals(symbol) && matrix[1][1].equals(symbol) && matrix[2][2].equals(symbol)) ||
+                        (matrix[0][2].equals(symbol) && matrix[1][1].equals(symbol) && matrix[2][0].equals(symbol))
+        );
+    }
 }
