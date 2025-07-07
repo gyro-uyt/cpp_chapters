@@ -1,5 +1,5 @@
 public abstract class Shape1 {
-    // now, after it's object can't be created
+    // now, after it an object can't be created
 
     abstract double area(); // Abstract method, declaration only
 
