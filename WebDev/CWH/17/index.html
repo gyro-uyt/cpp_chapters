@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sizing Units</title>
+    <style>
+      .box {
+        border: 2px black solid;
+        box-sizing: border-box;
+        /* width: 2560px; */
+        width: 80vw; /* view-port width (no scroll bars for any size of screen) */
+        height: 10vh; /* view-port height */
+        margin: auto;
+        background-color: aquamarine;
+      }
+      .container {
+        border: 2px black solid;
+        box-sizing: border-box;
+        width: 80vw;
+        height: 80vh;
+        margin: 23px auto; /* top-bottom left-right*/
+        font-size: 16px;
+        background-color: aquamarine;
+      }
+      .container p {
+        font-size: 1em;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">This is a Box</div>
+    <div class="container">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minus
+        dignissimos sit vero quos aliquid rerum, ab quibusdam, exercitationem
+        tempore quam minima beatae voluptatibus sapiente ipsum non expedita
+        nobis perferendis.
+      </p>
+    </div>
+  </body>
+</html>

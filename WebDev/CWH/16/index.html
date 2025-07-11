@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specificity & Cascade</title>
+    <style>
+      /* The specificity of this selector is 1  */
+      h1 {
+        color: aqua !important; /* !importance got the highest priority*/
+      }
+
+      /* The specificity of this selector is 10  */
+      .cpurple {
+        color: purple;
+      }
+
+      /* The specificity of this selector is 1 + 10 = 11  */
+      h1.yellow {
+        color:chartreuse;
+      }
+
+      /* This is an example of attribute selector. The specificity of this selector is 10 */
+      [data-x="a"] {
+        color: maroon;
+      }
+
+      /* The specificity of this selector is 10  */
+      .cred {
+        color: red;
+      }
+
+      /* The specificity of this selector is 1 + 10 + 10 + 10 + 10 = 41  */
+      a.harryclass.rohan-class[href]:hover {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <h1 class="yellow cred cpurple" data-x="a">CSS Specificity</h1>
+    </div>
+  </body>
+</html>
+
+<!-- 
+The Cascade Algorithm, CSS stands for Cascading Stylesheets. 
+The cascade is the algorithm for solving conflicts where multiple CSS rules apply to an HTML element
+
+The cascade algorithm has 4 distinct stages.
+    1. Position and order of appearance: last selector is applied
+    2. Specificity: an algorithm that determines which CSS selector has the strongest match
+    3. Origin: the order in which CSS appears and where it comes from, whether that is a browser style, CSS from a browser extension, or your authored CSS
+    4. Importance: some CSS rules are weighted more heavily than others, especially with the !important rule type
+
+> If there are two rules that have selectors of identical specificity, the last one to be declared wins.
+> An inline style attribute with CSS declared in it will override all other CSS, regardless of its position, unless a declaration has !important defined.
+> The order of specificity is:
+    Inline Style > ID Selector > Class or Attribute Selector > Element Selector > Universal Selector
+> To calculate specificity, assign a value to each part of the selector:
+    Universal Selector: 0
+    Element selectors and pseudo-elements: 1
+    Class selectors, attribute selectors, and pseudo-classes: 10
+    ID selectors: 100
+    Inline styles: 1000
+> The !important flag in CSS is used to give a particular style rule the highest level of importance, overriding any other competing styles.
+
+Q. What will be the specificity value of the following selector:
+    a.harryclass.rohan-class[href]:hover {
+    color: red;
+    }
+Solution
+    To calculate the specificity value of the selector a.harryclass.rohan-class[href]:hover, you can break down its components:
+
+    Element selectors: a contributes 1 point.
+    Class selectors: .harryclass and .rohan-class each contribute 10 points, totaling 20 points.
+    Attribute selector: [href] contributes 10 points.
+    Pseudo-class: :hover adds another 10 points.
+    Add up all these values:
+
+    1 (element) + 20 (classes) + 10 (attribute) + 10 (pseudo-class) = 41.
+
+    So, the specificity value of the selector a.harryclass.rohan-class[href]:hover will be 41.
+-->
