@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sizing Units</title>
     <style>
+      html {
+        font-size: 12px; /* rem is relative of this, this is root element */
+      }
       .box {
         border: 2px black solid;
         box-sizing: border-box;
@@ -18,19 +21,30 @@
         border: 2px black solid;
         box-sizing: border-box;
         width: 80vw;
-        height: 80vh;
+        /* height: 80vh; */
+        min-height: 80vh;   /* so that footer always comes at bottom */
         margin: 23px auto; /* top-bottom left-right*/
         font-size: 16px;
-        background-color: aquamarine;
+        background-color: rgb(127, 255, 212);
       }
       .container p {
-        font-size: 1em;
+        font-size: 1em; /* Relative to the font size of the element itself or its parent */
       }
       * {
         margin: 0;
         padding: 0;
       }
+      .mycont{
+        border: 2px solid black;
+        box-sizing: border-box;
+        margin: 23px auto;
+        color: rgb(0, 0, 0);
+        font-size: 22px;
+        width: 100vmin;
+        /* width: 100vh; same as vmin on monitors, bcz height is smaller or monitor*/
+      }
     </style>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units -->
   </head>
   <body>
     <div class="box">This is a Box</div>
@@ -42,5 +56,17 @@
         nobis perferendis.
       </p>
     </div>
+    <div class="mycont">
+        Lorem ipsum dolor sit amet consectetur adipisicing.
+    </div>
   </body>
 </html>
+<!-- 
+px -> absoulute font size
+em -> Relative to the font size of the element itself or its parent
+rem (Root em) -> Relative to the root element's font size (usually <html>)
+vh -> view-port height
+vw -> view-port width
+vmin = smaller of vw or vh (changes for monitors and mobiles)
+vmax = larger of vw or vh
+-->

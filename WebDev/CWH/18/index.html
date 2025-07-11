@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Property</title>
+    <style>
+      html {
+        background-color: black;
+        color: white;
+        font-size: 20px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        border: solid 2px red;
+        display: inline-block; /* forces the element to be inline*/
+        /* width: 180px; Width can be adjusted for inline-block but not for inline display*/
+        padding: 50px;
+        margin: 34px;
+      }
+      .box1 {
+        /* display: none; */
+        /* space  and visibilty both gone */
+        visibility: hidden;
+        /* visibility gone but space Remains */
+      }
+    </style>
+  </head>
+  <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/display -->
+
+  <body>
+    <div class="box box1">I am a box</div>
+    <div class="box">div are block elements while span are inline</div>
+    <span>I am a good</span>
+    <span>Za Warudo</span>
+  </body>
+</html>

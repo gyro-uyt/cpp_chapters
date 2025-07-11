@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadows & Outlines</title>
+    <style>
+      .box {
+        border: solid 2px blueviolet;
+        padding: 22px;
+        box-shadow: 5px 8px 3px rgb(95, 120, 95);
+      }
+      .text-shadow{
+        text-shadow: 1px 1px 2px #aa0000;
+      }
+      .outline{
+        outline: 2px solid black; 
+        outline-offset: 5px;    /* this is unique to outline*/
+        border: 2px solid green;
+        border-radius: 3px; /* outline follows border radius */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">I am box</div>
+    <p class="text-shadow">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi impedit
+      eaque architecto asperiores enim, veniam quis cupiditate soluta explicabo
+      maxime quae iure corporis natus totam recusandae tenetur. Accusamus
+      corporis cupiditate veritatis eligendi officia harum!
+    </p>
+    <p class="outline">
+        The outline and box-shadow properties in CSS serve different purposes and behave differently. An outline always renders outside the border and doesn’t take up space in the layout. It does not support rounded corners, so it ignores border-radius. You can't apply multiple outlines, and there's no inset option. However, outlines are commonly used for accessibility, like showing focus on elements (e.g., buttons), and they always appear on top of the element.
+    </p>
+  </body>
+</html>
