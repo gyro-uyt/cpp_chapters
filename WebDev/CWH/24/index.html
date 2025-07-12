@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables</title>
+    <style>
+      :root {
+        /* variables made here are Global variables */
+        --color: rgb(65, 255, 255);
+        --seccolor: #fab1ea;
+        --defPad: 23px;
+        /* css var can not only store colors but any values and used with var() */
+        /* this can be used to make theme, by simply changing one var whole color of website can be changed */
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        display: flex;
+      }
+      ul li {
+        list-style: none;
+        padding: var(--defPad); /* this is how var are used */
+        border: 2px solid var(--seccolor);
+      }
+      ul li:first-child {
+        /* now, here it is changed locally, becomes local variable */
+        --color: rgb(251, 255, 0);
+        background-color: var(--color, blue);
+        /* second color is fallback color, used if the variable is not found*/
+      }
+      .nav {
+        background-color: var(--color);
+        margin: 5px 5px;
+      }
+      .container {
+        background-color: var(--seccolor);
+        padding: 2px 5px;
+        margin: 5px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="container">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+        sequi, beatae perspiciatis rem rerum laborum eveniet nesciunt corrupti.
+        Alias molestias qui laudantium nemo vero delectus doloribus obcaecati
+        accusamus corporis maiores inventore excepturi ducimus sit aut explicabo
+        temporibus, repellat eaque dolorem! Recusandae dicta laboriosam magni
+        suscipit.
+      </p>
+    </div>
+  </body>
+</html>

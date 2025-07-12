@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position Property</title>
+    <style>
+      * {
+        background-color: white;
+        padding: 0;
+        margin: 0;
+      }
+      .box {
+        border: 2px solid black;
+        width: 80vw;
+        height: 340px;
+        padding: 3px;
+        margin: 3px;
+      }
+      .box1 {
+        background-color: aquamarine;
+        /* position: static; top, bottom, left, right are inaccessible */
+        position: sticky; /* sticks at top, useful for making nav bar */
+        top: 0px;
+        height: 100px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .box2 {
+        background-color: bisque;
+        position: relative; /* we can set top, bottom, left, right */
+        top: 20px;
+        left: 10px;
+      }
+      .box3 {
+        background-color: blueviolet;
+        position: relative;
+        z-index: 2; /* we can control if element has to be in front/back*/
+      }
+      .box4 {
+        background-color: brown;
+        position: fixed; /* stays at same position even if scrolled the page */
+        bottom: 0px;
+        left: 8vw;
+        height: 100px;
+      }
+      .parent {
+        padding: 30px;
+        margin: 20px;
+        border: 2px solid purple;
+        /* position: relative; */
+
+        /* Exception: transform, filter or perspective properties can also make an element appear as positioned */
+        /* transform: translate(0); */
+        /* filter: invert(0); */
+        /* perspective: 0em; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="box box1">box 1</div>
+      <div class="box box2">box 2</div>
+      <div class="box box3">box 3</div>
+      <div class="box box4">box 4</div>
+    </div>
+    <!-- https://youtu.be/cOw6tgH6P20?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w -->
+  </body>
+</html>
+<!-- 
+Summary:-
+    1) the default position of an element is static: we cant move it, properties like top, left, bottom, right have no effects
+    2) position: relative; now we can use top, bottom, left, right properties
+    3) position: absolute; will set position with respect to its parent element otherwise it will be positioned with respect to <html>
+    Exception: transform, filter or perspective properties can also be looked as positioned
+
+    4) position: fixed; will keep the element in place when scrolled, in other words: fixed to the viewport
+    5) position: sticky; mix of relative and fixed. Will act as relative but as soon as we scroll, it will act as fixed (ex: nav bar)
+    6) z-index: if 2 or moreelements overlap each other while setting the position, we can define z-index, higher the z-index value, higher it will be placed in the front
+-->

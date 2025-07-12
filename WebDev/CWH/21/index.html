@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overflow</title>
+    <style>
+      .box {
+        width: 40vw;
+        height: 10vh;
+        border: 2px solid black;
+        /* overflow: hidden; extra text is hidden */
+        /* overflow: clip; similar to hidden, but it disables scrollable property too */
+        /* overflow: scroll; gives scrollers both side */
+        overflow: auto; /* acts as scroll only when overflow is there */
+        overflow-x: hidden; /* overflow properties can also be assigned individually to x and y */
+        overflow-y: scroll;
+        /* overflow: hidden scroll; same as above x, y*/
+        white-space: nowrap; /* text will appear in sing line only */
+        text-overflow: ellipsis; /* dots come for overflow */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
+      necessitatibus debitis nam commodi itaque quidem sint error, eveniet hic
+      possimus architecto animi quae! Sint ut a atque, excepturi deserunt,
+      facilis, officiis cum sunt possimus hic nobis? Pariatur nam tempore
+      voluptates voluptatem esse obcaecati, ipsam voluptatibus.
+    </div>
+  </body>
+</html>
