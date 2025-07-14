@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float & Clear</title>
+    <style>
+      .cards {
+        border: 2px solid blue;
+        display: flow-root; /* now, img doesn't overflows out of the container*/
+      }
+      img {
+        /* this was used for newspapers/blogs in early times */
+        float: right;
+        border: 2px solid black;
+        margin: 3px;
+        box-sizing: border-box;
+      }
+      .card {
+        border: 2px solid red;
+      }
+      .card:nth-child(3) {
+        clear: right; /* No element shows up in this content */
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- .cards>.card*3, this is the short-cut to make -->
+    <div class="cards">
+      <img
+        src="https://wallpapers-clan.com/wp-content/uploads/2025/04/chibi-jotaro-kujo-clipart-desktop-wallpaper-cover.jpg"
+        alt="JoJo_SBR_pic"
+        width="250px"
+      />
+      <div class="card">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+          voluptatum, quae iusto asperiores minus sit qui incidunt quod, quidem
+          inventore aspernatur, officia autem distinctio fuga ad eaque saepe
+          ipsa! Nesciunt aspernatur fuga, fugit quo, quae eius quos facere
+          accusantium numquam quidem aperiam porro sapiente qui totam distinctio
+          consectetur necessitatibus autem corporis provident in, nostrum ipsum
+          at.
+        </p>
+      </div>
+      <div class="card">Card-2</div>
+      <div class="card">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi iste
+          quidem ducimus tenetur dolor eum? Libero repudiandae itaque, rerum
+          optio quae distinctio numquam architecto quaerat dolorem vero.
+          Perspiciatis, minus perferendis.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
