@@ -1,0 +1,17 @@
+.container {
+  border: 2px solid salmon;
+  display: flex; /* this is how to enable Flex properties */
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: row; default behaviour */
+  flex-direction: column-reverse;
+}
+.item {
+  height: 25px;
+  width: 25px;
+  border: 2px solid black;
+  margin: 4px;
+  box-sizing: border-box;
+  background-color: lime;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selectors</title>
+    <style>
+      /* .box:first-child{
+            background-color: blueviolet;
+        } */
+
+      /* .box::first-line {
+        color: blue;
+      } */
+
+      /* selects every element in the given class */
+      /* .boxes * {
+        color: crimson;
+        border: 2px solid teal;
+      } */
+
+      /* selection of multiple selectors */
+      /* p, a, .box{
+        padding-top: 45px;
+        border: 2px solid goldenrod;
+      } */
+
+      /* Attribute selector */
+      /* [data-color="primary"] {
+        margin-top: 45px;
+        border: 2px solid salmon;
+      } */
+
+      /* odd/even selectors */
+      /* .box:nth-child(odd){
+        background-color: lawngreen;
+      } */
+
+      /* 2nd last selector */
+      /* .box:nth-last-child(2){
+        background-color: fuchsia;
+      } */
+
+      /* These are Pseudo elements of CSS */
+      /* inserting element Dynamically via CSS before main content*/
+      .boxes::before {
+        content: "Used very much!";
+        color: lime;
+      }
+      /* inserting element Dynamically via CSS after main content*/
+      .boxes::after {
+        content: "After the main content~";
+        color: dodgerblue;
+      }
+
+      /* this highlights when you select something in page */
+      /* div::selection we can do like this also for particular, or like following for all */
+      ::selection {
+        color: tomato;
+        background-color: black;
+      }
+
+      /* first letter selector */
+      .box::first-letter {
+        color: hotpink;
+        font-size: 28px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      /* placehoolder selector */
+      input::placeholder{
+        color: orange;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxes">
+      <div data-color="primary" class="box">
+        Box 1, Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+      <input type="text" placeholder="type your name here">
+    </div>
+  </body>
+</html>
