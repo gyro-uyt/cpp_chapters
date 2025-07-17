@@ -3,32 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grid-1</title>
+    <title>Grid-3</title>
     <style>
       .container {
         width: 80vw;
+        height: 50vh;
         border: 2px solid black;
         display: grid;
-        grid-template-columns: [pehla] 120px [doosra] 100px [teesra]; /* naming of grid lines */
-        grid-template-rows: 100px 100px 100px;
+        /* repeat */
+        grid-template-columns: repeat(3, 1fr);  /* this is equivalent to "1fr 1fr 1fr" */
+        row-gap: 10px;
+        /* minmax */
+        column-gap: minmax(10px, 44px);
+
+        justify-items: center; /* applying on all elements of container */
+        align-items: center;
+
+        /* place content */
+        place-content: center;
+        /* justify content vs item */
+        justify-content: right;
+
       }
       .item {
         border: 2px solid fuchsia;
         height: 40px;
         width: 40px;
       }
-      .item-4 {
-        /* we want item-4 at item-1's place */
-        grid-row: 1/2;
-        /* or you can do this (same thing)
-           grid-row-start: 1;
-           grid-row-end: 2; */
-        grid-column: 1 / doosra;
+      .item-2 {
+        align-self: start;  /* applies only on itself, i.e., single item */
+        justify-self: end;
       }
-      .item-1 {
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column: 1/2;
+      .item-4 {
       }
     </style>
   </head>
