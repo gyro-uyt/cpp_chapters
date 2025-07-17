@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid-2</title>
+    <style>
+      .container {
+        border: 2px solid black;
+        display: grid;
+        grid-template-areas:
+          "nav nav nav"
+          "side article article"
+          "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr; /* divides in fraction, for 3frs each fr it occupies 1/3 of space */
+        /* use gap instead of padding q */
+        gap: 10px;
+        row-gap: 10px;
+        column-gap: 40px;
+      }
+      .item {
+        border: 2px solid fuchsia;
+        height: 40px;
+        /* width: 40px; */
+      }
+      .item-1 {
+        grid-area: nav;
+      }
+      .item-2 {
+        grid-area: side;
+      }
+      .item-3 {
+        grid-area: article;
+      }
+      .item-4 {
+        grid-area: footer;
+      }
+      .item-5 {
+        /* grid-area: nav; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item item-1">1</div>
+      <div class="item item-2">2</div>
+      <div class="item item-3">3</div>
+      <div class="item item-4">4</div>
+      <div class="item item-5">5</div>
+    </div>
+  </body>
+</html>
