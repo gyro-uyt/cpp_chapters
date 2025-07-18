@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise-4</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+    </style>
+    <style>
+      :root {
+        --navbar-color: lime;
+        --navbar-textcolor: rgb(136, 0, 255);
+        --body-color: black;
+        --body-textcolor: hotpink;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: var(--body-color);
+        color: var(--body-textcolor);
+        padding: 0px;
+        margin: 0px;
+        font-size: 20px;
+      }
+      .top {
+        font-family: "Orbitron", sans-serif;
+        background-color: var(--navbar-color);
+        color: var(--navbar-textcolor);
+        font-weight: bolder;
+      }
+      .navList {
+        list-style: none;
+        display: flex;
+        /* padding: 10px; */
+      }
+      .navList > li {
+        margin: 10px;
+      }
+      .navList li a {
+        text-decoration: none;
+        color: var(--navbar-textcolor);
+      }
+      .content {
+        padding: 20px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <nav>
+        <ul class="navList">
+          <li><a href="/">Home</a></li>
+          <li><a href="/">About</a></li>
+          <li><a href="/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="content">
+      <p>
+        Q. Make nav-bar which changes color/contrast with change in just one
+        variable.
+      </p>
+    </div>
+  </body>
+</html>
