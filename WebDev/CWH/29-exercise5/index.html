@@ -4,106 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercise-5</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: black;
-      }
-      .top {
-        background-color: lightpink;
-        height: 8vh;
-        width: 100vw;
-        padding: 15px;
-        box-sizing: border-box;
-        position:sticky;
-        top: 0;
-      }
-      .content {
-        background-color: black;
-        justify-items: center;
-        width: 100vw;
-      }
-      .container {
-        background-color: green;
-        width: 90vw;
-        height: 400px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        justify-self: center;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .box1 {
-        background-color: orangered;
-        height: 300px;
-        width: 300px;
-        box-sizing: border-box;
-      }
-      .box2 {
-        background-color: skyblue;
-        height: 300px;
-        width: 300px;
-        box-sizing: border-box;
-        margin-left: 200px;
-      }
-      .welcome {
-        border: 2px solid white;
-        color: yellow;
-        border-radius: 20px;
-        height: 100px;
-        width: 800px;
-        margin-bottom: 215px;
-        box-sizing: border-box;
-      }
-      .logo {
-        background-color: lightseagreen;
-        height: 50px;
-        width: 50px;
-        border-radius: 100%;
-        justify-self: right;
-        align-content: center;
-        position: fixed;
-        bottom: 1px;
-        right: 1px;
-      }
-      img{
-        height: 100%;
-        border-radius: 100%;
-      }
-      .bottom {
-        background-color: lightgray;
-        height: 60px;
-        width: 100vw;
-        padding: 20px;
-        box-sizing: border-box;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="top">
-      <nav>Navigation Bar</nav>
-    </div>
-    <div class="content">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">Thoughts</a></li>
+          <li><a href="/">About</a></li>
+          <li><a href="/">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
       <div class="container">
         <div class="box1">box1</div>
         <div class="box2">box2</div>
       </div>
-      <div class="welcome">
+      <div class="textbox">
         <p>
-          Welcome to Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Doloremque, explicabo. Facilis omnis deserunt quidem, iure corrupti
-          quis obcaecati, recusandae quia debitis ab ullam laboriosam alias
-          dolorem impedit ipsa quos tenetur sint. Ratione harum perspiciatis
-          soluta dolorem ea quis iusto distinctio atque, eaque similique
-          repudiandae ullam itaque consectetur repellendus, vitae expedita,
-          debitis explicabo magnam reiciendis nam vel.
+          Welcome, Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Eius nihil totam animi iusto maiores quidem atque. Minus tenetur amet
+          ut? Sint vitae rem quod voluptas cupiditate incidunt sapiente
+          excepturi dolore?
         </p>
       </div>
-    </div>
-    <div class="logo"><img src="image.png" alt="logo"></div>
-    <div class="bottom">This is the E N D of the webpage</div>
+      <div class="floatingIcon"></div>
+    </main>
+    <footer>All rights reserved 2025, under MIT Licence</footer>
   </body>
 </html>

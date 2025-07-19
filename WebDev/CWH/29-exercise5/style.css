@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  position: sticky;
+  top: 0;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 20px 50px;
+  background-color: hotpink;
+}
+nav ul li {
+  font-size: 24px;
+  padding: 0px 20px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: bolder;
+}
+nav ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+html {
+  background-color: black;
+}
+.container {
+  background-color: green;
+  color: wheat;
+  display: flex;
+  padding: 40px 20px;
+  margin: 20px 20px;
+  justify-content: center;
+}
+.box1 {
+  background-color: tomato;
+  height: 75vh;
+  width: 45%;
+  margin: 0px 10px;
+}
+.box2 {
+  background-color: springgreen;
+  height: 75vh;
+  width: 45%;
+  margin: 0px 10px;
+}
+
+.textbox {
+  color: magenta;
+  font-size: 22px;
+  border: 2px solid lime;
+  border-radius: 50px;
+  text-align: center;
+  width: 45vw;
+  display: flex;
+  justify-self: center;
+  padding: 12px 20px;
+  margin: 20px 0px;
+}
+
+.floatingIcon {
+  background-color: dodgerblue;
+  border: 2px dashed violet;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+footer {
+  height: 80px;
+  width: 100%;
+  font-size: 20px;
+  color: lightsteelblue;
+  background-color: lightslategray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
