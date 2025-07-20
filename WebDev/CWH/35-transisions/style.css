@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container{
+background-color: lightcoral;
+width: 50vw;
+height: 40vh;
+}
+.box{
+background-color: lightblue;
+width: 5vw;
+height: 4vh;
+}
+.translate{
+    transform: translateX(10vw) translateY(10vh);
+}
