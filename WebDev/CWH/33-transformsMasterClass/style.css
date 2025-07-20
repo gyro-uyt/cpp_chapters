@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100vw;
+  height: 80vh;
+  border: 2px solid palevioletred;
+  padding: 20px;
+}
+.box {
+  height: 50px;
+  width: 50px;
+  background-color: lightskyblue;
+  border: solid 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* transform: rotate(45deg); */
+  /* transform: rotate(0.5turn); 1turn=360deg */
+  /* transform: rotateX(45deg); rotation about x-axis */
+  /* transform: rotateY(50deg); rotation about y-axis */
+  /* transform: rotateZ(30deg); rotation about z-axis */
+
+  /* transform: scale(1.4); becomes 1.4x larger */
+  /* transform: scaleX(1.4); becomes 1.4x larger along x-axis */
+  /* transform: scaleY(1.4); becomes 1.4x larger along y-axis */
+  /* transform: scaleZ(1.4); becomes 1.4x larger along z-axis */
+
+  /* transform: skew(20deg); */
+  /* transform: skewX(20deg); */
+  /* transform: skewY(20deg); */
+  /* skew doesn't happens on z-axis */
+
+  /* transform: translateX(30px); translates on x-axis by 30px */
+  /* transform: translateX(30%); translates on x-axis by 30% of it's width */
+  /* transform: translateY(100%); translates on y-axis by 100% of it's height */
+
+  /* using multiple properties */
+  transform: scale(1.2) skewY(22deg) translateX(35px) translateY(-10px);
+
+  /* changing origin of rotation */
+  /* transform-origin: 0% 0%; now the rotation origin is at left top corner */
+  /* transform: rotate(30deg); */
+}
