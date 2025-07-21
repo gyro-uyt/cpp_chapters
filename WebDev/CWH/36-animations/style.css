@@ -4,7 +4,6 @@
   width: 340px;
 }
 .box {
-  background-color: turquoise;
   height: 30px;
   width: 40px;
 
@@ -16,13 +15,36 @@
   /* animation-delay: 1s; */
   /* animation-direction: alternate; alternate makes it go back&froth, reverse starts the animation from opposite direction */
   /* animation-play-state: paused; */
-  animation: KuchBhiNaamRkhlo 2s ease-in 1s 4 alternate;
+
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; shorthand of animation */
+  /* multiple-animations are added through separation of commas */
+  animation: KuchBhiNaamRkhlo 2s ease-in 1s 3 alternate forwards,
+    animation2 3s ease-in 1s 1;
 }
 
 @keyframes KuchBhiNaamRkhlo {
   from {
+    background-color: turquoise;
   }
   to {
-    transform: translateX(300px) translateY(270px);
+    background-color: lightcoral;
+    /* transform: translateX(300px) translateY(270px); */
+  }
+}
+@keyframes animation2 {
+  0% {
+    transform: rotate(100deg);
+  }
+  20% {
+    transform: rotate(200deg);
+  }
+  50% {
+    transform: rotate(220deg);
+  }
+  80% {
+    transform: rotate(300deg);
+  }
+  100% {
+    transform: rotate(310deg);
   }
 }
