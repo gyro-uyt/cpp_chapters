@@ -1,0 +1,28 @@
+.container {
+  background-color: darkcyan;
+  height: 300px;
+  width: 340px;
+}
+.box {
+  background-color: turquoise;
+  height: 30px;
+  width: 40px;
+
+  /* animation-name: KuchBhiNaamRkhlo; */
+  /* animation-duration: 2s; */
+  /* animation-iteration-count: infinite; */
+  /* animation-iteration-count: 4; */
+  /* animation-timing-function: ease-out; */
+  /* animation-delay: 1s; */
+  /* animation-direction: alternate; alternate makes it go back&froth, reverse starts the animation from opposite direction */
+  /* animation-play-state: paused; */
+  animation: KuchBhiNaamRkhlo 2s ease-in 1s 4 alternate;
+}
+
+@keyframes KuchBhiNaamRkhlo {
+  from {
+  }
+  to {
+    transform: translateX(300px) translateY(270px);
+  }
+}

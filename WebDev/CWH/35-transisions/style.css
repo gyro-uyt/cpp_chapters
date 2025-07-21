@@ -2,16 +2,25 @@
   margin: 0;
   padding: 0;
 }
-.container{
-background-color: lightcoral;
-width: 50vw;
-height: 40vh;
+.container {
+  background-color: lightcoral;
+  width: 50vw;
+  height: 40vh;
 }
-.box{
-background-color: lightblue;
-width: 5vw;
-height: 4vh;
+.box {
+  background-color: lightblue;
+  width: 5vw;
+  height: 4vh;
+  font-size: 12px;
+  font-family: "Lucida Sans", Verdana, sans-serif;
+
+  /* transition-property: transform, background-color;
+  transition-duration: 3s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 1s; */
+  transition: all 3s cubic-bezier(0, 1.01, 0.79, 0.38) 1s;
 }
-.translate{
-    transform: translateX(10vw) translateY(10vh);
+.translate {
+  transform: translateX(10vw) translateY(10vh) scale(2);
+  background-color: chartreuse;
 }
