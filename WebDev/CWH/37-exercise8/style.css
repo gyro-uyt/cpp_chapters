@@ -24,30 +24,18 @@ header {
   left: 0;
 
   animation: 
-  x-axis 6s linear 1, 
-  y-axis 6s ease-out 1;
+  x-axis 6s linear infinite alternate, 
+  y-axis 1s ease-out infinite alternate;
 }
 @keyframes x-axis {
   from {
   }
   to {
-    transform: translateX(73vw);
+    left: 90%;
   }
 }
 @keyframes y-axis {
-  5%{
-    transform: translateY(-70vh) translateX(5vw);
-  }
-  25%{
-    transform: translateY(0vh) translateX(25vw);
-  }
-  55%{
-    transform: translateY(-50vh) translateX(55vw);
-  }
-  75%{
-    transform: translateY(0vh) translateX(75vw);
-  }
-  100%{
-    transform: translateY(0vh)  translateX(75vw);
+  to{
+    bottom: 90%;
   }
 }

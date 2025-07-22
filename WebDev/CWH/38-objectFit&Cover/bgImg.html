@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Image</title>
+    <style>
+      .container {
+        height: 800px;
+        width: 400px;
+        border: 2px solid springgreen;
+        background-image: url(https://cdn.pixabay.com/photo/2022/05/18/23/21/dog-7206321_640.jpg);
+        background-position: center top;
+        /* by default bg repeats */
+        background-repeat: repeat-x; /* repeats only in x direction */
+        background-clip: border-box; /* check mdn ref */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+</html>

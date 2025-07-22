@@ -1,0 +1,16 @@
+.container{
+    width: 450px;
+    height: 490px;
+    border: 2px solid brown;
+    background-color: azure;
+}
+img{
+    width: 450px;
+    height: 490px;
+
+    /* object-fit: fill; default value, fills the full image, not caring about aspect ratio */
+    /* object-fit: contain; shows the whole image in container */
+    object-fit: cover; /* shows certain part of image without disturbing aspect ratio */
+    object-position: bottom right; /* tells which certain part to be shown */
+    object-position: 10px 20px; 
+}
