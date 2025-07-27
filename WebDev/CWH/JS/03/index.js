@@ -8,3 +8,19 @@ if (age > 18) {
 } else {
   console.log("You cannot drive");
 }
+
+let a = 3;
+let b = 2;
+
+console.log(a);
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a ** b); // power
+console.log(a % b);
+
+a += b;
+console.log(a);
+
+
