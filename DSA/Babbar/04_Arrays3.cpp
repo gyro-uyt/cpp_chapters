@@ -8,7 +8,7 @@ void printArr(int arr[], int size) {
   cout << endl;
 }
 void update(int arr[], int size) {
-  arr[1] = 120;
+      arr[1] = 120;
   printArr(arr, size);
 }
 
