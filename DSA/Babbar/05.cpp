@@ -9,19 +9,19 @@ int binarySearch(int arr[], int size, int target) {
     int middle = left + (right - left) / 2;
     if (arr[middle] == target) {
       return middle;
-    } else if (arr[middle] <= target) {
-      right = middle - 1;
-    } else {
+    } else if (arr[middle] < target) {
       left = middle + 1;
+    } else {
+      right = middle - 1;
     }
   }
   return -1;
 }
 
 int main() {
-  int arr[] = {23, 234, 23, 42, 645, 34, 5};
+  int arr[] = {1, 4, 6, 9, 34, 68, 80, 235, 6798};
 
-  cout << binarySearch(arr, 7, 645) << endl;
+  cout << binarySearch(arr, 9, 6798) << endl;
 
   return 0;
 }
