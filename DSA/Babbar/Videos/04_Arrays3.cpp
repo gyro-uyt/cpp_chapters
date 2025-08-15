@@ -1,3 +1,5 @@
+// Arrays are pointers to type
+
 #include <iostream>
 using namespace std;
 

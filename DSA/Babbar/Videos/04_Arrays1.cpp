@@ -1,3 +1,5 @@
+// Arrays basics, initialisation, its size, etc.
+
 #include <iostream>
 using namespace std;
 

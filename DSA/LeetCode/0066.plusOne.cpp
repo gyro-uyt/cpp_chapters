@@ -10,8 +10,14 @@ public:
         digits[i]++;
         return digits;
       }
+      // if you reached here that means nos. are like 9, 19, 29, 99,...
       digits[i] = 0;
     }
+    // if reached here that means No digit in ur no. is <9
+    // hence it's all 9s like 9, 99, 999,... 
+    // which will be all 0s reaching here due to `digits[i] = 0;`
+    // Which is convinient as all 9s+1 will become all 0s 
+    // with leading 1 as additional new digit, hence we insert at begining
     digits.insert(digits.begin(), 1);
     return digits;
   }
