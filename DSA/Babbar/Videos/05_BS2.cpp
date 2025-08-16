@@ -26,15 +26,29 @@ occurrence will be -1.
 using namespace std;
 
 pair<int, int> firstAndLastPosition(vector<int> &arr, int size, int target) {
-  // Write your code here
+
   int left = 0, right = size - 1;
   int middle = left + (right - left) / 2;
-  pair<int, int> indices = {0, 0};
+  pair<int, int> indices = {-1, -1};
 
   while (left <= right) {
     middle = left + (right - left) / 2;
     if (arr[middle] == target) {
       indices.first = middle;
+      right = middle -1; // keeps searching left until the first occurance
+    } else if (arr[middle] < target) {
+      left = middle + 1;
+    } else {
+      right = middle - 1;
+    }
+  }
+
+  left=0, right=size-1;
+  while (left <= right) {
+    middle = left + (right - left) / 2;
+    if (arr[middle] == target) {
+      indices.second = middle;
+      left = middle +1; // keeps searching right until the last occurance
     } else if (arr[middle] < target) {
       left = middle + 1;
     } else {
@@ -47,8 +61,10 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int size, int target) {
 int main() {
 
   vector<int> arr = {0, 0, 1, 1, 2, 2, 2, 2};
-    // pair<int, int> pairs = ;
+  pair<int, int> pairs = firstAndLastPosition(arr, arr.size(), 2);
 
+  cout << "First: " << pairs.first << endl
+       << "Second: " << pairs.second << endl;
 
   return 0;
 }
