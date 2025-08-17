@@ -1,7 +1,0 @@
-aura 4
-Tarun 2
-Pratham 1
-Tanishq 4
-Abhay 1
-tarun 4
-abcd 2

@@ -1,0 +1,25 @@
+Data of student-1
+Roll number: 334
+Name: rgrgr
+GPA: 3
+
+Data of student-2
+Roll number: 34
+Name: rgreg
+GPA: 54
+
+Data of student-3
+Roll number: 342
+Name: geee rgre
+GPA: 23
+
+Data of student-0
+Roll number: 122
+Name: dsfs sd
+GPA: 4
+
+Data of student-1
+Roll number: 133
+Name: grwee dfv srfrg
+GPA: 43
+
