@@ -85,3 +85,7 @@ Python ~fish
 
 Windows
 	charactermap
+
+	Terminal setups
+		notepad $PROFILE
+		Get-ChildItem $env:POSH_THEMES_PATH
