@@ -2,7 +2,7 @@
 import qrcode
 
 # Data to be encoded
-data = 'QR Code using make() function'
+data = 'Star Platinum! Za Warudo'
 
 # Encoding data using make() function
 img = qrcode.make(data)
