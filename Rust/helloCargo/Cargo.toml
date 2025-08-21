@@ -1,8 +1,0 @@
-[package]
-name = "helloCargo"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-
-# This file is in the TOML (Tom’s Obvious, Minimal Language) format, which is Cargo’s configuration format.
