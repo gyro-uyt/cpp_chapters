@@ -16,12 +16,11 @@ match (a):  # these () are totally Optional
         print("Welcome, sweet-heart")
 
     # Multiple default-cases can be there
-    case _ if (
-        a != 90
-    ):  # in case of a = 90 this case will be false, hence following case will run
+    case _ if (a != 90):
+        # in case of a = 90 this case will be false, hence following case will run
         print(a, "is not equal to 90")
     case _ if a != 80:
         print(a, "is not equal to eighty")
-    # ---> this is the Default case
+    # --> this is the Default case
     case _:
         print("You're not one of us")

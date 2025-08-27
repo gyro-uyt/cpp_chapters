@@ -31,7 +31,6 @@ for j in range(10, 20):  # prints from 10 to (20-1)
     print(j)
 print("\n")
 
-for k in range(
-    10, 50, 5
-):  # print starts from 10 goes upto (50-1) with step difference of '5'
+for k in range(10, 50, 5):
+    # print starts from 10 goes upto (50-1) with step difference of '5'
     print(k)
