@@ -7,6 +7,19 @@ Ollama
 
 Endeavous OS
 
+  To solve the fixed brightness problem on RTX laptops:
+      sudo nano /etc/default/grub
+    find and update this line (usually at 5-6th line),
+      GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=video acpi_osi=! acpi_osi='Windows 2015'"
+    Then update the GRUB,
+      sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+  To get the fish command shell:
+    sudo pacman -S fish
+    chsh -s /usr/bin/fish
+    fish_config // to change themes
+
+
   | Command           | Description                                                               |
   | ----------------- | ------------------------------------------------------------------------- |
   | `ps`              | Show running processes.                                                   |
