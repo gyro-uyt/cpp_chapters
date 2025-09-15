@@ -27,8 +27,8 @@ public:
     int currentSum = nums[0];
 
     for (int i = 1; i < nums.size(); i++) {
-      currentSum = max(nums[i], currentSum + nums[i]);  // extend or restart
-      maxSum = max(currentSum, maxSum); // update best seen
+      currentSum = max(currentSum + nums[i], nums[i]); // extend or restart
+      maxSum = max(currentSum, maxSum);                // update best seen
     }
 
     return maxSum;
