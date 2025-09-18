@@ -76,4 +76,9 @@
 
 ---
 
+### Sove These as a begineer
 
+- 141 . Linked List Cycle
+- 206. Reverse Linked List
+- 1863. Sum of All Subset XOR Totals
+- 2529. Maximum Count of Positive Integer and Negative Integer (Binary Search)

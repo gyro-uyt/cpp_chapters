@@ -89,3 +89,25 @@ Windows
   Terminal setups
     notepad $PROFILE
     Get-ChildItem $env:POSH_THEMES_PATH
+
+Git
+  .gitignore
+    Example:
+      leetcode/*         # ignore everything inside leetcode/
+      !leetcode/*.cpp    # but don't ignore .cpp files
+      !leetcode/*.h      # and don't ignore .h files
+    This works like a priority system:
+        First rule ignores all files in leetcode/
+        Then the later ! rules override and bring back .cpp and .h
+
+    Think of it as a mini–rule language where you define:
+
+      # → comments
+      * → wildcard (matches anything, like shell globbing)
+      ! → negation (keep files even if ignored earlier)
+      / → path separator (can anchor rules to specific folders)
+
+      So it’s closest to Unix shell globbing (like how you’d use wildcards in bash), 
+      but with Git-specific rules.
+  git restore <nameOfFile>
+    this functions restores the specified file to it's last commit
