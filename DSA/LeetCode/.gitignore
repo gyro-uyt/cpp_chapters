@@ -1,2 +1,4 @@
 # Ignore all files with no extension
-*.
+*
+!*.cpp
+!*.h
