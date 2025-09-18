@@ -1,0 +1,195 @@
+# オーラ
+
+## Ollama
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama run deepseek-r1:1.5b
+```
+
+---
+
+## EndeavourOS
+
+### Fix brightness problem on RTX laptops
+
+```bash
+sudo nano /etc/default/grub
+```
+
+Find and update this line (usually at 5–6th line):
+
+```bash
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=video acpi_osi=! acpi_osi='Windows 2015'"
+```
+
+Then update GRUB:
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### Get Fish shell
+
+```bash
+sudo pacman -S fish
+chsh -s /usr/bin/fish
+fish_config    # to change themes
+```
+
+### Useful Commands
+
+| Command           | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| `ps`              | Show running processes.                                      |
+| `ps aux`          | Detailed list of all processes.                              |
+| `ps -ef`          | Another common full-format listing.                          |
+| `top`             | Real-time process viewer.                                    |
+| `htop`            | Enhanced interactive process viewer (`sudo pacman -S htop`). |
+| `atop`            | Advanced system and process monitor (`sudo pacman -S atop`). |
+| `pgrep <name>`    | Find PID(s) of processes by name.                            |
+| `pidof <program>` | Get PID of a program.                                        |
+| `pstree`          | Show processes in a tree structure.                          |
+| `kill <PID>`      | Terminate a process.                                         |
+| `btop`            | Cool task manager.                                           |
+| `fzf`             | Search from CLI.                                             |
+| `neofetch`        | Display system specifications in a nice way.                 |
+| `ls` / `lsd`      | Display available content (`ls ./` to search).               |
+| `ffmpeg`          | Edit/convert video files.                                    |
+| `tldr`            | Better version of `--help`. Example: `tldr ffmpeg`.          |
+
+---
+
+### Shortcuts
+
+* **Shift + PrtSc** → Screenshot
+* **Alt + Tab** → Switch windows
+* **Ctrl + Tab** → Switch browser tabs
+
+---
+
+## C++ on Linux
+
+To compile and run via CLI:
+
+```bash
+g++ program.cpp -o program   # compiles program.cpp → program
+./program                    # runs the executable
+```
+
+Alternative:
+
+```bash
+g++ % -o program && ./program   # % = current file
+:!g++ % -o program && ./program # run directly in vim (! runs in shell)
+```
+
+---
+
+## Vim
+
+```vim
+:%y+        " Select all + copy to clipboard
+vim ~/.vimrc    " Open vim config
+source ~/.vimrc " Reload config instantly
+```
+
+---
+
+## Hyprland
+
+```bash
+mv old.py new.py   # rename file
+rm new.cpp         # delete file
+nmtui              # GUI Wi-Fi setup
+```
+
+Shortcuts:
+
+* **Super + Q** → New Terminal
+* **Super + C** → Close Terminal
+* **Super + M** → Exit Hyprland
+* **Super + R** → Search
+
+---
+
+## Windows (Git Bash)
+
+```bash
+git tag -a tagName -m "message here"
+git push --tags
+```
+
+---
+
+## CS50P
+
+Submission example:
+
+```bash
+submit50 cs50/problems/2022/python/camel
+```
+
+*(Replace `camel` with your current assignment)*
+
+---
+
+## Python (Fish)
+
+Use the Fish-compatible activation script:
+
+```bash
+source venv/bin/activate.fish
+```
+
+Then install **black**:
+
+```bash
+pip install black
+```
+
+---
+
+## Windows
+
+* **Character Map**
+* **Terminal setups**:
+
+  ```powershell
+  notepad $PROFILE
+  Get-ChildItem $env:POSH_THEMES_PATH
+  ```
+
+---
+
+## Git
+
+### .gitignore
+
+```gitignore
+leetcode/*         # ignore everything inside leetcode/
+!leetcode/*.cpp    # but don't ignore .cpp files
+!leetcode/*.h      # but don't ignore .h files
+```
+
+Think of it as a priority system:
+
+1. First rule ignores everything in `leetcode/`
+2. Later `!` rules bring back `.cpp` and `.h`
+
+**Syntax notes**:
+
+* `#` → comments
+* `*` → wildcard (like shell globbing)
+* `!` → negation (keep files even if ignored earlier)
+* `/` → path separator
+
+Closest to **Unix shell globbing**, but Git-specific.
+
+### Restore
+```
+git restore <nameOfFile>
+```
+this functions restores the specified file to it's last commit
+
+---
