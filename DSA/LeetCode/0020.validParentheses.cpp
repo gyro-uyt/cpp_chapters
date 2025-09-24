@@ -6,24 +6,30 @@ class Solution {
 public:
   bool isValid(string s) {
     stack<char> store;
-    char check;
-    int i = 0;
-    while (i < s.size() && (s[i] == '(' || s[i] == '{' || s[i] == '[')) {
-      i++;
-      if (s[i] == ')' || s[i] == '}' || s[i] == ']') {
-        check = store.top();
-        if (s[i] == ')' && check != '(')
-          return false;
 
-        else if (s[i] == '}' && check != '{')
-          return false;
-
-        else if (s[i] == ']' && check != '[')
-          return false;
+    for (char c : s) {
+      // opening braces
+      if (c == '(' || c == '{' || c == '[') {
+        store.push(c);
       }
-      store.push(s[i]);
+      // closing braces
+      else {
+        // No opening bracket present
+        if (store.empty())
+          return false;
+        // Opening bracket present
+        else {
+          char top = store.top();
+          store.pop();
+          // matching braces
+          if ((c == ')' && top != '(') || (c == '}' && top != '{') ||
+              (c == ']' && top != '[')) {
+            return false;
+          }
+        }
+      }
     }
-    return true;
+    return store.empty();
   }
 };
 
