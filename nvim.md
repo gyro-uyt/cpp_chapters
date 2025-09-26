@@ -50,7 +50,7 @@ cd ~/.config/nvim
 Run this
 
 ```bash
-cd /lua
+cd lua
 mkdir custom
 nvim config.lua
 ```
