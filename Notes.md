@@ -62,9 +62,9 @@ fish_config    # to change themes
 
 ### Shortcuts
 
-* **Shift + PrtSc** → Screenshot
-* **Alt + Tab** → Switch windows
-* **Ctrl + Tab** → Switch browser tabs
+- **Shift + PrtSc** → Screenshot
+- **Alt + Tab** → Switch windows
+- **Ctrl + Tab** → Switch browser tabs
 
 ---
 
@@ -106,10 +106,10 @@ nmtui              # GUI Wi-Fi setup
 
 Shortcuts:
 
-* **Super + Q** → New Terminal
-* **Super + C** → Close Terminal
-* **Super + M** → Exit Hyprland
-* **Super + R** → Search
+- **Super + Q** → New Terminal
+- **Super + C** → Close Terminal
+- **Super + M** → Exit Hyprland
+- **Super + R** → Search
 
 ---
 
@@ -130,7 +130,7 @@ Submission example:
 submit50 cs50/problems/2022/python/camel
 ```
 
-*(Replace `camel` with your current assignment)*
+_(Replace `camel` with your current assignment)_
 
 ---
 
@@ -152,8 +152,8 @@ pip install black
 
 ## Windows
 
-* **Character Map**
-* **Terminal setups**:
+- **Character Map**
+- **Terminal setups**:
 
   ```powershell
   notepad $PROFILE
@@ -179,17 +179,19 @@ Think of it as a priority system:
 
 **Syntax notes**:
 
-* `#` → comments
-* `*` → wildcard (like shell globbing)
-* `!` → negation (keep files even if ignored earlier)
-* `/` → path separator
+- `#` → comments
+- `*` → wildcard (like shell globbing)
+- `!` → negation (keep files even if ignored earlier)
+- `/` → path separator
 
 Closest to **Unix shell globbing**, but Git-specific.
 
 ### Restore
+
 ```
 git restore <nameOfFile>
 ```
+
 this functions restores the specified file to it's last commit
 
 ---
