@@ -50,8 +50,9 @@ cd ~/.config/nvim
 Run this
 
 ```bash
-cd lua
+cd ~/.config/nvim/lua
 mkdir custom
+cd custom
 nvim config.lua
 ```
 
@@ -67,14 +68,8 @@ vim.api.nvim_set_keymap("n", "<leader>y", 'ggVG"+y', { noremap = true, silent = 
 
 ### 2. Add C++ support
 
-Create this
 
-```bash
-cd ~/.config/nvim/lua/plugins
-nvim conform.lua
-```
-
-WQ this
+WQ in ~/.config/nvim/lua/plugins/conform.lua
 
 ```lua
 return {
