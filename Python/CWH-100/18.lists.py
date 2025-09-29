@@ -6,7 +6,7 @@
 #   >a single list can contain items of Different data types
 
 # Lists can be CHANGED i.e. they are Muttable
-# Lists are made why []
+# Lists are made by []
 
 lst1 = [3, 64, 98, "Crew", True]
 print("Length of list:", len(lst1))
@@ -58,7 +58,7 @@ print()
 #         print(content, "ain't there")
 # check(Crew)
 
-# Range of index:   ---> listName[start : end : jumpIndex]
+# Range of index:   --> listName[start : end : jumpIndex]
 # You can print a range of list items by specifying where you want to start, where do you want to end and
 # if you want to skip elements in between the range.
 print(lst1[:])
@@ -68,7 +68,7 @@ print(lst1[1:4])
 print(lst1[1:5:2])  # 2 becomes step-size
 print()
 
-# List Comprehension:   ---> List = [Expression(item) for item in iterable if Condition]
+# List Comprehension:   --> List = [Expression(item) for item in iterable if Condition]
 # List comprehensions are used for creating new lists from other iterables like lists, tuples, dictionaries, sets,
 # and even in arrays and strings.
 

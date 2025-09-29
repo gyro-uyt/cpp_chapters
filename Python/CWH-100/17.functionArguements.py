@@ -9,7 +9,7 @@
 #    correct positional order and the number of arguments passed should match with actual function definition.
 
 
-def avg1(a, b):  # ---> 'a' and 'b' are Required Arguements
+def avg1(a, b):  # --> 'a' and 'b' are Required Arguements
     x = (a + b) / 2
     print(x)
 
@@ -20,14 +20,14 @@ print()
 # def name(fname, mname, lname):
 #     print("Hello,", fname, mname, lname)
 # name("Pratham", "Shah")
-# ---> throws error as lname was not passed
+# --> throws error as lname was not passed
 
 #  2) Default arguments:
 #     We can provide a default value while creating a function. This way the function assumes a default value even
 #     if a value is not provided in the function call for that argument
 
 
-def avg2(a=2, b=6):  # ---> defualt arguements
+def avg2(a=2, b=6):  # --> defualt arguements
     x = (a + b) / 2
     print(x)
 
@@ -64,7 +64,7 @@ print()
 
 
 def namee(**name):
-    # print(type(name)) ---> dictionary
+    # print(type(name)) --> dictionary
     print(name["fname"], name["mname"], name["lname"])
 
 

@@ -1,4 +1,4 @@
-for i in range(12):  # 0 ---> (12-1)
+for i in range(12):  # 0 --> (12-1)
     if i == 10:
         print("Continue, Skips the iteration")
         continue  # continue statement skips the Current iteration and causes the next iteration to occur

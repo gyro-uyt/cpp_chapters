@@ -17,7 +17,7 @@ print()
 lst1.sort(reverse=True)  # m-1
 print(lst1)
 lst1.reverse()  # m-2, both works the same
-print(lst1)  # ---> revered 2 times, hence normal now
+print(lst1)  # --> revered 2 times, hence normal now
 print()
 
 # index(): This method returns the index of the first occurrence of the list item.

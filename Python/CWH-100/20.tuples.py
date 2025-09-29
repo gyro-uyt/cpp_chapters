@@ -20,7 +20,7 @@ print(lst1[2])
 # print(lst1[34])
 
 if 3421 in lst1:
-    print("Yes 342 is present in this tuple")
+    print("Yes 3421 is present in this tuple")
 else:
     print("Not prenset")
 
