@@ -16,9 +16,10 @@ if (isTrue) {
     console.log("You saved your computer from blasting");
 }
 
-// elements like prompt/log/etc are present only in browser, hence this script will not be able to run on node as it doesn't recognises those elements
+// elements like prompt/log/etc are present only in browser, 
+// hence this script will not be able to run on node as it doesn't recognises those elements
 
 document.title = "Hey, I am good";
-document.body.style.backgroundColor = "hotpink"
+document.body.style.backgroundColor = "skyblue"
 
 console.log("This is Webstorm")

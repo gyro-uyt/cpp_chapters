@@ -31,6 +31,7 @@ console.log(a);
 // === equal value and type
 // !== not equal value or no equal type
 
+console.log(5 == "5");
 console.log(5 === "5"); // false as one in int and other is string
 console.log(5 === 5); // true
 

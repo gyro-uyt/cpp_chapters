@@ -2,11 +2,11 @@ console.log("Loops");
 
 /* 
 types of loops:
-    for loop
-    forin loop
-    forof loop
-    while loop
-    do while loop
+  for loop
+  forin loop
+  forof loop
+  while loop
+  do while loop
 */
 
 // for loop
