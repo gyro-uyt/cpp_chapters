@@ -9,7 +9,7 @@ ollama run deepseek-r1:1.5b
 
 ---
 
-## EndeavourOS
+## Endeavor OS
 
 ### Fix brightness problem on RTX laptops
 
@@ -27,6 +27,13 @@ Then update GRUB:
 
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### Enable Bluetooth
+
+```bash
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
 ```
 
 ### Get Fish shell
