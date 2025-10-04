@@ -36,6 +36,15 @@ sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 ```
 
+### Fix DNS resolution issue
+
+```bash
+sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+sudo systemctl restart systemd-resolved
+sudo bash -c 'echo -e "[Resolve]\nDNS=1.1.1.1 8.8.8.8\nFallbackDNS=1.0.0.1 8.8.4.4" > /etc/systemd/resolved.conf.d/dns.conf'
+sudo systemctl restart systemd-resolved
+```
+
 ### Get Fish shell
 
 ```bash
