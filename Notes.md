@@ -112,6 +112,13 @@ source ~/.vimrc " Reload config instantly
 
 ---
 
+## VSCode
+
+- ctrl+Spacebar -> intelliSense suggestions
+- alt+mouseClick -> multi-curson functionality
+
+--- 
+
 ## Hyprland
 
 ```bash
@@ -155,13 +162,8 @@ _(Replace `camel` with your current assignment)_
 Use the Fish-compatible activation script:
 
 ```bash
+python3 -m venv venv
 source venv/bin/activate.fish
-```
-
-Then install **black**:
-
-```bash
-pip install black
 ```
 
 ---
