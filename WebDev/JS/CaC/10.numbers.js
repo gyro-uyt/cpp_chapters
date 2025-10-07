@@ -20,4 +20,13 @@ const num2 = 312.4342;
 console.log(num2.toPrecision(4)); // doesn't see decimals or ints just rounds off
 console.log(num2.toPrecision(2)); // rounds off to 2 digits => 3.1e+2, converted to exponential
 
+let num3 = 1000000;
+console.log(num3);
+console.log(num3.toLocaleString()); // converts number into local format, eg: 1,000,000
+console.log(num3.toLocaleString("en-IN")); // converts number into Indian format
 
+// returns the max and min values that can be represented
+console.log(Number.MAX_VALUE);
+console.log(Number.MIN_VALUE);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(Number.MIN_SAFE_INTEGER);
