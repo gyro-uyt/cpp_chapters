@@ -4,7 +4,7 @@ using namespace std;
 int main() {
   // 2d array
   int arr1[5] = {12, 42, 23, 54, 67};
-//   cout << arr1[2] << endl;
+  //   cout << arr1[2] << endl;
 
   int arr2[2][2] = {{12, 34}, {23, 34}};
 
