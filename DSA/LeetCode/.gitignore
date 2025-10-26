@@ -1,5 +1,8 @@
 # Ignore all files with no extension
 *
 !*.cpp
+!*.js
+!*.py
+!*.java
 !*.h
 !*.gitignore
