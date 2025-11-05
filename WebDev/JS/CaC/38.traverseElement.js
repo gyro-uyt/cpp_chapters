@@ -23,3 +23,7 @@ console.log(day1.parentElement);
 // children -> children (sibling)
 console.log(day1.nextElementSibling);
 console.log(day1.nextElementSibling.nextElementSibling);
+
+// childNodes, gives NodeList it contains everything line breaks, attributes, texts, etc.
+console.log("Nodes: ", parent.childNodes);
+

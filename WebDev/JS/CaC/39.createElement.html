@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chai-Bngyi?</title>
+  </head>
+  <body style="background-color: rgb(13, 23, 17); color: yellowgreen">
+    <script>
+      const div1 = document.createElement("div");
+      console.log(div1);
+
+      div1.className = "main";
+      div1.id = Math.round(Math.random() * 10 + 1);
+
+      // to add custom attributes (other than standards, which you set like above)
+      div1.setAttribute("title", "modi");
+      div1.style.backgroundColor = "blue";
+      div1.style.padding = "3px 9px";
+
+      // This method is not good for time-optimization as it first copies the element and then adds, whereas in methods like setAttributes it directly adds
+      //   div1.innerText = "Hey, Ryan";
+      const addText = document.createTextNode("Hey, Ryan");
+      div1.appendChild(addText);
+      // this method and the above method both are correct, which one is better, is question of debate
+
+      // These changes are not yet displayed on page bcz. these changes are still on memory not attached to page
+      document.body.appendChild(div1);
+    </script>
+  </body>
+</html>
