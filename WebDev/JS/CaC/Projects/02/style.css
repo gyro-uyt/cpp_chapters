@@ -1,0 +1,50 @@
+HTML {
+  background-color: rgb(5, 33, 26);
+}
+.container {
+  width: 575px;
+  height: 825px;
+  color: rgb(12, 200, 5);
+  background-color: #2c1004;
+  padding-left: 30px;
+}
+#height,
+#weight {
+  width: 150px;
+  height: 25px;
+  margin-top: 30px;
+}
+
+#weight-guide {
+  border: #4a0f0a 2px solid;
+  margin-left: 75px;
+  margin-top: 25px;
+}
+
+#results {
+  border: #4a0f0a 2px solid;
+  font-size: 35px;
+  margin-left: 90px;
+  margin-top: 20px;
+  color: rgb(241, 241, 241);
+}
+
+button {
+  width: 150px;
+  height: 35px;
+  margin-left: 90px;
+  margin-top: 25px;
+  background-color: #d8f499;
+  padding: 1px 30px;
+  border-radius: 8px;
+  color: #212121;
+  text-decoration: none;
+  border: 2px solid #212121;
+
+  font-size: 25px;
+}
+
+h1 {
+  padding-left: 15px;
+  padding-top: 25px;
+}
