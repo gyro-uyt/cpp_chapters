@@ -1,6 +1,20 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    # set_color --underline=single
-    set fish_greeting ""
-    set -x GEMINI_API_KEY "AIzaSyAQNaR5qmrp8C61_Lov-3ushrTaOxLcKDQ"
+    set -g fish_greeting ""
+    set -Ux TERM xterm-256color
+    
+    # Set default editor
+    set -Ux EDITOR vim
+
+    # Add some useful paths
+    set -Ux PATH $PATH ~/.local/bin ~/.cargo/bin /usr/local/bin
+
+    # Alias section
+    alias ls="ls --color=auto"
+    alias ll="ls -lh"
+    alias la="ls -lha"
+    alias ..="cd .."
+    alias update="sudo pacman -Syu"
+    alias cat="bat"  # if you install bat
+    alias grep="grep --color=auto"
+
 end
