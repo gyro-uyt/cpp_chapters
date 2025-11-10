@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/Main.cpp.dir/link.d CMakeFiles/Main.cpp.dir/rough.cpp.o -o Main.cpp   -L/home/linuxbrew  -Wl,-rpath,/home/linuxbrew -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network

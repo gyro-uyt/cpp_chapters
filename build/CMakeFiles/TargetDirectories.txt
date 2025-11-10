@@ -1,3 +1,0 @@
-/home/aura/BX/cpp_chapters/build/CMakeFiles/Main.cpp.dir
-/home/aura/BX/cpp_chapters/build/CMakeFiles/edit_cache.dir
-/home/aura/BX/cpp_chapters/build/CMakeFiles/rebuild_cache.dir
