@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events kb attend kroge?</title>
+    <style>
+      HTML {
+        background-color: rgb(21, 21, 30);
+        color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <h2>Amazing Images</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+    <script>
+      // document.getElementById("owl").onclick = () => {
+      // alert("Owl clicked");
+      // };
+      // attachEvent()
+      // jQuery - on
+      // study about events: types, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget,
+      // clientX, clientY, screenX, screenY, altkey, ctrlkey, shiftkey, keCode,
+
+      // Syntax:
+      // document.getElementById('owl').addEventListener('event', function, bool) // default value of bool=false
+      document.getElementById("owl").addEventListener(
+        "click",
+        (e) => {
+          // alert("Owl Clicked again");
+          console.log(e); // events gives us an object 'e' to use
+        },
+        false
+      );
+
+      // Note: here bool(T/F) is Event Propagation which can be: Event Bubbling & Event Capturing
+
+      // false -> bubbling (inner to outer)
+      // innermost element sbse pehle execute hoga fir uske outer then uske outer and so on...
+      document.getElementById("images").addEventListener(
+        "click",
+        (e) => {
+          console.log("images clicked");
+        },
+        false
+      );
+      document.getElementById("owl").addEventListener(
+        "click",
+        (e) => {
+          console.log("owl clicked"); // propagation starts from here
+          e.stopPropagation(); // stops the propagation, meaning bubble will stop, hence the outer "images clicked" will Not execute
+        },
+        false
+      );
+
+      // true -> Capturing (outer to inner)
+      // document.getElementById("images").addEventListener(
+      //   "click",
+      //   (e) => {
+      //     console.log("images clicked"); // propagation starts from here
+      //   },
+      //   true
+      // );
+      // document.getElementById("owl").addEventListener(
+      //   "click",
+      //   (e) => {
+      //     console.log("owl clicked");
+      //   },
+      //   true
+      // );
+
+      document.getElementById("google").addEventListener(
+        "click",
+        (e) => {
+          e.preventDefault(); // prevent the default action, in this case it stops the opening of the given link for achor tag
+          e.stopPropagation();
+          console.log("Google clicked");
+        },
+        false
+      );
+      document.querySelector("#images").addEventListener(
+        "click",
+        (e) => {
+          // console.log(e.target); // shows from where this event is occuring
+          // console.log(e.target.parentNode);
+          // console.log(e.target.parentNode.parentNode);
+          console.log(e.target.tagName);
+          // Needs this condition, Otherwise clicking on li will remove whole list as it's parent in ul
+          if (e.target.tagName === "IMG") {
+            console.log(e.target.id);
+            let removeItem = e.target.parentNode;
+            removeItem.remove();
+            // removeItem.parentNode.removeChild(removeItem);
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
