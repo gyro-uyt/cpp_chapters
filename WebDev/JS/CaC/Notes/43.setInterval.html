@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai Async-1</title>
+    <style>
+      HTML {
+        background-color: #1b1d24;
+        color: yellow;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Async-1</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+      const sayDate = (str) => {
+        console.log("Repeat krega hr 1 sec main", Date.now(), str);
+      };
+
+      let intervalId;
+
+      document.querySelector("#start").addEventListener("click", () => {
+        intervalId = setInterval(sayDate, 1000, "Hi"); // 3rd parameter can aslo be given
+      });
+
+      document.querySelector("#stop").addEventListener("click", () => {
+        clearInterval(intervalId); // stops the setInterval
+      });
+    </script>
+  </body>
+</html>

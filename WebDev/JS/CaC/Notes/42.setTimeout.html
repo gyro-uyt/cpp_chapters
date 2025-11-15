@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai Async-1</title>
+    <style>
+      HTML {
+        background-color: #1b1d24;
+        color: yellow;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Async-1</h1>
+    <button id="stop">Stop</button>
+    <script>
+      // Functions like setTimeout, setInterval, etc. are not part of core JS
+      // setTimeout(handler/function, time in ms)
+      // setTimeout executes the function once after the given time
+      setTimeout(() => {
+        console.log("Yokaso");
+      }, 2000);
+
+      const sayBoom = function () {
+        console.log("Boom!");
+      };
+      setTimeout(sayBoom, 3000); // setTimeout takes handler, so give reference to function, do not execute it by ()
+
+      const changeText = function () {
+        document.querySelector("h1").innerHTML = "BOOM";
+      };
+      const change = setTimeout(changeText, 5000);
+
+      // Used to give pop-ups after entering a website or whatever
+      // Now, how to stop this timeout
+      document.querySelector("#stop").addEventListener("click", function () {
+        clearTimeout(change);
+        console.log("Stopped timeout");
+      });
+    </script>
+  </body>
+</html>
