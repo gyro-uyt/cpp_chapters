@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Api pdh lo</title>
+    <style>
+      HTML {
+        background-color: #212121;
+        color: bisque;
+      }
+      #card {
+        text-align: center;
+        align-content: center;
+        border: 2px solid gold;
+        height: 200px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div id="card"></div>
+    </div>
+    <script>
+      const card = document.querySelector("#card");
+      const requestURL = "https://api.github.com/users/gyro-uyt";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", requestURL);
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText); // this.responseText usually gives the data in string, we need to convert it to JSON for easy access
+          console.log(data);
+          console.log(data.followers);
+          card.innerHTML = `<img src="${data.avatar_url}" height="100px" width="" alt="Profile photo"> <br> Name: ${data.name} <br> Followers: ${data.followers}`;
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
