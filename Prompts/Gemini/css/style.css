@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: hidden;
+        user-select: none;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Wallpaper with Gradient Fallback */
+      .wallpaper {
+        /* Fallback Gradient if image fails */
+        background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+        /* Reliable Abstract Wallpaper */
+        background-image: url("https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2940&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transition: transform 0.5s ease;
+      }
+
+      /* Glassmorphism Utilities */
+      .glass {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(30px) saturate(150%);
+        -webkit-backdrop-filter: blur(30px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25),
+          0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .glass-dark {
+        background: rgba(30, 32, 36, 0.85);
+        backdrop-filter: blur(30px) saturate(120%);
+        -webkit-backdrop-filter: blur(30px) saturate(120%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+      }
+
+      .dock-glass {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(25px) saturate(150%);
+        -webkit-backdrop-filter: blur(25px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      /* Window Animations */
+      .window {
+        transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), opacity 0.15s,
+          width 0.25s ease-in-out, height 0.25s ease-in-out,
+          top 0.25s ease-in-out, left 0.25s ease-in-out;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        resize: both;
+        border-radius: 12px;
+        box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .window.minimized {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.7) translateY(400px);
+      }
+
+      /* Dock Animations - FIXED */
+      @keyframes bounce-anim {
+        0% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-35px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+        70% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .dock-item {
+        transition: transform 0.2s ease;
+      }
+
+      /* Hover Scale Effect */
+      .dock-item:hover .dock-icon {
+        transform: scale(1.15) translateY(-5px);
+      }
+
+      /* Bounce Class (Applied via JS) */
+      .dock-icon {
+        transition: transform 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+        transform-origin: center bottom;
+      }
+
+      .dock-icon.animate-bounce-custom {
+        animation: bounce-anim 0.8s cubic-bezier(0.28, 0.84, 0.42, 1);
+        /* Override hover transform during animation */
+        transform: none !important;
+      }
+
+      .active-dot {
+        height: 4px;
+        width: 4px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-top: 6px;
+        opacity: 0;
+        transition: opacity 0.2s;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+      }
+      .dock-item.active .active-dot {
+        opacity: 1;
+      }
+
+      /* Traffic Lights - Authentic Spacing */
+      .window-controls {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-left: 8px;
+      }
+      .traffic-light {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.15);
+        cursor: default;
+      }
+      .traffic-light span {
+        font-family: system-ui, sans-serif;
+        font-size: 8px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: opacity 0.1s;
+        line-height: 1;
+        padding-top: 1px;
+      }
+      .window-controls:hover .traffic-light span {
+        opacity: 1;
+      }
+
+      .tl-close {
+        background-color: #ff5f57;
+      }
+      .tl-close:active {
+        background-color: #bf4842;
+      }
+      .tl-min {
+        background-color: #febc2e;
+      }
+      .tl-min:active {
+        background-color: #bf8e22;
+      }
+      .tl-max {
+        background-color: #28c840;
+      }
+      .tl-max:active {
+        background-color: #1e9630;
+      }
+
+      /* Calculator - Improved Layout */
+      .calc-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+      }
+      .calc-btn {
+        height: 65px; /* Taller buttons */
+        font-size: 1.35rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s;
+      }
+      .calc-btn:active {
+        filter: brightness(1.2);
+      }
+
+      /* Control Center */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 34px;
+        height: 20px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196F3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(14px);
+      }
+
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+
+      /* Desktop Icons */
+      .desktop-icon {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        cursor: pointer;
+      }
+
+      .desktop-icon span {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      body.no-dock .dock-glass {
+        display: none;
+      }

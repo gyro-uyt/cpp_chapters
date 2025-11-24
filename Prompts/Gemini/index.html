@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>macOS Sequoia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body
+    class="h-screen w-screen overflow-hidden text-gray-800 selection:bg-blue-500 selection:text-white"
+  >
+    <!-- Boot Screen -->
+    <div id="boot-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-[10000]">
+      <svg class="w-24 h-24 text-white mb-4" viewBox="0 0 384 512">
+        <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/>
+      </svg>
+      <div class="w-48 h-1 bg-gray-700 rounded-full overflow-hidden">
+        <div id="boot-progress" class="h-full bg-white" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Lock Screen -->
+    <div id="lock-screen" class="hidden fixed inset-0 bg-black/50 backdrop-blur-2xl flex flex-col items-center justify-center z-[9999]">
+      <div class="text-center text-white">
+        <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="User" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h2 class="text-2xl font-semibold">User</h2>
+        <div class="mt-4">
+          <input id="password-input" type="password" placeholder="Enter Password" class="bg-white/20 border border-white/30 rounded-full px-4 py-2 text-center text-white placeholder-white/70 outline-none">
+          <button onclick="login()" class="ml-2 bg-blue-500 hover:bg-blue-600 rounded-full px-4 py-2">Login</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Background -->
+    <div class="wallpaper" id="desktop" onclick="deselectAll()"></div>
+
+    <!-- Menu Bar -->
+    <div
+      class="fixed top-0 w-full h-8 glass flex items-center justify-between px-5 z-50 text-sm font-medium shadow-sm"
+    >
+      <div class="flex items-center space-x-5">
+        <svg
+          class="w-4 h-4 fill-current opacity-90 drop-shadow-sm"
+          viewBox="0 0 384 512"
+          onclick="toggleMenu('apple-menu')"
+        >
+          <path
+            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"
+          />
+        </svg>
+
+        <span class="font-bold tracking-wide" id="active-app-name">Finder</span>
+        <span
+          class="hidden md:inline opacity-90 hover:opacity-100 cursor-default"
+          >File</span
+        >
+        <span
+          class="hidden md:inline opacity-90 hover:opacity-100 cursor-default"
+          >Edit</span
+        >
+        <span
+          class="hidden md:inline opacity-90 hover:opacity-100 cursor-default"
+          >View</span
+        >
+        <span
+          class="hidden md:inline opacity-90 hover:opacity-100 cursor-default"
+          >Go</span
+        >
+        <span
+          class="hidden md:inline opacity-90 hover:opacity-100 cursor-default"
+          >Window</span
+        >
+        <span
+          class="hidden md:inline opacity-90 hover:opacity-100 cursor-default"
+          >Help</span
+        >
+      </div>
+      <div class="flex items-center space-x-4">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm0-12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"
+          />
+        </svg>
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 17h18v2H3v-2zm0-6h18v2H3v-2zm0-6h18v2H3V5z" />
+        </svg>
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" onclick="toggleMenu('control-center')">
+          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <span
+          id="clock"
+          class="text-sm font-semibold tracking-wide min-w-[120px] text-right"
+        ></span>
+      </div>
+    </div>
+
+    <!-- Apple Menu Dropdown -->
+    <div id="apple-menu" class="hidden absolute top-8 left-2 bg-white/80 backdrop-blur-md rounded-b-lg shadow-lg w-60 text-sm z-50">
+      <div class="p-2">
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">About This Mac</a>
+      </div>
+      <div class="border-t border-gray-300/50 my-1"></div>
+      <div class="p-2">
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">System Settings...</a>
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">App Store...</a>
+      </div>
+      <div class="border-t border-gray-300/50 my-1"></div>
+      <div class="p-2">
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Sleep</a>
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white" onclick="restart()">Restart...</a>
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white" onclick="shutdown()">Shut Down...</a>
+      </div>
+      <div class="border-t border-gray-300/50 my-1"></div>
+      <div class="p-2">
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Lock Screen</a>
+        <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Log Out User...</a>
+      </div>
+    </div>
+
+    <!-- Control Center Dropdown -->
+    <div id="control-center" class="hidden absolute top-8 right-2 bg-white/80 backdrop-blur-md rounded-b-lg shadow-lg w-80 text-sm z-50 p-4">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white/50 rounded-lg p-3">
+          <div class="flex items-center justify-between">
+            <span class="font-semibold">WiFi</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="text-xs text-gray-600">Home Network</div>
+        </div>
+        <div class="bg-white/50 rounded-lg p-3">
+          <div class="flex items-center justify-between">
+            <span class="font-semibold">Bluetooth</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="text-xs text-gray-600">On</div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <div class="font-semibold mb-2">Display</div>
+        <input type="range" class="w-full h-1 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-blue-500">
+      </div>
+      <div class="mt-4">
+        <div class="font-semibold mb-2">Sound</div>
+        <input type="range" class="w-full h-1 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-blue-500">
+      </div>
+    </div>
+
+    <!-- Windows Container -->
+    <div
+      id="windows-container"
+      class="relative w-full h-full pt-8 pb-24 pointer-events-none"
+    >
+      <!-- MS Word Window -->
+      <div
+        id="win-word"
+        class="window glass w-[800px] h-[600px] top-16 left-24 pointer-events-auto flex flex-col hidden"
+        onmousedown="focusWindow('win-word')"
+      >
+        <div
+          class="h-12 bg-transparent flex items-center px-4 shrink-0 drag-handle cursor-default border-b border-black/5"
+        >
+          <div class="window-controls mr-4">
+            <div
+              class="traffic-light tl-close"
+              onclick="closeWindow('win-word')"
+            >
+              <span>×</span>
+            </div>
+            <div
+              class="traffic-light tl-min"
+              onclick="minimizeWindow('win-word')"
+            >
+              <span>−</span>
+            </div>
+            <div
+              class="traffic-light tl-max"
+              onclick="maximizeWindow('win-word')"
+            >
+              <span>+</span>
+            </div>
+          </div>
+          <div
+            class="flex-1 text-center text-sm font-semibold text-gray-600 mr-14"
+          >
+            Document 1
+          </div>
+          <button
+            onclick="downloadDoc()"
+            class="text-xs bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded shadow-sm transition"
+          >
+            Save .txt
+          </button>
+        </div>
+
+        <div
+          class="bg-white/50 border-b border-gray-200/50 p-2 flex space-x-2 items-center shrink-0 backdrop-blur-sm"
+        >
+          <div class="flex bg-gray-200/50 rounded-lg p-1 space-x-1">
+            <button
+              class="p-1.5 hover:bg-white rounded transition"
+              onclick="formatDoc('bold')"
+            >
+              <b>B</b>
+            </button>
+            <button
+              class="p-1.5 hover:bg-white rounded transition"
+              onclick="formatDoc('italic')"
+            >
+              <i>I</i>
+            </button>
+            <button
+              class="p-1.5 hover:bg-white rounded transition"
+              onclick="formatDoc('underline')"
+            >
+              <u>U</u>
+            </button>
+          </div>
+          <div class="w-px h-6 bg-gray-300 mx-2"></div>
+          <div class="flex bg-gray-200/50 rounded-lg p-1 space-x-1">
+            <button
+              class="p-1.5 hover:bg-white rounded transition"
+              onclick="formatDoc('insertOrderedList')"
+            >
+              OL
+            </button>
+            <button
+              class="p-1.5 hover:bg-white rounded transition"
+              onclick="formatDoc('insertUnorderedList')"
+            >
+              UL
+            </button>
+          </div>
+          <div class="w-px h-6 bg-gray-300 mx-2"></div>
+          <input type="color" onchange="formatDoc('foreColor', this.value)" class="w-8 h-8 rounded-full cursor-pointer border-2 border-white shadow-sm p-0 overflow-hidden">
+          <div class="w-px h-6 bg-gray-300 mx-2"></div>
+          <button
+            class="p-1.5 hover:bg-white rounded transition"
+            onclick="openFile()"
+          >
+            Open
+          </button>
+          <div class="w-px h-6 bg-gray-300 mx-2"></div>
+          <select
+            onchange="formatDoc('fontName', this.value)"
+            class="text-xs border-none bg-transparent rounded p-1 outline-none font-medium text-gray-700 hover:bg-black/5"
+          >
+            <option value="Inter">Inter</option>
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Courier New">Courier</option>
+          </select>
+          <select
+            onchange="formatDoc('fontSize', this.value)"
+            class="text-xs border-none bg-transparent rounded p-1 outline-none font-medium text-gray-700 hover:bg-black/5 w-12"
+          >
+            <option value="3">12</option>
+            <option value="5">18</option>
+            <option value="6">24</option>
+            <option value="7">36</option>
+          </select>
+        </div>
+
+        <div
+          class="flex-1 bg-[#F2F2F2] overflow-y-auto p-8 cursor-text flex justify-center"
+          onclick="document.getElementById('word-editor').focus()"
+        >
+          <div
+            id="word-editor"
+            class="bg-white w-full max-w-[8.5in] min-h-[11in] p-12 text-black shadow-sm outline-none"
+            contenteditable="true"
+          >
+            <h1 style="font-size: 2em; font-weight: 700; margin-bottom: 0.5em">
+              macOS Sequoia Notes
+            </h1>
+            <p>Welcome to the updated editor. Functionality added:</p>
+            <ul
+              style="list-style-type: disc; margin-left: 20px; margin-top: 10px"
+            >
+              <li><b>Professional UI:</b> Cleaner typography and shadows.</li>
+              <li><b>Traffic Lights:</b> Authentic macOS hover behavior.</li>
+              <li>
+                <b>Save Feature:</b> Click the blue "Save .txt" button top
+                right.
+              </li>
+            </ul>
+            <br />
+            <p>Type freely...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chrome Window -->
+      <div
+        id="win-chrome"
+        class="window bg-[#3C3C3C] w-[900px] h-[600px] top-20 left-32 pointer-events-auto flex flex-col hidden shadow-2xl"
+        onmousedown="focusWindow('win-chrome')"
+      >
+        <div
+          class="h-10 bg-[#35363A] flex items-end px-2 space-x-2 shrink-0 drag-handle pt-2"
+        >
+          <div class="window-controls mr-4 mb-2">
+            <div
+              class="traffic-light tl-close"
+              onclick="closeWindow('win-chrome')"
+            >
+              <span>×</span>
+            </div>
+            <div
+              class="traffic-light tl-min"
+              onclick="minimizeWindow('win-chrome')"
+            >
+              <span>−</span>
+            </div>
+            <div
+              class="traffic-light tl-max"
+              onclick="maximizeWindow('win-chrome')"
+            >
+              <span>+</span>
+            </div>
+          </div>
+
+          <div id="chrome-tabs" class="flex items-end space-x-2">
+            <div
+              class="bg-[#202124] rounded-t-lg px-4 py-2 text-xs flex items-center w-56 mb-0 h-8 relative bottom-0 text-gray-200 group"
+            >
+              <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+              <span class="truncate w-full font-medium">New Tab</span>
+              <span
+                class="ml-2 cursor-pointer opacity-0 group-hover:opacity-100 hover:bg-white/20 rounded-full p-0.5 text-[10px]"
+                >✕</span
+              >
+            </div>
+          </div>
+          <button onclick="addChromeTab()" class="ml-2 mb-1 text-white/50 hover:text-white">+</button>
+        </div>
+
+        <div
+          class="bg-[#202124] border-b border-[#000] p-2 flex items-center space-x-3 shrink-0"
+        >
+          <div class="flex space-x-2 text-gray-400">
+            <button class="hover:bg-white/10 p-1.5 rounded-full transition">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
+            <button class="hover:bg-white/10 p-1.5 rounded-full transition">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+            <button
+              class="hover:bg-white/10 p-1.5 rounded-full transition"
+              onclick="reloadIframe()"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div
+            class="flex-1 bg-[#303134] rounded-full px-4 py-1.5 text-sm flex items-center border border-transparent focus-within:border-blue-500/50 focus-within:bg-[#202124] transition-colors"
+          >
+            <svg
+              class="w-3 h-3 text-gray-400 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              ></path>
+            </svg>
+            <input
+              type="text"
+              id="chrome-url"
+              class="bg-transparent w-full outline-none text-gray-200 placeholder-gray-500"
+              value="https://www.wikipedia.org"
+              onkeydown="if(event.key === 'Enter') loadUrl()"
+            />
+          </div>
+          <div class="flex items-center">
+            <div
+              class="w-7 h-7 bg-purple-600 rounded-full flex items-center justify-center text-xs text-white font-bold"
+            >
+              M
+            </div>
+          </div>
+        </div>
+
+        <div id="chrome-content" class="flex-1 bg-white relative">
+          <iframe
+            id="browser-frame"
+            src="https://www.wikipedia.org"
+            class="w-full h-full border-none"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Calculator Window (Resized) -->
+      <div
+        id="win-calc"
+        class="window glass-dark rounded-2xl shadow-2xl w-[300px] h-[450px] top-32 left-[600px] pointer-events-auto flex flex-col hidden border border-white/10"
+        onmousedown="focusWindow('win-calc')"
+      >
+        <div
+          class="h-8 flex items-center px-4 shrink-0 drag-handle justify-start mt-2"
+        >
+          <div class="window-controls">
+            <div
+              class="traffic-light tl-close"
+              onclick="closeWindow('win-calc')"
+            >
+              <span>×</span>
+            </div>
+            <div
+              class="traffic-light tl-min"
+              onclick="minimizeWindow('win-calc')"
+            >
+              <span>−</span>
+            </div>
+            <div
+              class="traffic-light tl-max"
+              onclick="maximizeWindow('win-calc')"
+            >
+              <span>+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-4 pb-2 text-right flex-1 flex flex-col items-end justify-end">
+          <div id="calc-history" class="text-gray-400 text-xl h-12 overflow-y-auto"></div>
+          <div
+            class="text-white text-6xl font-light tracking-tight truncate select-text"
+            id="calc-display"
+          >
+            0
+          </div>
+        </div>
+
+        <div id="scientific-calc" class="hidden grid grid-cols-5 gap-px p-1">
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('(')">(</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp(')')">)</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('mc')">mc</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('m+')">m+</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('m-')">m-</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('mr')">mr</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('2nd')">2nd</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('x^2')">x²</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('x^3')">x³</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('x^y')">xʸ</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('e^x')">eˣ</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('10^x')">10ˣ</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('1/x')">1/x</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('sqrt')">√</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('cbrt')">∛</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('y/x')">ʸ√x</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('ln')">ln</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('log10')">log₁₀</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('x!')">x!</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('sin')">sin</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('cos')">cos</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('tan')">tan</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('e')">e</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('EE')">EE</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('Rad')">Rad</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('sinh')">sinh</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('cosh')">cosh</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('tanh')">tanh</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('pi')">π</button>
+          <button class="calc-btn bg-gray-700 text-white" onclick="calcOp('Rand')">Rand</button>
+        </div>
+
+        <div class="calc-grid bg-transparent p-0 flex-none">
+          <button
+            class="calc-btn bg-[#606060] text-white"
+            onclick="toggleScientific()"
+          >
+            Sci
+          </button>
+          <button
+            class="calc-btn bg-[#606060] text-white"
+            onclick="calcClear()"
+          >
+            AC
+          </button>
+          <button
+            class="calc-btn bg-[#606060] text-white"
+            onclick="calcToggleSign()"
+          >
+            +/-
+          </button>
+          <button
+            class="calc-btn bg-[#606060] text-white"
+            onclick="calcPercent()"
+          >
+            %
+          </button>
+          <button
+            class="calc-btn bg-[#FF9F0A] text-white text-2xl pb-1"
+            onclick="calcOp('/')"
+          >
+            ÷
+          </button>
+
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(7)">
+            7
+          </button>
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(8)">
+            8
+          </button>
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(9)">
+            9
+          </button>
+          <button
+            class="calc-btn bg-[#FF9F0A] text-white text-2xl pb-1"
+            onclick="calcOp('*')"
+          >
+            ×
+          </button>
+
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(4)">
+            4
+          </button>
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(5)">
+            5
+          </button>
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(6)">
+            6
+          </button>
+          <button
+            class="calc-btn bg-[#FF9F0A] text-white text-2xl pb-1"
+            onclick="calcOp('-')"
+          >
+            −
+          </button>
+
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(1)">
+            1
+          </button>
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(2)">
+            2
+          </button>
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcNum(3)">
+            3
+          </button>
+          <button
+            class="calc-btn bg-[#FF9F0A] text-white text-2xl pb-1"
+            onclick="calcOp('+')"
+          >
+            +
+          </button>
+
+          <button
+            class="calc-btn bg-[#808080] text-white col-span-2 rounded-bl-xl pl-6 text-left justify-start"
+            onclick="calcNum(0)"
+          >
+            0
+          </button>
+          <button class="calc-btn bg-[#808080] text-white" onclick="calcDot()">
+            .
+          </button>
+          <button
+            class="calc-btn bg-[#FF9F0A] text-white rounded-br-xl"
+            onclick="calcEqual()"
+          >
+            =
+          </button>
+        </div>
+      </div>
+
+      <!-- Paint Window -->
+      <div
+        id="win-paint"
+        class="window glass w-[600px] h-[500px] top-24 left-[450px] pointer-events-auto flex flex-col hidden"
+        onmousedown="focusWindow('win-paint')"
+      >
+        <div
+          class="h-12 border-b border-gray-200/50 flex items-center px-4 shrink-0 drag-handle justify-between bg-white/40 backdrop-blur-md"
+        >
+          <div class="window-controls">
+            <div
+              class="traffic-light tl-close"
+              onclick="closeWindow('win-paint')"
+            >
+              <span>×</span>
+            </div>
+            <div
+              class="traffic-light tl-min"
+              onclick="minimizeWindow('win-paint')"
+            >
+              <span>−</span>
+            </div>
+            <div
+              class="traffic-light tl-max"
+              onclick="maximizeWindow('win-paint')"
+            >
+              <span>+</span>
+            </div>
+          </div>
+          <span class="text-gray-600 text-sm font-semibold tracking-wide"
+            >Sketch</span
+          >
+          <button
+            onclick="savePainting()"
+            class="text-xs bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-1 rounded shadow-sm transition"
+          >
+            Save Image
+          </button>
+        </div>
+
+        <div
+          class="bg-white/60 p-2 flex items-center space-x-4 border-b border-gray-200/50 shrink-0 backdrop-blur-sm"
+        >
+          <button
+            onclick="toggleEraser()"
+            id="eraser-btn"
+            class="px-3 py-1 bg-white border rounded-md shadow-sm text-xs font-medium hover:bg-gray-50 transition"
+          >
+            Eraser
+          </button>
+          <button
+            onclick="clearCanvas()"
+            class="px-3 py-1 bg-white border rounded-md shadow-sm text-xs font-medium text-red-500 hover:bg-red-50 transition"
+          >
+            Clear All
+          </button>
+          <div class="h-6 w-px bg-gray-300"></div>
+          <button
+            onclick="undoPaint()"
+            class="px-3 py-1 bg-white border rounded-md shadow-sm text-xs font-medium hover:bg-gray-50 transition"
+          >
+            Undo
+          </button>
+          <button
+            onclick="redoPaint()"
+            class="px-3 py-1 bg-white border rounded-md shadow-sm text-xs font-medium hover:bg-gray-50 transition"
+          >
+            Redo
+          </button>
+          <div class="h-6 w-px bg-gray-300"></div>
+          <button
+            onclick="setPaintTool('rect')"
+            class="px-3 py-1 bg-white border rounded-md shadow-sm text-xs font-medium hover:bg-gray-50 transition"
+          >
+            Rect
+          </button>
+          <button
+            onclick="setPaintTool('circle')"
+            class="px-3 py-1 bg-white border rounded-md shadow-sm text-xs font-medium hover:bg-gray-50 transition"
+          >
+            Circle
+          </button>
+          <button
+            onclick="setPaintTool('text')"
+            class="px-3 py-1 bg-white border rounded-md shadow-sm text-xs font-medium hover:bg-gray-50 transition"
+          >
+            Text
+          </button>
+        </div>
+
+        <div class="flex-1 bg-white overflow-hidden relative cursor-crosshair">
+          <canvas id="paint-canvas" class="w-full h-full block"></canvas>
+        </div>
+      </div>
+
+      <!-- Terminal Window -->
+      <div
+        id="win-terminal"
+        class="window bg-black/80 backdrop-blur-md w-[600px] h-[400px] top-48 left-64 pointer-events-auto flex flex-col hidden"
+        onmousedown="focusWindow('win-terminal')"
+      >
+        <div
+          class="h-8 bg-gray-800/50 flex items-center px-4 shrink-0 drag-handle"
+        >
+          <div class="window-controls">
+            <div
+              class="traffic-light tl-close"
+              onclick="closeWindow('win-terminal')"
+            >
+              <span>×</span>
+            </div>
+            <div
+              class="traffic-light tl-min"
+              onclick="minimizeWindow('win-terminal')"
+            >
+              <span>−</span>
+            </div>
+            <div
+              class="traffic-light tl-max"
+              onclick="maximizeWindow('win-terminal')"
+            >
+              <span>+</span>
+            </div>
+          </div>
+          <div class="flex-1 text-center text-sm font-semibold text-gray-300">
+            Terminal
+          </div>
+        </div>
+        <div id="terminal-output" class="p-2 text-green-400 font-mono text-sm flex-1 overflow-y-auto"></div>
+        <div class="flex items-center p-2">
+          <span class="text-green-400 font-mono text-sm mr-2">$</span>
+          <input
+            id="terminal-input"
+            type="text"
+            class="bg-transparent text-green-400 font-mono text-sm w-full outline-none"
+            onkeydown="if(event.key === 'Enter') runTerminalCommand()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Dock -->
+    <div
+      class="fixed bottom-2 left-0 right-0 flex justify-center z-[9999] pb-2"
+    >
+      <div
+        class="dock-glass px-2 pb-2 pt-2 rounded-2xl flex items-end space-x-3 shadow-2xl border border-white/20 relative"
+      >
+        <!-- Finder -->
+        <div
+          class="dock-item flex flex-col items-center group cursor-pointer"
+          onclick="animateBounce(this)"
+        >
+          <div
+            class="dock-icon w-14 h-14 bg-[#F5F5F7] rounded-2xl shadow-md flex items-center justify-center relative overflow-hidden border border-white/40"
+          >
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" class="w-12 h-12">
+                <path
+                  d="M10 20 Q 50 5 90 20 L 90 85 Q 50 100 10 85 Z"
+                  fill="url(#finderGrad)"
+                  stroke="#007AFF"
+                  stroke-width="2"
+                />
+                <defs>
+                  <linearGradient
+                    id="finderGrad"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #00c6ff; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #0072ff; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M50 35 Q 50 60 25 60"
+                  stroke="#003366"
+                  stroke-width="3"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M50 35 Q 50 60 75 60"
+                  stroke="#003366"
+                  stroke-width="3"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M50 35 L 50 75"
+                  stroke="#003366"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M25 60 Q 50 85 75 60"
+                  stroke="#003366"
+                  stroke-width="3"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="active-dot"></div>
+        </div>
+
+        <!-- Chrome -->
+        <div
+          class="dock-item flex flex-col items-center group cursor-pointer"
+          onclick="openApp('win-chrome'); animateBounce(this)"
+          id="dock-chrome"
+        >
+          <div
+            class="dock-icon w-14 h-14 bg-white rounded-2xl shadow-md p-1 relative overflow-hidden border border-white/40"
+          >
+            <div
+              class="w-full h-full rounded-full bg-blue-500 relative overflow-hidden flex items-center justify-center"
+            >
+              <div
+                class="absolute w-full h-full bg-red-500"
+                style="
+                  clip-path: polygon(0 0, 100% 0, 50% 50%);
+                  transform: rotate(-60deg) scale(1.5);
+                "
+              ></div>
+              <div
+                class="absolute w-full h-full bg-green-500"
+                style="
+                  clip-path: polygon(0 0, 100% 0, 50% 50%);
+                  transform: rotate(60deg) scale(1.5);
+                "
+              ></div>
+              <div
+                class="absolute w-full h-full bg-yellow-400"
+                style="
+                  clip-path: polygon(0 0, 100% 0, 50% 50%);
+                  transform: rotate(180deg) scale(1.5) translateY(-10%);
+                "
+              ></div>
+              <div
+                class="w-7 h-7 bg-white rounded-full z-10 flex items-center justify-center shadow-inner"
+              >
+                <div class="w-5 h-5 bg-blue-600 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+          <div class="active-dot"></div>
+        </div>
+
+        <!-- Word -->
+        <div
+          class="dock-item flex flex-col items-center group cursor-pointer"
+          onclick="openApp('win-word'); animateBounce(this)"
+          id="dock-word"
+        >
+          <div
+            class="dock-icon w-14 h-14 bg-[#185ABD] rounded-2xl shadow-md flex items-center justify-center relative text-white border border-white/20 overflow-hidden"
+          >
+            <div
+              class="absolute -left-4 -top-4 w-20 h-20 bg-white/10 rotate-45"
+            ></div>
+            <span class="font-bold text-3xl font-serif z-10 drop-shadow-md"
+              >W</span
+            >
+            <div
+              class="absolute right-2 bottom-2 w-3 h-1 bg-white/70 rounded-full"
+            ></div>
+            <div
+              class="absolute right-2 bottom-4 w-5 h-1 bg-white/70 rounded-full"
+            ></div>
+          </div>
+          <div class="active-dot"></div>
+        </div>
+
+        <!-- Paint -->
+        <div
+          class="dock-item flex flex-col items-center group cursor-pointer"
+          onclick="openApp('win-paint'); animateBounce(this)"
+          id="dock-paint"
+        >
+          <div
+            class="dock-icon w-14 h-14 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 rounded-2xl shadow-md flex items-center justify-center p-2 border border-white/20"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="white"
+              class="w-9 h-9 drop-shadow-md"
+            >
+              <path
+                d="M19.5 3.5L18 2l-1.5 1.5L20.5 7.5 22 6l-2.5-2.5zM17 5l-4.8 4.8 3.5 3.5L20.5 8.5 17 5zM5 13.5l-.5.5C3 15.5 3 17.5 4 19s3.5 2 5.5 2c1 0 2.5-.5 3.5-1.5l.5-.5-8.5-5.5z"
+              />
+            </svg>
+          </div>
+          <div class="active-dot"></div>
+        </div>
+
+        <!-- Calculator -->
+        <div
+          class="dock-item flex flex-col items-center group cursor-pointer"
+          onclick="openApp('win-calc'); animateBounce(this)"
+          id="dock-calc"
+        >
+          <div
+            class="dock-icon w-14 h-14 bg-[#333] rounded-2xl shadow-md relative flex flex-col p-2 border border-white/20"
+          >
+            <div
+              class="w-full h-5 bg-[#111] rounded-sm mb-1 text-right px-1 flex items-center justify-end"
+            >
+              <span class="text-[6px] text-green-400">123</span>
+            </div>
+            <div class="grid grid-cols-4 gap-0.5 flex-1 opacity-80">
+              <div class="bg-orange-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-orange-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-orange-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+              <div class="bg-gray-500 rounded-[1px]"></div>
+            </div>
+          </div>
+          <div class="active-dot"></div>
+        </div>
+
+        <!-- Terminal -->
+        <div
+          class="dock-item flex flex-col items-center group cursor-pointer"
+          onclick="openApp('win-terminal'); animateBounce(this)"
+          id="dock-terminal"
+        >
+          <div
+            class="dock-icon w-14 h-14 bg-black rounded-2xl shadow-md relative flex items-center justify-center p-2 border border-white/20"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-8 h-8 text-green-400"
+            >
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+          </div>
+          <div class="active-dot"></div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-px h-10 bg-gray-400/40 mx-1 my-auto"></div>
+
+        <!-- Trash -->
+        <div
+          class="dock-item flex flex-col items-center group cursor-pointer"
+          onclick="animateBounce(this)"
+        >
+          <div
+            class="dock-icon w-14 h-14 bg-gradient-to-b from-gray-100 to-gray-300 rounded-2xl shadow-md flex items-center justify-center relative border border-white/40"
+          >
+            <div
+              class="w-9 h-10 bg-white/80 rounded-b-lg relative border border-gray-300 shadow-inner"
+              style="border-top: none"
+            >
+              <div
+                class="absolute -top-0.5 left-0 w-full h-0.5 bg-gray-400"
+              ></div>
+              <div
+                class="w-[2px] h-6 bg-gray-300/50 absolute left-2 top-2"
+              ></div>
+              <div
+                class="w-[2px] h-6 bg-gray-300/50 absolute left-4.5 top-2"
+              ></div>
+              <div
+                class="w-[2px] h-6 bg-gray-300/50 absolute right-2 top-2"
+              ></div>
+            </div>
+          </div>
+          <div class="active-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <!-- Context Menu -->
+    <div id="context-menu" class="hidden absolute bg-white/80 backdrop-blur-md rounded-lg shadow-lg w-60 text-sm z-50 p-2">
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">New Folder</a>
+      <div class="border-t border-gray-300/50 my-1"></div>
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Get Info</a>
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Change Desktop Background...</a>
+      <div class="border-t border-gray-300/50 my-1"></div>
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Use Stacks</a>
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Sort By</a>
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Clean Up</a>
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Clean Up By</a>
+      <a href="#" class="block px-3 py-1.5 rounded-md hover:bg-blue-500 hover:text-white">Show View Options</a>
+    </div>
+  </body>
+</html>

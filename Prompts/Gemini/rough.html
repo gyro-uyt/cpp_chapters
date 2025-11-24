@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>gyroX Studio v3.5</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Python Engine (Skulpt) -->
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+    <!-- Syntax Highlighting (PrismJS) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    
+    <!-- Formatter (Prettier) -->
+    <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
+    <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #1e1e1e; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+        
+        body { overscroll-behavior-y: none; }
+        
+        /* Layout for Line Numbers + Editor */
+        .code-layout {
+            display: flex;
+            height: 100%;
+            position: relative;
+            background-color: #2d2d2d;
+        }
+
+        .line-numbers {
+            width: 40px;
+            background-color: #262626; 
+            color: #555;
+            text-align: right;
+            padding-top: 20px;
+            padding-right: 8px;
+            font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            user-select: none;
+            border-right: 1px solid #333;
+            overflow: hidden;
+            white-space: pre;
+            flex-shrink: 0;
+        }
+
+        .editor-wrapper {
+            flex: 1;
+            position: relative;
+            overflow: auto;
+            /* CRITICAL FIX FOR JUMPING: Prevents browser from auto-scrolling on layout change */
+            overflow-anchor: none; 
+        }
+
+        #editor {
+            font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 100%;
+            padding: 20px;
+            color: #ccc;
+            tab-size: 4;
+            outline: none;
+            white-space: pre; 
+            word-break: keep-all; /* Prevent weird wrapping issues */
+            caret-color: #00e5ff;
+        }
+
+        code[class*="language-"], pre[class*="language-"] {
+            text-shadow: none !important;
+            font-family: inherit !important;
+        }
+
+        /* Toolbar Styling */
+        .quick-toolbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .quick-toolbar::-webkit-scrollbar { display: none; }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+        .status-ready { background-color: #4ade80; }
+        .status-busy { background-color: #facc15; animation: pulse 1s infinite; }
+
+        /* Dropdown Menu Animation */
+        #menuDropdown {
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            transform-origin: top right;
+        }
+        .menu-hidden { opacity: 0; transform: scale(0.95); pointer-events: none; }
+        .menu-visible { opacity: 1; transform: scale(1); pointer-events: auto; }
+
+        /* Icon Button Hover Effect */
+        .icon-btn {
+            @apply p-2 rounded-lg text-gray-400 hover:text-white hover:bg-[#333] transition-all active:scale-95;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e] text-gray-200 h-screen flex flex-col font-sans overflow-hidden" onclick="closeMenuOutside(event)">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between px-3 py-2 bg-[#181818] border-b border-[#333] shrink-0 z-20 shadow-md relative h-14">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 mr-2">
+            <div id="statusDot" class="status-dot status-ready"></div>
+            <h1 class="text-sm font-bold tracking-wide text-white">
+                <span class="text-cyan-400">gyro</span>X
+            </h1>
+        </div>
+        
+        <!-- Main Controls -->
+        <div class="flex gap-1 items-center flex-1 justify-end">
+            
+            <!-- Language -->
+            <select id="langSelector" class="bg-[#2a2a2a] text-xs text-gray-200 px-2 py-1.5 rounded border border-[#444] outline-none focus:border-cyan-500 w-[4.5rem] mr-1">
+                <option value="js" selected>Js</option>
+                <option value="python">Py</option>
+                <option value="html">Html</option>
+            </select>
+
+            <!-- Clear (Trash) -->
+            <button id="clearCodeBtn" class="icon-btn" title="Clear Code">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+            </button>
+
+            <!-- Format (Wand) -->
+            <button id="formatBtn" class="icon-btn" title="Format Code">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            </button>
+
+            <!-- Run (Play) -->
+            <button id="runBtn" class="ml-1 bg-cyan-600 active:bg-cyan-700 hover:bg-cyan-500 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-lg shadow-cyan-900/40 transition-all active:scale-90">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+            </button>
+
+            <!-- Menu (Dots) -->
+            <button id="menuBtn" onclick="toggleMenu(event)" class="icon-btn ml-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div id="menuDropdown" class="absolute top-14 right-2 w-48 bg-[#252525] border border-[#444] rounded-lg shadow-xl z-50 menu-hidden flex flex-col py-2">
+            <!-- Font Size Control -->
+            <div class="px-4 py-2 border-b border-[#333]">
+                <div class="text-xs text-gray-500 uppercase font-bold mb-2">Font Size</div>
+                <div class="flex items-center justify-between bg-[#1a1a1a] rounded p-1 border border-[#333]">
+                    <button onclick="changeFontSize(-1)" class="w-8 h-6 flex items-center justify-center hover:bg-[#333] rounded text-gray-300">-</button>
+                    <span id="fontSizeDisplay" class="text-xs font-mono text-cyan-400">14px</span>
+                    <button onclick="changeFontSize(1)" class="w-8 h-6 flex items-center justify-center hover:bg-[#333] rounded text-gray-300">+</button>
+                </div>
+            </div>
+            <!-- Save File -->
+            <button onclick="downloadCode()" class="px-4 py-3 text-left text-sm text-gray-200 hover:bg-[#333] flex items-center gap-3 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Save File
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+        
+        <!-- Editor Area with Line Numbers -->
+        <div class="flex-1 flex flex-col h-3/5 md:h-full border-b md:border-b-0 md:border-r border-[#333] relative">
+            <div class="code-layout">
+                <div id="lineNumbers" class="line-numbers">1</div>
+                <div id="editorWrapper" class="editor-wrapper">
+                    <!-- Added overflow-anchor: none in CSS above to stop cursor jumps -->
+                    <div id="editor" class="language-javascript" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Output Area -->
+        <div class="flex-1 flex flex-col h-2/5 md:h-full bg-[#121212]">
+            <div class="flex border-b border-[#333] bg-[#181818] text-xs uppercase tracking-wider font-semibold text-gray-500">
+                <button id="tabConsole" class="px-4 py-2 hover:bg-[#222] border-b-2 border-cyan-500 text-gray-200 transition-colors">Console</button>
+                <button id="tabPreview" class="px-4 py-2 hover:bg-[#222] border-b-2 border-transparent transition-colors hidden">Preview</button>
+                <button id="clearConsoleBtn" class="ml-auto px-4 py-2 hover:text-red-400 normal-case">Clear</button>
+            </div>
+
+            <div id="consoleContainer" class="flex-1 overflow-auto p-4 font-mono text-sm whitespace-pre-wrap break-words">
+                <div class="text-gray-600 italic mb-2 select-none">Ready.</div>
+            </div>
+            
+            <iframe id="previewFrame" class="hidden w-full h-full bg-white border-none"></iframe>
+        </div>
+    </main>
+
+    <!-- Quick Toolbar -->
+    <div class="quick-toolbar flex items-center gap-2 px-2 py-2 bg-[#1f1f1f] border-t border-[#333] overflow-x-auto shrink-0 z-40 h-12">
+        <!-- Symbols -->
+        <button onclick="insertSymbol('{')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">{</button>
+        <button onclick="insertSymbol('}')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">}</button>
+        <button onclick="insertSymbol('(')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">(</button>
+        <button onclick="insertSymbol(')')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">)</button>
+        <button onclick="insertSymbol('[')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">[</button>
+        <button onclick="insertSymbol(']')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">]</button>
+        <button onclick="insertSymbol('<')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform"><</button>
+        <button onclick="insertSymbol('>')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">></button>
+        <button onclick="insertSymbol('=')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">=</button>
+        <button onclick="insertSymbol(';')" class="min-w-[40px] h-8 bg-[#333] rounded text-cyan-400 font-mono text-sm active:bg-[#444] active:scale-95 transition-transform">;</button>
+        
+        <div class="w-[1px] h-6 bg-[#444] mx-1"></div>
+        
+        <!-- Snippets -->
+        <button onclick="insertSnippet('log')" class="px-3 h-8 bg-[#2d2d2d] border border-[#444] rounded text-gray-300 font-mono text-xs active:bg-[#444]">log</button>
+        <button onclick="insertSnippet('func')" class="px-3 h-8 bg-[#2d2d2d] border border-[#444] rounded text-gray-300 font-mono text-xs active:bg-[#444]">func</button>
+        <button onclick="insertSnippet('if')" class="px-3 h-8 bg-[#2d2d2d] border border-[#444] rounded text-gray-300 font-mono text-xs active:bg-[#444]">if</button>
+        <button onclick="insertSnippet('for')" class="px-3 h-8 bg-[#2d2d2d] border border-[#444] rounded text-gray-300 font-mono text-xs active:bg-[#444]">for</button>
+        <button onclick="insertSnippet('ret')" class="px-3 h-8 bg-[#2d2d2d] border border-[#444] rounded text-gray-300 font-mono text-xs active:bg-[#444]">ret</button>
+    </div>
+
+    <!-- CodeJar Logic (Module Scope) -->
+    <script type="module">
+        import { CodeJar } from 'https://cdn.jsdelivr.net/npm/codejar@3.7.0/codejar.js';
+
+        const editorElement = document.getElementById('editor');
+        const lineNumbersEl = document.getElementById('lineNumbers');
+        const editorWrapper = document.getElementById('editorWrapper');
+        
+        // Sync Scroll
+        editorWrapper.addEventListener('scroll', () => {
+            lineNumbersEl.scrollTop = editorWrapper.scrollTop;
+        });
+
+        // Helper to update line numbers
+        const updateLineNumbers = (code) => {
+            const lines = code.split('\n').length;
+            if (lineNumbersEl.childElementCount === lines) return;
+            let html = '';
+            for(let i=1; i<=lines; i++) { html += `${i}\n`; }
+            lineNumbersEl.textContent = html;
+        };
+
+        const highlight = (editor) => {
+            let code = editor.textContent;
+            updateLineNumbers(code);
+            const selector = document.getElementById('langSelector');
+            const val = selector ? selector.value : 'js';
+            const lang = val === 'js' ? 'javascript' : val;
+            editor.innerHTML = Prism.highlight(code, Prism.languages[lang] || Prism.languages.python, lang);
+        };
+
+        // Initialized without indentOn which can sometimes cause jump on mobile
+        window.jar = CodeJar(editorElement, highlight, {
+            tab: '    ', 
+            indentOn: /[(\[{]$/ 
+        });
+
+        window.updateLines = () => updateLineNumbers(editorElement.textContent);
+        init();
+    </script>
+
+    <!-- App Logic (Global Scope) -->
+    <script>
+        // DOM Elements
+        const runBtn = document.getElementById('runBtn');
+        const formatBtn = document.getElementById('formatBtn');
+        const clearCodeBtn = document.getElementById('clearCodeBtn');
+        const langSelector = document.getElementById('langSelector');
+        const consoleContainer = document.getElementById('consoleContainer');
+        const previewFrame = document.getElementById('previewFrame');
+        const clearConsoleBtn = document.getElementById('clearConsoleBtn');
+        const tabConsole = document.getElementById('tabConsole');
+        const tabPreview = document.getElementById('tabPreview');
+        const editorDiv = document.getElementById('editor');
+        const statusDot = document.getElementById('statusDot');
+        const menuDropdown = document.getElementById('menuDropdown');
+        const fontSizeDisplay = document.getElementById('fontSizeDisplay');
+
+        // State
+        let currentLang = 'js';
+        let isRunning = false;
+        let activeWorker = null;
+        let currentFontSize = 14;
+
+        // --- Toolbar Logic ---
+        function insertSymbol(char) {
+            editorDiv.focus();
+            document.execCommand('insertText', false, char);
+        }
+
+        function insertSnippet(type) {
+            editorDiv.focus();
+            let text = "";
+            if(type === 'log') text = currentLang === 'python' ? 'print()' : 'console.log()';
+            if(type === 'func') text = currentLang === 'python' ? 'def name():' : 'function name() {}';
+            if(type === 'if') text = currentLang === 'python' ? 'if condition:' : 'if (condition) {}';
+            if(type === 'for') text = currentLang === 'python' ? 'for i in range(10):' : 'for(let i=0; i<10; i++) {}';
+            if(type === 'ret') text = 'return ';
+            
+            document.execCommand('insertText', false, text);
+        }
+
+        // Menu Logic
+        function toggleMenu(e) {
+            e.stopPropagation();
+            if (menuDropdown.classList.contains('menu-hidden')) {
+                menuDropdown.classList.remove('menu-hidden');
+                menuDropdown.classList.add('menu-visible');
+            } else {
+                menuDropdown.classList.add('menu-hidden');
+                menuDropdown.classList.remove('menu-visible');
+            }
+        }
+
+        function closeMenuOutside(e) {
+            if (!menuDropdown.contains(e.target) && e.target.id !== 'menuBtn') {
+                menuDropdown.classList.add('menu-hidden');
+                menuDropdown.classList.remove('menu-visible');
+            }
+        }
+
+        // Font Size Logic
+        function changeFontSize(delta) {
+            currentFontSize += delta;
+            if(currentFontSize < 10) currentFontSize = 10;
+            if(currentFontSize > 24) currentFontSize = 24;
+            
+            // Access directly to avoid redeclaration issue
+            const el = document.getElementById('editor');
+            const nums = document.getElementById('lineNumbers');
+            
+            el.style.fontSize = `${currentFontSize}px`;
+            nums.style.fontSize = `${currentFontSize}px`;
+            fontSizeDisplay.textContent = `${currentFontSize}px`;
+            localStorage.setItem('zen_fontsize', currentFontSize);
+        }
+
+        // Download Logic
+        function downloadCode() {
+            const code = window.jar.toString();
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            let ext = 'txt';
+            if(currentLang === 'js') ext = 'js';
+            else if(currentLang === 'python') ext = 'py';
+            else if(currentLang === 'html') ext = 'html';
+            a.href = url;
+            a.download = `gyroX_code.${ext}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            menuDropdown.classList.add('menu-hidden');
+            menuDropdown.classList.remove('menu-visible');
+            logToConsole(`>> File saved as gyroX_code.${ext}`, 'warn');
+        }
+
+        // Initialization
+        const DEFAULTS = { python: ``, js: ``, html: `` };
+
+        function init() {
+            const savedFont = localStorage.getItem('zen_fontsize');
+            if(savedFont) {
+                currentFontSize = parseInt(savedFont);
+                document.getElementById('editor').style.fontSize = `${currentFontSize}px`;
+                document.getElementById('lineNumbers').style.fontSize = `${currentFontSize}px`;
+                fontSizeDisplay.textContent = `${currentFontSize}px`;
+            }
+
+            const checkJar = setInterval(() => {
+                if (window.jar) {
+                    clearInterval(checkJar);
+                    loadCode('js');
+                }
+            }, 50);
+        }
+
+        function loadCode(lang) {
+            currentLang = lang;
+            const saved = localStorage.getItem(`zen_v3_${lang}`);
+            const codeToLoad = saved !== null ? saved : DEFAULTS[lang];
+            
+            window.jar.updateCode(codeToLoad);
+            editorDiv.className = `language-${lang === 'js' ? 'javascript' : lang}`;
+            if(window.updateLines) window.updateLines();
+
+            if (lang === 'html') {
+                tabPreview.classList.remove('hidden');
+                switchToTab('preview');
+            } else {
+                tabPreview.classList.add('hidden');
+                switchToTab('console');
+            }
+        }
+
+        editorDiv.addEventListener('keyup', () => {
+            localStorage.setItem(`zen_v3_${currentLang}`, window.jar.toString());
+        });
+
+        function logToConsole(msg, type = 'log') {
+            const div = document.createElement('div');
+            const text = typeof msg === 'object' ? JSON.stringify(msg, null, 2) : String(msg);
+            div.textContent = text;
+            if (type === 'error') div.className = 'text-red-400 border-l-2 border-red-500 pl-2 my-1';
+            else if (type === 'warn') div.className = 'text-yellow-400 my-1';
+            else div.className = 'text-green-400 border-b border-[#222] py-1';
+            consoleContainer.appendChild(div);
+            consoleContainer.scrollTop = consoleContainer.scrollHeight;
+        }
+
+        // --- RUN LOGIC ---
+        function setRunningState(running) {
+            isRunning = running;
+            if (running) {
+                // Change Play icon to Stop (Square)
+                runBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" /></svg>`;
+                runBtn.classList.replace('bg-cyan-600', 'bg-red-600');
+                runBtn.classList.replace('hover:bg-cyan-500', 'hover:bg-red-500');
+                runBtn.classList.replace('shadow-cyan-900/40', 'shadow-red-900/40');
+                statusDot.classList.replace('status-ready', 'status-busy');
+            } else {
+                // Back to Play
+                runBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>`;
+                runBtn.classList.replace('bg-red-600', 'bg-cyan-600');
+                runBtn.classList.replace('hover:bg-red-500', 'hover:bg-cyan-500');
+                runBtn.classList.replace('shadow-red-900/40', 'shadow-cyan-900/40');
+                statusDot.classList.replace('status-busy', 'status-ready');
+            }
+        }
+
+        function stopExecution() {
+            if (activeWorker) {
+                activeWorker.terminate();
+                activeWorker = null;
+                logToConsole(">> Execution Terminated manually.", "error");
+            }
+            setRunningState(false);
+        }
+
+        runBtn.addEventListener('click', async () => {
+            if (isRunning) {
+                stopExecution();
+                return;
+            }
+
+            const code = window.jar.toString();
+            consoleContainer.innerHTML = '';
+            setRunningState(true);
+
+            if (currentLang === 'python') {
+                switchToTab('console');
+                logToConsole(">> Running Python...", 'warn');
+                function outf(text) { if(text !== "\n") logToConsole(text.replace(/\n$/, "")); }
+                function builtinRead(x) {
+                    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+                        throw "File not found: '" + x + "'";
+                    return Sk.builtinFiles["files"][x];
+                }
+                Sk.configure({ output: outf, read: builtinRead, execLimit: 4000 });
+                try {
+                    await Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true));
+                    logToConsole(">> Done", 'warn');
+                } catch (err) { logToConsole(err.toString(), 'error'); } 
+                finally { setRunningState(false); }
+            } 
+            
+            else if (currentLang === 'js') {
+                switchToTab('console');
+                logToConsole(">> Running JS...", 'warn');
+                const workerCode = `
+                    self.onmessage = function(e) {
+                        const console = {
+                            log: (...args) => self.postMessage({type: 'log', data: args.join(' ')}),
+                            error: (...args) => self.postMessage({type: 'error', data: args.join(' ')}),
+                            warn: (...args) => self.postMessage({type: 'warn', data: args.join(' ')})
+                        };
+                        try {
+                            eval(e.data);
+                            self.postMessage({type: 'done'});
+                        } catch (err) {
+                            self.postMessage({type: 'error', data: err.toString()});
+                        }
+                    };
+                `;
+                const blob = new Blob([workerCode], { type: 'application/javascript' });
+                activeWorker = new Worker(URL.createObjectURL(blob));
+                const watchdog = setTimeout(() => {
+                    if (activeWorker) {
+                        activeWorker.terminate();
+                        activeWorker = null;
+                        logToConsole(">> ERROR: Timeout (4s). Loop terminated.", "error");
+                        setRunningState(false);
+                    }
+                }, 4000);
+                activeWorker.onmessage = (e) => {
+                    const { type, data } = e.data;
+                    if (type === 'log') logToConsole(data);
+                    else if (type === 'error') { logToConsole(data, 'error'); clearTimeout(watchdog); setRunningState(false); }
+                    else if (type === 'warn') logToConsole(data, 'warn');
+                    else if (type === 'done') { logToConsole(">> Done", 'warn'); clearTimeout(watchdog); setRunningState(false); activeWorker.terminate(); activeWorker = null; }
+                };
+                activeWorker.postMessage(code);
+            }
+            else if (currentLang === 'html') {
+                switchToTab('preview');
+                previewFrame.srcdoc = code;
+                setRunningState(false);
+            }
+        });
+
+        function switchToTab(tab) {
+            if (tab === 'console') {
+                consoleContainer.classList.remove('hidden');
+                previewFrame.classList.add('hidden');
+                tabConsole.classList.add('border-cyan-500', 'text-gray-200');
+                tabConsole.classList.remove('border-transparent', 'text-gray-500');
+                tabPreview.classList.remove('border-cyan-500', 'text-gray-200');
+                tabPreview.classList.add('border-transparent', 'text-gray-500');
+            } else {
+                consoleContainer.classList.add('hidden');
+                previewFrame.classList.remove('hidden');
+                tabPreview.classList.add('border-cyan-500', 'text-gray-200');
+                tabPreview.classList.remove('border-transparent', 'text-gray-500');
+                tabConsole.classList.remove('border-cyan-500', 'text-gray-200');
+                tabConsole.classList.add('border-transparent', 'text-gray-500');
+            }
+        }
+        
+        tabConsole.addEventListener('click', () => switchToTab('console'));
+        tabPreview.addEventListener('click', () => switchToTab('preview'));
+        
+        clearConsoleBtn.addEventListener('click', () => {
+             consoleContainer.innerHTML = '';
+             if(currentLang === 'html') previewFrame.srcdoc = '';
+        });
+
+        // Clear Code Button Logic
+        clearCodeBtn.addEventListener('click', () => {
+            if(confirm("Clear all code?")) {
+                window.jar.updateCode("");
+                localStorage.setItem(`zen_v3_${currentLang}`, "");
+                if(window.updateLines) window.updateLines();
+            }
+        });
+        
+        langSelector.addEventListener('change', (e) => loadCode(e.target.value));
+
+        formatBtn.addEventListener('click', () => {
+            const code = window.jar.toString();
+            try {
+                let formatted = code;
+                if (currentLang === 'js') formatted = prettier.format(code, { parser: "babel", plugins: prettierPlugins });
+                else if (currentLang === 'html') formatted = prettier.format(code, { parser: "html", plugins: prettierPlugins });
+                window.jar.updateCode(formatted);
+                logToConsole(">> Code Beautified ✨", "warn");
+            } catch (e) { logToConsole("Format Error: " + e.message, "error"); }
+        });
+    </script>
+</body>
+</html>
