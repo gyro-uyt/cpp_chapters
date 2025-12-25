@@ -3,7 +3,8 @@
 using namespace std;
 
 // LeetCode's ListNode definition
-struct ListNode {
+struct ListNode
+{
   int val;
   ListNode *next;
   ListNode() : val(0), next(nullptr) {}
@@ -11,27 +12,51 @@ struct ListNode {
   ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-// Your LeetCode-style class
-class Solution {
+class Solution1
+{
 public:
-  ListNode *reverseList(ListNode *head) {
+  ListNode *reverseList(ListNode *head)
+  {
+    ListNode *prv = nullptr;
+    ListNode *tmp = head;
+    ListNode *frt;
+    while (tmp != nullptr)
+    {
+      frt = tmp->next;
+      tmp->next = prv;
+      prv = tmp;
+      tmp = frt;
+    }
+    return prv;
+  }
+};
+
+    // Your LeetCode-style class
+    class Solution
+{
+public:
+  ListNode *reverseList(ListNode *head)
+  {
     if (head == nullptr || head->next == nullptr)
       return head; // base case
 
     ListNode *newHead = reverseList(head->next); // reverse rest
-    head->next->next = head; // make next node point back to current
-    head->next = nullptr;    // cut original forward link
+    head->next->next = head;                     // make next node point back to current
+    head->next = nullptr;                        // cut original forward link
     return newHead;
   }
-  ListNode *reverseList1(ListNode *head) {
+  ListNode *reverseList1(ListNode *head)
+  {
     if (head == nullptr)
       return head;
   }
 };
 
 // Helper: print linked list
-void printList(ListNode *head) {
-  while (head != nullptr) {
+void printList(ListNode *head)
+{
+  while (head != nullptr)
+  {
     cout << head->val << " ";
     head = head->next;
   }
@@ -39,13 +64,16 @@ void printList(ListNode *head) {
 }
 
 // Helper: build linked list from vector
-ListNode *buildList(initializer_list<int> vals) {
+ListNode *buildList(initializer_list<int> vals)
+{
   ListNode *head = nullptr, *tail = nullptr;
-  for (int v : vals) {
+  for (int v : vals)
+  {
     ListNode *node = new ListNode(v);
     if (!head)
       head = tail = node;
-    else {
+    else
+    {
       tail->next = node;
       tail = node;
     }
@@ -53,7 +81,8 @@ ListNode *buildList(initializer_list<int> vals) {
   return head;
 }
 
-int main() {
+int main()
+{
   // Build test linked list
   ListNode *head = buildList({1, 2, 3, 4, 5});
 
