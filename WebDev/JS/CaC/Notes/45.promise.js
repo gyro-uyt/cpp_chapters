@@ -4,5 +4,14 @@
 // when we write a function it doesn't executes, but when we hold that fn in a varibale what happens??
 // does that fn auto called or what ? and how do you call that fn again ??
 
-const promise1 = new Promise(); 
+const promise1 = new Promise(function (resolve, reject) {
+  // Do an async task
+  // DB calls, cryptography, network
+  setTimeout(function () {
+    console.log("Async task is complete");
+  }, 1000);
+});
 
+promise1.then(function () {
+  console.log("Promise consumed");
+});
