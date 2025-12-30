@@ -51,6 +51,17 @@ sudo systemctl restart systemd-resolved
 sudo pacman -S fish
 chsh -s /usr/bin/fish
 fish_config    # to change themes
+nano ~/.config/fish/config.fish
+# set fish_greeting "" <-- Add this line to diable welcome message
+```
+
+### Disable KDE-Wallet
+
+Navigate to ~/.config/kwalletrc & replace it's contents with,
+
+```bash
+[Wallet]
+“Enabled=false”
 ```
 
 ### Useful Commands
@@ -117,7 +128,7 @@ source ~/.vimrc " Reload config instantly
 - ctrl+Spacebar -> intelliSense suggestions
 - alt+mouseClick -> multi-curson functionality
 
---- 
+---
 
 ## Hyprland
 
