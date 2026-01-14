@@ -1,0 +1,34 @@
+{
+	"nodes":[
+		{"id":"6289613c202b5442","x":-349,"y":-60,"width":396,"height":220,"color":"#525d80","type":"text","text":"\n-  Only easy leetcode questions at night\n-  Reading CSAPP book during evening\n-  Learning to use Neovim\n-  Documenting what I use for fun\n-  Exploring new techs like wayland, termux, etc."},
+		{"id":"e58c199ed55ade51","type":"text","text":"Current","x":-217,"y":-200,"width":132,"height":60,"color":"3"},
+		{"id":"cb38932b6ee1eedc","x":-560,"y":-283,"width":250,"height":167,"color":"6","type":"text","text":"GPA ~ 7.2\n-  sem-1 → 7.0\n-  sem-2 → 7.45\n-  sem-3 → 7.18"},
+		{"id":"67844bda8e8487b6","x":-289,"y":-343,"width":276,"height":60,"color":"2","type":"text","text":"Are you satified with this ?"},
+		{"id":"10309c5441ca14f7","x":47,"y":-480,"width":93,"height":60,"color":"1","type":"text","text":"NO !"},
+		{"id":"593d99b620d65329","x":240,"y":-343,"width":250,"height":60,"color":"2","type":"text","text":"What do you want ?"},
+		{"id":"79c575ee0ece9616","x":301,"y":-200,"width":128,"height":60,"color":"4","type":"text","text":"Future"},
+		{"id":"ebae5d00a0ef0201","x":160,"y":-60,"width":411,"height":156,"color":"#194e80","type":"text","text":"- DSA → Easy, Med, Hard questions\n- Systems → OS, Kernel, Compiler\n- Webdev → Js, Tailwind, React\n- Projects → Self made usefull apps"},
+		{"id":"d73c05c497754946","x":718,"y":-249,"width":282,"height":69,"color":"5","type":"text","text":"DSA: \nDo not \"explore.\" Just solve."},
+		{"id":"8cd8cc72c0904652","x":740,"y":-13,"width":220,"height":73,"color":"#2b00ff","type":"text","text":"Systems:\nLearn by Building."},
+		{"id":"89156cfcfca6aa09","x":615,"y":260,"width":250,"height":60,"color":"#652f51","type":"text","text":"WebDev"},
+		{"id":"d978a6389aab3802","x":1080,"y":-362,"width":170,"height":54,"type":"text","text":"[Striver's 450](https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z)"},
+		{"id":"bd8b23327f46b9aa","x":1460,"y":-1002,"width":1020,"height":640,"type":"text","text":"#### Phase 1: The Basics (Feb – March) | _2 Months_\n\n- **Arrays & Hashing (2 Weeks):** Sliding Window, Two Pointers, Prefix Sums.\n    - _Target:_ LeetCode \"Top Interview Questions\" (Easy/Medium).\n- **Binary Search (1 Week):** On arrays and on \"answers\" (e.g., Koko Eating Bananas).\n- **Linked Lists (1 Week):** Reverse, Cycle detection, Merge.\n- **Stacks & Queues (2 Weeks):** Monotonic Stack (Next Greater Element), Parentheses.\n\n#### Phase 2: The Core Logic (April – May) | _2 Months_\n\n- **Recursion & Backtracking (3 Weeks):** Subsets, Permutations, N-Queens. _This breaks most brains; take it slow.\n- **Trees (BST & Binary Trees) (3 Weeks):** Traversals (In/Pre/Post), Views, LCA.\n- **Heaps/Priority Queues (2 Weeks):** K-th largest element, Merge K lists.\n\n#### Phase 3: The Heavy Hitters (June – July / Summer) | _2 Months_\n\n- **Graphs (4 Weeks):** BFS/DFS, Topo Sort, Dijkstra, Prim’s/Kruskal’s (MST), Disjoint Set.\n- **Dynamic Programming (4 Weeks):** 1D DP, Knapsack, LCS, LIS.\n    - _Note:_ Don't master DP. Just get \"good enough\" to recognize standard patterns.\n\n**Routine:** 1 Hour Daily. 1-2 Problems. No breaks."},
+		{"id":"6799f0beb0db5581","x":1460,"y":-13,"width":940,"height":1100,"type":"text","text":"#### Phase 1: Operating Systems & The Shell (Current Sem 4)\n\n- **What to Study:** Processes, Threads, System Calls (`fork`, `exec`, `wait`), Signals, Pipes.\n- **Resource:**\n    - _Read:_ OSTEP Chapters 4–6 (Processes) and 26–30 (Concurrency).\n    - _Watch:_ \"Build a Shell in C\" tutorials on YouTube (or geeksforgeeks).\n        \n- **The Project: `MyShell`**\n    - Build a CLI that supports:\n        1. Executing commands (`/bin/ls`).\n        2. Built-in commands (`cd`, `exit`).    \n        3. Redirection (`ls > file.txt`).    \n        4. Piping (`ls | grep c`).    \n    - _Time:_ Spend your weekends on this. Finish by end of March.\n        \n#### Phase 2: Networking & The Web Server (April – May)\n- **What to Study:** Sockets, TCP/IP, HTTP Protocol (Text-based), Concurrency (Threads vs Events).\n- **Resource:** [Beej’s Guide to Network Programming](https://beej.us/guide/bgnet/) (The gold standard for C networking).\n- **The Project: `C-HTTPServer`**\n    - Don't use a library. Use `<sys/socket.h>`.\n    - Step 1: Listen on port 8080.\n    - Step 2: Accept a connection and print \"Hello World\" to the browser.\n    - Step 3: Parse the HTTP request (`GET /index.html`).\n    - Step 4: Serve static files (HTML/Images) from your disk.\n    - _Bonus:_ Make it multi-threaded to handle 2 users at once.\n\n#### Phase 3: The \"Modern\" Shift (Summer Break - June/July)\n- **The Pivot:** C is great for learning, but **Go (Golang)** is what companies hire for (Uber, Twitch, Google).\n- **Task:** Learn Go Syntax in 1 week.\n- **The Project: `Distributed Key-Value Store` (Redis Clone)**\n    - Use Go.\n    - Build a server that accepts `SET key value` and `GET key`.\n    - Store data in memory (Maps).\n    - _Advanced:_ Save data to a file (Persistence) so it survives a restart.\n    - _Why:_ This teaches you **Database Internals**, which is huge for backend interviews."}
+	],
+	"edges":[
+		{"id":"cdf0a3b1c4427257","fromNode":"e58c199ed55ade51","fromSide":"bottom","toNode":"6289613c202b5442","toSide":"top"},
+		{"id":"9e5b393978c2121b","fromNode":"e58c199ed55ade51","fromSide":"top","toNode":"67844bda8e8487b6","toSide":"bottom"},
+		{"id":"34a8e2bac620647f","fromNode":"e58c199ed55ade51","fromSide":"left","toNode":"cb38932b6ee1eedc","toSide":"right"},
+		{"id":"7d0a8d95f5038a26","fromNode":"67844bda8e8487b6","fromSide":"top","toNode":"10309c5441ca14f7","toSide":"left"},
+		{"id":"c8162c13f6fafbe4","fromNode":"10309c5441ca14f7","fromSide":"right","toNode":"593d99b620d65329","toSide":"top"},
+		{"id":"ebf76c9e2d7eb022","fromNode":"e58c199ed55ade51","fromSide":"right","toNode":"79c575ee0ece9616","toSide":"left"},
+		{"id":"a28c6da8cbd35e73","fromNode":"593d99b620d65329","fromSide":"bottom","toNode":"79c575ee0ece9616","toSide":"top"},
+		{"id":"cfdde7b3814c8691","fromNode":"79c575ee0ece9616","fromSide":"bottom","toNode":"ebae5d00a0ef0201","toSide":"top"},
+		{"id":"a8d6ca4e0138236a","fromNode":"ebae5d00a0ef0201","fromSide":"right","toNode":"d73c05c497754946","toSide":"left"},
+		{"id":"bb2a74ce376fd5e3","fromNode":"ebae5d00a0ef0201","fromSide":"right","toNode":"8cd8cc72c0904652","toSide":"left"},
+		{"id":"57e3587497e1fc6c","fromNode":"8cd8cc72c0904652","fromSide":"left","toNode":"89156cfcfca6aa09","toSide":"top"},
+		{"id":"8c136f3a83067c69","fromNode":"d73c05c497754946","fromSide":"right","toNode":"d978a6389aab3802","toSide":"left"},
+		{"id":"d495f6767f281a8f","fromNode":"d978a6389aab3802","fromSide":"right","toNode":"bd8b23327f46b9aa","toSide":"left"},
+		{"id":"61a2088e6b960f5b","fromNode":"8cd8cc72c0904652","fromSide":"right","toNode":"6799f0beb0db5581","toSide":"left"}
+	]
+}
