@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int main() {
@@ -61,16 +60,18 @@ int main() {
 
   // ********** sort **********
   sort(v.begin(), v.begin() + 4);               // sorts in ascending order
-  sort(v.begin(), v.begin() + 4, greater<int>); // sorts in descending order
-  
+  // sort(v.begin(), v.begin() + 4, greater<int>); // sorts in descending order
+
   int cnt = __builtin_popcountll(4);
-  
+
   string srs = "213";
   sort(srs.begin(), srs.end());
-  
+
   do {
-  cout<<srs<<" "; // prints all permutations possible only from supplied state, if given 213 only permutations after it will be given
-  }while (next_permutation(srs.begin(),srs.end()));
-  
-  int maxx = *max_element(v.begin(),v.begin()+3);
+    cout << srs
+         << " "; // prints all permutations possible only from supplied state,
+                 // if given 213 only permutations after it will be given
+  } while (next_permutation(srs.begin(), srs.end()));
+
+  int maxx = *max_element(v.begin(), v.begin() + 3);
 }
