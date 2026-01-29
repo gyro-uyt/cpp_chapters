@@ -4,7 +4,7 @@
 typedef struct node {
   int data;
   struct node *next;
-} *node;
+} Node;
 
 struct node *createLL() {
   printf("Enter the length of LL you want to create: ");
@@ -43,7 +43,7 @@ void printLL(struct node *root) {
 
 int main() {
   printf("***** Hello, Welocome to my Program *****\n");
-  node myLL = createLL();
+  Node *myLL = createLL();
   printLL(myLL);
 
   return 0;
