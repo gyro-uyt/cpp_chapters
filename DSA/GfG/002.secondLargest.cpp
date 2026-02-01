@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution {
 public:
-  // optimal solution   
+  // optimal solution
   int getSecondLargestOptimal(vector<int> &arr) {
     if (arr.size() < 2)
       return -1;
@@ -13,7 +13,7 @@ public:
 
     for (int num : arr) {
       if (num > largest) {
-        secondLargest = largest;
+        secondLargest = largest;    // if there's a num > largest then that num is the Largest and the old largest becomes second Largest
         largest = num;
       } else if (num > secondLargest && num != largest) {
         secondLargest = num;
