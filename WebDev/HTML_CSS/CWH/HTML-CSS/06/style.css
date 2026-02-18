@@ -1,13 +1,16 @@
-p{
+p {
     background-color: aquamarine;
 }
-a{
+
+a {
     background-color: rgb(255, 192, 180);
 }
-div{
+
+div {
     background-color: yellow;
 }
-span{
+
+span {
     background-color: grey;
     color: white;
 }

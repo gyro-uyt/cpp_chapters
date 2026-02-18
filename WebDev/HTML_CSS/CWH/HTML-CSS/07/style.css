@@ -1,9 +1,11 @@
-#firstdiv{
+#firstdiv {
     color: red;
 }
-.bg-yellow{
+
+.bg-yellow {
     background-color: yellow;
 }
-#secondiv{
+
+#secondiv {
     color: rgb(118, 108, 248);
 }
