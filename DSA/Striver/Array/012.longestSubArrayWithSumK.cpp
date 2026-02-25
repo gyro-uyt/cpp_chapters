@@ -1,6 +1,5 @@
+#include <algorithm>
 #include <bits/stdc++.h>
-#include <map>
-#include <vector>
 using namespace std;
 
 // Longest Subarray With Sum K (Positive/Zeroes elements only)
@@ -20,7 +19,8 @@ public:
     }
     return maxLen;
   }
-  // Hashing - TC: O(n x log n) {ordered-map} or O(n x n) {unordered-map-high-collision}, SC: O(n)
+  // Hashing - TC: O(n x log n) {ordered-map} or O(n x n)
+  // {unordered-map-high-collision}, SC: O(n)
   int better(vector<int> &arr, int k) {
     map<int, int> preSumMap;
     int sum = 0;
@@ -46,8 +46,26 @@ public:
     }
     return maxLen;
   }
+  // Two Pointer Approach - TC: O(2n), SC: O(1)
   int optimal(vector<int> &arr, int k) {
-    
+    int n = arr.size();
+    int sum = arr[0];
+    int maxLen = 0;
+    int i = 0, j = 0;
+    while (j < n) {
+      while (i <= j && sum > k) {
+        sum -= arr[i];
+        i++;
+      }
+      if (sum == k) {
+        maxLen = max(maxLen, j - i + 1);
+      }
+      j++;
+      if (j < n) {
+        sum += arr[j];
+      }
+    }
+    return maxLen;
   }
 };
 
