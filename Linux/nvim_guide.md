@@ -15,6 +15,7 @@
 - `:w`        : save file
 - `:q`        : quit
 - `:qa`       : quit all
+- `:q!`       : quit without saving changes
 - `:wq`       : save + quit
 - `:so`       : source file
 - `:source %` : reload current file
@@ -30,6 +31,7 @@
 - `v`           : visual character mode
 - `y`           : yanks/copies the selected content
 - `p`           : pastes
+- `x`           : deletes the character
 
 - `c`           : change
 - `i`           : inside
