@@ -52,7 +52,7 @@ list1 = [
     [-4, 5],
     ["apple", "banana"],
 ]  # A list is an ordered collection of data with elements separated by a comma(",")
-# comma and enclosed within square brackets. Lists are mutable i.e. can be modified after creation.
+# and enclosed within square brackets. Lists are mutable i.e. can be modified after creation.
 # mutable = changes = modified-able
 print(list1)
 
@@ -60,7 +60,6 @@ names = ["uday", "rohan", "sumit", "shivam", "archit", "harry"]
 print(names)
 print(names[0])
 print(names[1])
-
 
 tuple1 = (
     ("parrot", "sparrow"),
