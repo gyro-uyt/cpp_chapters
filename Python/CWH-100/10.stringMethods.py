@@ -13,8 +13,10 @@ s6 = s1.split(" ")
 
 s7 = s1.capitalize()
 # turns Only the FIRST Character of the string to uppercase & rest of the characters are turned to be Lowercase
-s8 = s1.center(50)  # puts 50/2 empty spaces in front and back of the string
-s9 = s1.center(50, ".")  # puts 50/2 (".") in front and back of the string
+s8 = s1.center(50)
+# puts [(50 - len(s1)) // 2] empty spaces in front and back of the string
+s9 = s1.center(50, ".")
+# puts [(50 - len(s1)) // 2] (".") in front and back of the string
 s10 = s1.count("Charan")
 # counts the number of times the given value has occured within the given string
 
@@ -49,57 +51,12 @@ s27 = s1.title()  # capitalizes each letter of the word within the string.
 s23 = s1.istitle()
 # returns True iff the First letter of Each word of the string is Capitalized
 
-print(
-    "length",
-    len(s1),
-    "s1",
-    s1,
-    "s2",
-    s2,
-    "s3",
-    s3,
-    "s4",
-    s4,
-    "s5",
-    s5,
-    "s6",
-    s6,
-    "s7",
-    s7,
-    "s8",
-    s8,
-    "s9",
-    s9,
-    "s10",
-    s10,
-    "s11",
-    s11,
-    "s12",
-    s12,
-    "s13",
-    s13,
-    "s14",
-    s14,
-    "s15",
-    s15,
-    "s16",
-    s16,
-    "s18",
-    s18,
-    "s19",
-    s19,
-    "s20",
-    s20,
-    "s21",
-    s21,
-    "s22",
-    s22,
-    "s23",
-    s23,
-    "s24",
-    s24,
-    "s25",
-    s25,
-    sep="\n",
-)
-# Always remember in python ENDS with index is upto (n-1) index ONLY
+for i in range(1, 28):
+    var_name = f"s{i}"
+    if var_name in globals():
+        print(f"{var_name}: {globals()[var_name]}")
+    else:
+        print(f"{var_name}: (not defined)")
+
+# In Python, whenever you use range(a, b), list[a:b], or any slice/range, the end value (b) is always excluded.
+# This rule applies everywhere in Python.

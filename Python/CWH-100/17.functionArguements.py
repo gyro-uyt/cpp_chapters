@@ -77,7 +77,7 @@ print()
 # The return statement is used to return the value of the expression back to the calling function.
 
 
-def add(*numb):  # numb is a list
+def add(*numb):  # numb is a tuple
     sum = 0
     for i in numb:
         sum = sum + i
