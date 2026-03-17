@@ -23,3 +23,6 @@ print(txt.format(price=59.54666543546))
 value = 45.7824235
 # value:.3f means it will print value upto 3 decimal points
 print(f"Cost of New CDM is {value:.3f}")
+
+# to display literal {} in f-strings, used double {{}}
+print(f"This is how u print {{}} in fstrings")
