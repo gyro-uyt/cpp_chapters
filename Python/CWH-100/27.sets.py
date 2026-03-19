@@ -1,3 +1,5 @@
+# Sets are unordered data items which contain unique elements only and they are mutable but can store only immutable (hashable) items.
+
 s = {2, 3, 45, 6}
 print(s)
 
