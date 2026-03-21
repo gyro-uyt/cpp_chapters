@@ -55,6 +55,18 @@
 - `l`           : move cursor right
 - `=ap`         : auto-indent a paragraph
 
+- `H`           : go to previous buffer (toggle tabs)
+- `L`           : go to next buffer
+
+> Switching windows
+- `<C-w>h` : move to left window
+- `<C-w>l` : move to right window
+- `<C-w>j` : move to window below
+- `<C-w>k` : move to window above
+
+- `<C-\>`      : toggle terminal (horizontal split)   [normal mode]
+- `<Esc>`      : exit terminal mode to normal mode
+
 ## File Explorer Commands (netrw)
 
 - `%` : create file
