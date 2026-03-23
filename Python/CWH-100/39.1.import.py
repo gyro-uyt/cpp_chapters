@@ -1,7 +1,7 @@
 import math
 
 
-import harry as enc # custom
+import harry_39_2 as enc # custom
 enc.encode()
 # from math import sqrt, floor as sff # importing only 2 methods
 # from math import * # importing all functions, Bad practice
