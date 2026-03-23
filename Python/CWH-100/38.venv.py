@@ -6,8 +6,8 @@ python3 -m venv <nameOfVenv>
 source <nameOfVenv>/bin/activate
 
 # Activate the virtual environment (windows)
-<nameOfVenv>\Scripts\activate.bat
-<nameOfVenv>\Scripts\activate.ps1 (powershell)
+<nameOfVenv>\Scripts\activate.bat (cmd)
+<nameOfVenv>\Scripts\Activate.ps1 (powershell)
 
 # Deactivate the virtual environment
 deactivate
