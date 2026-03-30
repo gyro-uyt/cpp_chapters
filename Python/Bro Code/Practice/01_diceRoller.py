@@ -1,0 +1,54 @@
+import random
+
+# print("\u25cf \u250c \u2500 \u2510 \u2502 \u2514 \u2518")
+# ● ┌ ─ ┐ │ └ ┘
+
+dice_art={
+1:(
+"┌───────┐",
+"│       │",
+"│   ●   │",
+"│       │",
+"└───────┘"),
+2:(
+"┌───────┐",
+"│ ●     │",
+"│       │",
+"│     ● │",
+"└───────┘"),
+3:(
+"┌───────┐",
+"│ ●     │",
+"│   ●   │",
+"│     ● │",
+"└───────┘"),
+4:(
+"┌───────┐",
+"│ ●   ● │",
+"│       │",
+"│ ●   ● │",
+"└───────┘"),
+5:(
+"┌───────┐",
+"│ ●   ● │",
+"│   ●   │",
+"│ ●   ● │",
+"└───────┘"),
+6:(
+"┌───────┐",
+"│ ●   ● │",
+"│ ●   ● │",
+"│ ●   ● │",
+"└───────┘"
+)
+}
+# sd = dice_art.get(1)
+# for s in sd:
+#     print(s)
+
+num_of_dices = int(input("Enter number of dices to roll at once?: "))    
+while input("Enter any key to roll the dice (q to quit): ") != "q":
+    for i in range(num_of_dices):
+        for lines in dice_art.get(random.randint(1,6)):
+            print(lines)
+            
