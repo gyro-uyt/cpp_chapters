@@ -128,6 +128,15 @@ source ~/.vimrc " Reload config instantly
 - ctrl+Spacebar -> intelliSense suggestions
 - alt+mouseClick -> multi-curson functionality
 
+### To Remove VSCode Icon from Title-bar
+
+```bash
+# Open following file
+code "C:\Users\<User_Name>\AppData\Local\Programs\Microsoft VS Code\cfbea10c5f\resources\app\out\vs\workbench\workbench.desktop.main.css"
+# search: '.window-appicon'
+#  choose the first one you had searched, change the value: 'width:35px;' to 'width:0px;' 
+```
+
 ---
 
 ## Hyprland
