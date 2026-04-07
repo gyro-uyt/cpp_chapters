@@ -52,7 +52,7 @@ sudo pacman -S fish
 chsh -s /usr/bin/fish
 fish_config    # to change themes
 nano ~/.config/fish/config.fish
-# set fish_greeting "" <-- Add this line to diable welcome message
+# set fish_greeting "" <-- Add this line to disable welcome message
 ```
 
 ### Disable KDE-Wallet
@@ -125,8 +125,8 @@ source ~/.vimrc " Reload config instantly
 
 ## VSCode
 
-- ctrl+Spacebar -> intelliSense suggestions
-- alt+mouseClick -> multi-curson functionality
+- ctrl+Space-bar -> intelliSense suggestions
+- alt+mouseClick -> multi-cursor functionality
 
 ### To Remove VSCode Icon from Title-bar
 
@@ -226,7 +226,7 @@ Closest to **Unix shell globbing**, but Git-specific.
 
 ### Restore
 
-```
+```bash
 git restore <nameOfFile>
 ```
 

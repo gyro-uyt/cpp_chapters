@@ -1,6 +1,0 @@
-{
-	"nodes":[
-		{"id":"b8414a707669c46b","x":-360,"y":-340,"width":680,"height":340,"color":"3","type":"text","text":"1. **The Bracket Method (Single Elimination):**\n    \n    - **How it works:** You load a set number of items (like 16 anime series). Item 1 faces Item 2. The winner advances to the next round to face the winner of Item 3 vs. Item 4.\n        \n    - **Best for:** Finding a single \"best\" item in a short, gamified session.\n        \n2. **The Elo Rating System (Continuous Ranking):**\n    \n    - **How it works:** Similar to competitive video game ranks or chess. Every item starts with a base score (e.g., 1000). If a lower-ranked movie beats a higher-ranked movie, it steals a lot of points. If a higher-ranked movie wins, it only gains a few.\n        \n    - **Best for:** Creating a massive, accurate, ordered tier list of an entire category over time."}
-	],
-	"edges":[]
-}
