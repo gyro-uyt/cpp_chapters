@@ -7,3 +7,5 @@ build/.cache/clangd/index/Texture.hpp.C1CA0198CC114E45.idx
 
 *.idx
 Resources/Books/Rust Programming Language.pdf
+
+.obsidian/
