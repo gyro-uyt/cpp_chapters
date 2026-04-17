@@ -7,8 +7,6 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama run deepseek-r1:1.5b
 ```
 
----
-
 ## Endeavor OS
 
 ### Fix brightness problem on RTX laptops
@@ -67,7 +65,7 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 ### Useful Commands
 
 | Command           | Description                                                  |
-| ----------------- | ------------------------------------------------------------ |
+--  |
 | `ps`              | Show running processes.                                      |
 | `ps aux`          | Detailed list of all processes.                              |
 | `ps -ef`          | Another common full-format listing.                          |
@@ -85,15 +83,11 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 | `ffmpeg`          | Edit/convert video files.                                    |
 | `tldr`            | Better version of `--help`. Example: `tldr ffmpeg`.          |
 
----
-
 ### Shortcuts
 
 - **Shift + PrtSc** → Screenshot
 - **Alt + Tab** → Switch windows
 - **Ctrl + Tab** → Switch browser tabs
-
----
 
 ## C++ on Linux
 
@@ -111,8 +105,6 @@ g++ % -o program && ./program   # % = current file
 :!g++ % -o program && ./program # run directly in vim (! runs in shell)
 ```
 
----
-
 ## Vim
 
 ```vim
@@ -120,8 +112,6 @@ g++ % -o program && ./program   # % = current file
 vim ~/.vimrc    " Open vim config
 source ~/.vimrc " Reload config instantly
 ```
-
----
 
 ## VSCode
 
@@ -132,12 +122,10 @@ source ~/.vimrc " Reload config instantly
 
 ```bash
 # Open following file
-code "C:\Users\<User_Name>\AppData\Local\Programs\Microsoft VS Code\cfbea10c5f\resources\app\out\vs\workbench\workbench.desktop.main.css"
+code "C:\Users\<User_Name>\AppData\Local\Programs\Microsoft VS Code\<commit_hash>\resources\app\out\vs\workbench\workbench.desktop.main.css"
 # search: '.window-appicon'
 #  choose the first one you had searched, change the value: 'width:35px;' to 'width:0px;' 
 ```
-
----
 
 ## Hyprland
 
@@ -154,17 +142,6 @@ Shortcuts:
 - **Super + M** → Exit Hyprland
 - **Super + R** → Search
 
----
-
-## Windows (Git Bash)
-
-```bash
-git tag -a tagName -m "message here"
-git push --tags
-```
-
----
-
 ## CS50P
 
 Submission example:
@@ -175,8 +152,6 @@ submit50 cs50/problems/2022/python/camel
 
 _(Replace `camel` with your current assignment)_
 
----
-
 ## Python (Fish)
 
 Use the Fish-compatible activation script:
@@ -186,9 +161,9 @@ python3 -m venv venv
 source venv/bin/activate.fish
 ```
 
----
-
 ## Windows
+
+### Terminal
 
 - **Character Map**
 - **Terminal setups**:
@@ -198,7 +173,22 @@ source venv/bin/activate.fish
   Get-ChildItem $env:POSH_THEMES_PATH
   ```
 
----
+### Git Bash
+
+```bash
+git tag -a tagName -m "message here"
+git push --tags
+```
+
+### OhMyPosh
+
+Used ohmyposh to get custom powerlines created my own theme, can be used by running
+
+```bash
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\mytheme.omp.json" | Invoke-Expression   
+```
+
+Can be set as default by pasting above line in `notepad $PROFILE`
 
 ## Git
 
@@ -231,5 +221,3 @@ git restore <nameOfFile>
 ```
 
 this functions restores the specified file to it's last commit
-
----
