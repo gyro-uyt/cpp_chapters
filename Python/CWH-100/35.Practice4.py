@@ -4,14 +4,18 @@ import string
 
 def encode():
     msg = input("Enter the message to encode: ")
-    if len(msg) < 3:
-        encodedMsg = msg[::-1]
-    else:
-        encodedMsg = msg[1:] + msg[0]
-        randomPrefix = "".join(random.choices(string.ascii_letters, k=3))
-        randomSuffix = "".join(random.choices(string.ascii_letters, k=3))
-        encodedMsg = randomPrefix + encodedMsg + randomSuffix
-    print(f"Your encoded message: {encodedMsg}")
+    words = msg.split(" ")
+    for word in words:
+        encoded_words = []
+        if len(word) < 3:
+            encoded_words.append(word[::-1])
+        else:
+            encodedMsg = word[1:] + word[0]
+            randomPrefix = "".join(random.choices(string.ascii_letters, k=3))
+            randomSuffix = "".join(random.choices(string.ascii_letters, k=3))
+            encodedMsg = randomPrefix + encodedMsg + randomSuffix
+            encoded_words.append(encodedMsg)
+    print(f"Your encoded message: {" ".join(encoded_words)}")
 
 
 def decode():
