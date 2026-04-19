@@ -95,7 +95,7 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 ### 2.6 Useful Commands
 
 | Command           | Description                                                  |
---  |
+| ----------------- | ------------------------------------------------------------ |
 | `ps`              | Show running processes.                                      |
 | `ps aux`          | Detailed list of all processes.                              |
 | `ps -ef`          | Another common full-format listing.                          |
@@ -118,8 +118,6 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 - **Shift + PrtSc** → Screenshot
 - **Alt + Tab** → Switch windows
 - **Ctrl + Tab** → Switch browser tabs
-
-`
 
 ## 3. Git
 
