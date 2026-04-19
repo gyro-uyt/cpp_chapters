@@ -1,8 +1,20 @@
 # オーラ
 
-## C++
+## Table of Contents
 
-### Running on Linux
+- [C++](#1-c)
+- [Endeavor OS](#2-endeavor-os)
+- [Git](#3-git)
+- [Hyprland](#4-hyprland)
+- [Python](#5-python)
+- [Vim](#6-vim)
+- [VSCode](#7-vscode)
+- [Windows](#8-windows)
+- [Tips](#9-tips)
+
+## 1. C++
+
+### 1.1 Running on Linux
 
 To compile and run via CLI:
 
@@ -25,9 +37,9 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama run deepseek-r1:1.5b
 ```
 
-## Endeavor OS
+## 2. Endeavor OS
 
-### Fix brightness problem on RTX laptops
+### 2.1 Fix brightness problem on RTX laptops
 
 ```bash
 sudo nano /etc/default/grub
@@ -45,14 +57,14 @@ Then update GRUB:
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### Enable Bluetooth
+### 2.2 Enable Bluetooth
 
 ```bash
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 ```
 
-### Fix DNS resolution issue
+### 2.3 Fix DNS resolution issue
 
 ```bash
 sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
@@ -61,7 +73,7 @@ sudo bash -c 'echo -e "[Resolve]\nDNS=1.1.1.1 8.8.8.8\nFallbackDNS=1.0.0.1 8.8.4
 sudo systemctl restart systemd-resolved
 ```
 
-### Get Fish shell
+### 2.4 Get Fish shell
 
 ```bash
 sudo pacman -S fish
@@ -71,7 +83,7 @@ nano ~/.config/fish/config.fish
 # set fish_greeting "" <-- Add this line to disable welcome message
 ```
 
-### Disable KDE-Wallet
+### 2.5 Disable KDE-Wallet
 
 Navigate to ~/.config/kwalletrc & replace it's contents with,
 
@@ -80,7 +92,7 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 “Enabled=false”
 ```
 
-### Useful Commands
+### 2.6 Useful Commands
 
 | Command           | Description                                                  |
 --  |
@@ -101,7 +113,7 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 | `ffmpeg`          | Edit/convert video files.                                    |
 | `tldr`            | Better version of `--help`. Example: `tldr ffmpeg`.          |
 
-### Shortcuts
+### 2.7 Shortcuts
 
 - **Shift + PrtSc** → Screenshot
 - **Alt + Tab** → Switch windows
@@ -109,9 +121,9 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 
 `
 
-## Git
+## 3. Git
 
-### .gitignore
+### 3.1 .gitignore
 
 ```gitignore
 leetcode/*         # ignore everything inside leetcode/
@@ -133,7 +145,7 @@ Think of it as a priority system:
 
 Closest to **Unix shell globbing**, but Git-specific.
 
-### Restore
+### 3.2 Restore
 
 ```bash
 git restore <nameOfFile>
@@ -141,7 +153,7 @@ git restore <nameOfFile>
 
 this functions restores the specified file to it's last commit
 
-## Hyprland
+## 4. Hyprland
 
 ```bash
 mv old.py new.py   # rename file
@@ -156,9 +168,9 @@ Shortcuts:
 - **Super + M** → Exit Hyprland
 - **Super + R** → Search
 
-## Python
+## 5. Python
 
-### Create a Virtual environment
+### 5.1 Create a Virtual environment
 
 ```bash
 python3 -m venv <nameOfVenv>
@@ -174,7 +186,7 @@ source venv/bin/activate.fish # (fish)
 deactivate
 ```
 
-### Requirements file
+### 5.2 Requirements file
 
 ```bash
 # Output the list of installed packages
@@ -187,7 +199,7 @@ pip freeze > requirements.text
 pip install -r requirements.txt
 ```
 
-## Vim
+## 6. Vim
 
 ```vim
 :%y+        " Select all + copy to clipboard
@@ -195,12 +207,14 @@ vim ~/.vimrc    " Open vim config
 source ~/.vimrc " Reload config instantly
 ```
 
-## VSCode
+## 7. VSCode
+
+### 7.1 Short-cuts
 
 - ctrl+Space-bar -> intelliSense suggestions
 - alt+mouseClick -> multi-cursor functionality
 
-### To Remove VSCode Icon from Title-bar
+### 7.2 To Remove VSCode Icon from Title-bar
 
 ```bash
 # Open following file
@@ -209,9 +223,9 @@ code "C:\Users\<User_Name>\AppData\Local\Programs\Microsoft VS Code\<commit_hash
 #  choose the first one you had searched, change the value: 'width:35px;' to 'width:0px;' 
 ```
 
-## Windows
+## 8. Windows
 
-### Terminal
+### 8.1 Terminal
 
 - **Character Map**
 - **Terminal setups**:
@@ -221,14 +235,14 @@ code "C:\Users\<User_Name>\AppData\Local\Programs\Microsoft VS Code\<commit_hash
   Get-ChildItem $env:POSH_THEMES_PATH
   ```
 
-### Git Bash
+### 8.2 Git Bash
 
 ```bash
 git tag -a tagName -m "message here"
 git push --tags
 ```
 
-### OhMyPosh
+### 8.3 OhMyPosh
 
 Used ohmyposh to get custom powerlines created my own theme, can be used by running
 
@@ -237,3 +251,13 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\mytheme.omp.json" | Invoke-
 ```
 
 Can be set as default by pasting above line in `notepad $PROFILE`
+
+## 9. Tips
+
+### 9.1 How markdown heading anchors work
+
+- Lowercase everything
+- Spaces → `-`
+- Remove special characters (so `C++` → `#c`, `Endeavor OS` → `#endeavor-os`)
+
+This works natively on GitHub, Obsidian, VS Code preview, and most markdown renderers.
