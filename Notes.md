@@ -1,5 +1,23 @@
 # オーラ
 
+## C++
+
+### Running on Linux
+
+To compile and run via CLI:
+
+```bash
+g++ program.cpp -o program   # compiles program.cpp → program
+./program                    # runs the executable
+```
+
+Alternative:
+
+```bash
+g++ % -o program && ./program   # % = current file
+:!g++ % -o program && ./program # run directly in vim (! runs in shell)
+``
+
 ## Ollama
 
 ```bash
@@ -89,106 +107,7 @@ Navigate to ~/.config/kwalletrc & replace it's contents with,
 - **Alt + Tab** → Switch windows
 - **Ctrl + Tab** → Switch browser tabs
 
-## C++ on Linux
-
-To compile and run via CLI:
-
-```bash
-g++ program.cpp -o program   # compiles program.cpp → program
-./program                    # runs the executable
-```
-
-Alternative:
-
-```bash
-g++ % -o program && ./program   # % = current file
-:!g++ % -o program && ./program # run directly in vim (! runs in shell)
-```
-
-## Vim
-
-```vim
-:%y+        " Select all + copy to clipboard
-vim ~/.vimrc    " Open vim config
-source ~/.vimrc " Reload config instantly
-```
-
-## VSCode
-
-- ctrl+Space-bar -> intelliSense suggestions
-- alt+mouseClick -> multi-cursor functionality
-
-### To Remove VSCode Icon from Title-bar
-
-```bash
-# Open following file
-code "C:\Users\<User_Name>\AppData\Local\Programs\Microsoft VS Code\<commit_hash>\resources\app\out\vs\workbench\workbench.desktop.main.css"
-# search: '.window-appicon'
-#  choose the first one you had searched, change the value: 'width:35px;' to 'width:0px;' 
-```
-
-## Hyprland
-
-```bash
-mv old.py new.py   # rename file
-rm new.cpp         # delete file
-nmtui              # GUI Wi-Fi setup
-```
-
-Shortcuts:
-
-- **Super + Q** → New Terminal
-- **Super + C** → Close Terminal
-- **Super + M** → Exit Hyprland
-- **Super + R** → Search
-
-## CS50P
-
-Submission example:
-
-```bash
-submit50 cs50/problems/2022/python/camel
-```
-
-_(Replace `camel` with your current assignment)_
-
-## Python (Fish)
-
-Use the Fish-compatible activation script:
-
-```bash
-python3 -m venv venv
-source venv/bin/activate.fish
-```
-
-## Windows
-
-### Terminal
-
-- **Character Map**
-- **Terminal setups**:
-
-  ```powershell
-  notepad $PROFILE
-  Get-ChildItem $env:POSH_THEMES_PATH
-  ```
-
-### Git Bash
-
-```bash
-git tag -a tagName -m "message here"
-git push --tags
-```
-
-### OhMyPosh
-
-Used ohmyposh to get custom powerlines created my own theme, can be used by running
-
-```bash
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\mytheme.omp.json" | Invoke-Expression   
-```
-
-Can be set as default by pasting above line in `notepad $PROFILE`
+`
 
 ## Git
 
@@ -221,3 +140,100 @@ git restore <nameOfFile>
 ```
 
 this functions restores the specified file to it's last commit
+
+## Hyprland
+
+```bash
+mv old.py new.py   # rename file
+rm new.cpp         # delete file
+nmtui              # GUI Wi-Fi setup
+```
+
+Shortcuts:
+
+- **Super + Q** → New Terminal
+- **Super + C** → Close Terminal
+- **Super + M** → Exit Hyprland
+- **Super + R** → Search
+
+## Python
+
+### Create a Virtual environment
+
+```bash
+python3 -m venv <nameOfVenv>
+
+# Activate the virtual environment
+source <nameOfVenv>/bin/activate # (bash/zsh)
+source venv/bin/activate.fish # (fish)
+
+<nameOfVenv>\Scripts\activate.bat # (cmd)
+<nameOfVenv>\Scripts\Activate.ps1 # (powershell)
+
+# Deactivate the virtual environment
+deactivate
+```
+
+### Requirements file
+
+```bash
+# Output the list of installed packages
+pip freeze
+
+# Write the list of installed packages to a file
+pip freeze > requirements.text
+
+# Install the packages listed in the requirements.txt file
+pip install -r requirements.txt
+```
+
+## Vim
+
+```vim
+:%y+        " Select all + copy to clipboard
+vim ~/.vimrc    " Open vim config
+source ~/.vimrc " Reload config instantly
+```
+
+## VSCode
+
+- ctrl+Space-bar -> intelliSense suggestions
+- alt+mouseClick -> multi-cursor functionality
+
+### To Remove VSCode Icon from Title-bar
+
+```bash
+# Open following file
+code "C:\Users\<User_Name>\AppData\Local\Programs\Microsoft VS Code\<commit_hash>\resources\app\out\vs\workbench\workbench.desktop.main.css"
+# search: '.window-appicon'
+#  choose the first one you had searched, change the value: 'width:35px;' to 'width:0px;' 
+```
+
+## Windows
+
+### Terminal
+
+- **Character Map**
+- **Terminal setups**:
+
+  ```powershell
+  notepad $PROFILE
+  Get-ChildItem $env:POSH_THEMES_PATH
+  ```
+
+### Git Bash
+
+```bash
+git tag -a tagName -m "message here"
+git push --tags
+```
+
+### OhMyPosh
+
+Used ohmyposh to get custom powerlines created my own theme, can be used by running
+
+```bash
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\mytheme.omp.json" | Invoke-Expression   
+```
+
+Can be set as default by pasting above line in `notepad $PROFILE`
