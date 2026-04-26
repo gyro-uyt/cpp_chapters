@@ -1,0 +1,9 @@
+black==26.3.1
+click==8.3.3
+colorama==0.4.6
+mypy_extensions==1.1.0
+packaging==26.2
+pathspec==1.1.0
+platformdirs==4.9.6
+pytokens==0.4.1
+ruff==0.15.12
