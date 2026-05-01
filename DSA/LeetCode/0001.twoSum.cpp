@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-  vector<int> bruteForce(vector<int> &nums, int target) {
+  vector<int> bruteForce(vector<int> &nums, int target)
+  {
     int n = nums.size();
     for (int i = 0; i < n; i++)
       for (int j = 0; j < n; j++)
@@ -12,7 +14,8 @@ public:
 
     return {-1, -1};
   }
-  vector<int> bruteForceBetter(vector<int> &nums, int target) {
+  vector<int> bruteForceBetter(vector<int> &nums, int target)
+  {
     int n = nums.size();
     for (int i = 0; i < n; i++)
       for (int j = i + 1; j < n; j++)
@@ -21,9 +24,11 @@ public:
 
     return {-1, -1};
   }
-  vector<int> optimal(vector<int> &nums, int target) {
+  vector<int> optimal(vector<int> &nums, int target)
+  {
     unordered_map<int, int> store;
-    for (int i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++)
+    {
       int rem = target - nums[i];
       if (store.find(rem) != store.end())
         return {i, store[rem]};
@@ -32,7 +37,8 @@ public:
     return {-1, -1};
   }
   // WRONG: As after sorting the original indices changes, CORRECT & Optimal if
-  // Problem is of Yes/No vector<int> better(vector<int> &nums, int target) {
+  // Problem is of Yes/No
+  // vector<int> better(vector<int> &nums, int target) {
   //   sort(nums.begin(), nums.end());
   //   int n = nums.size();
   //   int i = 0, j = n - 1;
@@ -50,16 +56,19 @@ public:
   // }
 };
 
-int main() {
+int main()
+{
   int target = 6;
   vector<int> vec = {1, 4, 4, 2, 44, 53};
   vector<int> solution;
 
   Solution s1;
   solution = s1.optimal(vec, target);
-  for (int i = 0; i < solution.size(); i++) {
+  for (int i = 0; i < solution.size(); i++)
+  {
     cout << solution[i];
-    if (i != (solution.size() - 1)) {
+    if (i != (solution.size() - 1))
+    {
       cout << ", ";
     }
   }
