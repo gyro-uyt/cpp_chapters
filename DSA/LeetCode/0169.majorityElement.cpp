@@ -16,34 +16,37 @@ public:
     If the current element is different, decrement count.
     The candidate remaining at the end will be the majority element.
 */
-  int majorityElement(std::vector<int> &nums) {
+  int optimal(vector<int> &nums) {
     int count = 0;
-    int candidate = 0; // Will be set on the first iteration
-
-    for (int num : nums) {
-      if (count == 0)
-        candidate = num;
-
-      if (num == candidate)
+    int element;
+    for (int i : nums) {
+      if (count == 0) {
+        element = i;
+        count = 1;
+      } else if (i == element)
         count++;
       else
         count--;
     }
+    int freqE = 0;
+    for (int i : nums)
+      if (i == element)
+        freqE++;
 
-    return candidate;
+    return (freqE > nums.size() / 2) ? element : -1;
   }
 
-  int majorityElement0(vector<int> &nums) {
-    unordered_map<int, int> freq;
-    for (auto i : nums)
-      freq[i]++;
-
-    int condition = nums.size() / 2;
-
-    for (auto i : freq)
-      if (i.second > condition)
-        return i.first;
-
-    return -1;
+  int bruteForce(vector<int> &nums) {
+    unordered_map<int, int> f;
+    for (int i : nums)
+      f[i]++;
+    int mE = nums[0];
+    int fE = 0;
+    for (auto i : f) {
+      if (i.second > fE) {
+        mE = i.first;
+      }
+    }
+    return mE;
   }
 };
