@@ -59,17 +59,42 @@ public:
     }
     return maxSum;
   }
+  // Kadane's algorithm
   int optimal(vector<int> &nums) {
-    int sum = 0;
     int maxSum = INT_MIN;
-    int n = nums.size();
-    for (int i = 0; i < n; i++) {
-      if (sum < 0)
-        sum = 0;
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
       sum += nums[i];
       maxSum = max(maxSum, sum);
+      if (sum < 0)
+        sum = 0;
     }
     return maxSum;
+  }
+  // Follow-up: Print the subarray with maximum subarray sum
+  void followUp(vector<int> &nums) {
+    int maxSum = INT_MIN;
+    int sum = 0;
+    int startIndex = 0;
+    // startIndex & ansStart both are needed as startIndex changes everytime
+    // sum==0, while ansStart would change only when maxSum is encountered and
+    // takes the value of startIndex for that time
+    int ansStart = -1, ansEnd = -1;
+    for (int i = 0; i < nums.size(); i++) {
+      if (sum == 0)
+        startIndex = i;
+      sum += nums[i];
+      if (sum > maxSum) {
+        ansStart = startIndex;
+        ansEnd = i;
+        maxSum = sum;
+      }
+      if (sum < 0)
+        sum = 0;
+    }
+    for (int i = ansStart; i <= ansEnd; i++)
+      cout << nums[i] << " ";
+    cout << endl;
   }
 };
 
@@ -77,6 +102,7 @@ int main() {
   Solution s1;
   vector<int> arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
   cout << s1.optimal(arr) << endl;
+  s1.followUp(arr);
 
   return 0;
 }
