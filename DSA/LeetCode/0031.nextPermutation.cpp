@@ -16,7 +16,7 @@ public:
       }
 
     if (idx == -1)
-      return reverse(nums.begin(), nums.end());
+      reverse(nums.begin(), nums.end());
     for (int i = n - 1; i > idx; i--)
       if (nums[i] > nums[idx]) {
         swap(nums[i], nums[idx]);
