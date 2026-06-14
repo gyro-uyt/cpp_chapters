@@ -1,7 +1,4 @@
 #include <bits/stdc++.h>
-#include <endian.h>
-#include <sched.h>
-#include <vector>
 using namespace std;
 
 class Solution {
