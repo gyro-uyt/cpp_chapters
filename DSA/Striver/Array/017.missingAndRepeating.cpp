@@ -1,8 +1,24 @@
 #include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
+  vector<int> optimal1Maths(vector<int> &arr) {
+    long long n = arr.size();
+    long long S = 0, S2 = 0;
+    for (int i : arr) {
+      S += i;
+      S2 += 1LL * i * i;
+    }
+    long long Sn = n * (n + 1) / 2;
+    long long Sn2 = n * (n + 1) * (2 * n + 1) / 6;
+    long long val1 = S - Sn;            // missing - repeating
+    long long val2 = (S2 - Sn2) / val1; // missing + repeating
+    long long repeating = (val1 + val2) / 2;
+    long long missing = val2 - repeating;
+    return {(int)repeating, (int)missing};
+  }
   vector<int> better(vector<int> &arr) {
     int missing = -1, repeating = -1;
     int n = arr.size();
