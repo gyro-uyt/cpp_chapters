@@ -14,28 +14,44 @@ Example 2:
     Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 */
 
-#include <algorithm>
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
 public:
-  int maxProduct(vector<int> &nums) {
-    int maxProduct = nums[0];
-    int currentProduct = nums[0];
-    for (int i = 1; i < nums.size(); i++) {
-      currentProduct = max(currentProduct * nums[i], nums[i]);
-      maxProduct = max(currentProduct, maxProduct);
+  int optimal1(vector<int> &nums) {
+    int maxPro = INT_MIN;
+    int prefix = 1;
+    int suffix = 1;
+    int n = nums.size();
+    for (int i = 0; i < n; i++) {
+      if (prefix == 0)
+        prefix = 1;
+      if (suffix == 0)
+        suffix = 1;
+      prefix *= nums[i];
+      suffix *= nums[n - 1 - i];
+      maxPro = max(maxPro, max(prefix, suffix));
     }
-    return maxProduct;
+    return maxPro;
+  }
+  int bruteForce(vector<int> &nums) {
+    long long maxProduct = nums[0];
+    int n = nums.size();
+    for (int i = 0; i < n; i++) {
+      long long product = 1;
+      for (int j = i; j < n; j++) {
+        product *= nums[j];
+        maxProduct = max(maxProduct, product);
+      }
+    }
+    return (int)maxProduct;
   }
 };
 
 int main() {
   Solution s1;
   vector<int> arr = {-2, 3, -4};
-  cout << s1.maxProduct(arr) << endl;
 
   return 0;
 }
