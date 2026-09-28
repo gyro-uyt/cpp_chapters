@@ -17,5 +17,7 @@ int main() {
 
   std::cout << a << " " << b << " " << c << " " << d << " " << e << std::endl;
 
+  [[maybe_unused]] float pi = 3.14; // no unused_variable warning
+
   return 0;
 }
