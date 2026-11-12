@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login github via SSH</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>How to login your Github account via SSH</h1>
+      <p>A step-by-step tutorial.</p>
+    </header>
+    <main>
+      <section class="step1">
+        <h2>Step 1: Setting up local repo</h2>
+        <p>
+          Clone your repo in which you want to work, prefer to clone via SSH.
+        </p>
+        <div class="code">
+          <pre><code>$ git clone git@github.com:OWNER/REPOSITORY.git</code></pre>
+        </div>
+        <p>If you already have local repo, check it's remote origin.</p>
+        <div class="code">
+          <pre><code>$ git remote -v 
+&gt; origin git@github.com:OWNER/REPOSITORY.git (fetch)
+&gt; origin git@github.com:OWNER/REPOSITORY.git (push)</code></pre>
+        </div>
+        <p>
+          If the output is something like above, then the it means remote output
+          is set correctly to ssh.
+        </p>
+        <p>
+          But if it's output is something like below, then it means repo's
+          remote is set to HTTPS.
+        </p>
+        <div class="code">
+          <pre><code>$ git remote -v
+&gt; origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+&gt; origin  https://github.com/OWNER/REPOSITORY.git (push)</code></pre>
+        </div>
+        <p>
+          Change your remote's URL from HTTPS to SSH with the git remote set-url
+          command.
+        </p>
+        <div class="code">
+          <pre><code>$ git remote set-url origin git@github.com:OWNER/REPOSITORY.git</code></pre>
+        </div>
+      </section>
+      <section class="step2">
+        <h2>Step 2: Setting up git</h2>
+        <p>Check if you have configured you git name and email</p>
+        <div class="code">
+          <pre><code>$ git config --global user.name
+$ git config --global user.email</code></pre>
+        </div>
+        <p>
+          If these commands returned your name or email then that means you've
+          already configured your name and email.
+        </p>
+        <p>
+          If they returned nothing or you wish to update the name or email, then
+          do so by running following commands.
+        </p>
+        <div class="code">
+          <pre><code>$ git config --global user.name "YOUR_NAME"
+$ git config --global user.email "YOUR_EMAIL"</code></pre>
+        </div>
+      </section>
+      <section class="step3">
+        <h2>Step 3: Setting up SSH</h2>
+        <div class="stepi">
+          <p>
+            If you have an existing SSH key, you can use the key to authenticate
+            Git operations over SSH.
+          </p>
+          <h3>i. Checking for existing SSH keys</h3>
+          <p>
+            Before you generate a new SSH key, you should check your local
+            machine for existing keys, by running.
+          </p>
+          <div class="code">
+            <pre><code>$ ls -al ~/.ssh
+# Lists the files in your .ssh directory, if they exist</code></pre>
+          </div>
+          <p>
+            By default, the filenames of supported public keys for GitHub are
+            one of the following.
+          </p>
+          <ul>
+            <li>id_rsa.pub</li>
+            <li>id_ecdsa.pub</li>
+            <li>id_ed25519.pub</li>
+          </ul>
+          <p>
+            Note: If you receive an error that ~/.ssh doesn't exist, you do not
+            have an existing SSH key pair in the default location. You can
+            create a new SSH key pair in the next step.
+          </p>
+          <p>Either generate a new SSH key or upload an existing key.</p>
+          <ul>
+            <li>
+              If you don't have a supported public and private key pair, or
+              don't wish to use any that are available, generate a new SSH key.
+            </li>
+            <li>
+              If you see an existing public and private key pair listed (for
+              example, id_rsa.pub and id_rsa) that you would like to use to
+              connect to GitHub, you can add the key to the ssh-agent.
+            </li>
+          </ul>
+        </div>
+        <div class="stepii">
+          <h3>ii. Generating a new SSH key</h3>
+          <p>
+            Open Terminal and paste the code below, replacing the email used in
+            the example with your GitHub email address.
+          </p>
+          <div class="code">
+            <pre><code>$ ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
+          </div>
+          <p>
+            Note: If you are using a legacy system that doesn't support the
+            Ed25519 algorithm, use:
+          </p>
+          <div class="code">
+            <pre><code>$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code></pre>
+          </div>
+          <p>
+            This creates a new SSH key, using the provided email as a label.
+          </p>
+          <p>
+            When you're prompted to "Enter a file in which to save the key", you
+            can press Enter to accept the default file location. Please note
+            that if you created SSH keys previously, ssh-keygen may ask you to
+            rewrite another key, in which case we recommend creating a
+            custom-named SSH key. To do so, type the default file location and
+            replace id_ALGORITHM with your custom key name.
+          </p>
+          <div class="code">
+            <pre><code>&gt; Generating public/private ALGORITHM key pair.
+&gt; Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]
+&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]
+&gt; Enter same passphrase again: [Type passphrase again]
+</code></pre>
+          </div>
+        </div>
+        <div class="stepiii">
+          <h3>iii. Adding your SSH key to the ssh-agent</h3>
+          <p>1. Start the ssh-agent in the background.</p>
+          <div class="code">
+            <pre><code>$ eval "$(ssh-agent -s)"
+&gt; Agent pid 59566</code></pre>
+          </div>
+          <p>2. Add your SSH private key to the ssh-agent.</p>
+          <p>
+            If you created your key with a different name, or if you are adding
+            an existing key that has a different name, replace id_ed25519 in the
+            command with the name of your private key file.
+          </p>
+          <div class="code">
+            <pre><code>$ ssh-add ~/.ssh/id_ed25519</code></pre>
+          </div>
+        </div>
+        <div class="stepiv">
+          <h3>iv. Adding a new SSH key to your Github account</h3>
+          <p>
+            <em>This is Web browser method</em>
+          </p>
+          <p>
+            You can add an SSH key and use it for authentication, or commit
+            signing, or both. If you want to use the same SSH key for both
+            authentication and signing, you need to upload it twice.
+          </p>
+          <p>
+            After adding a new SSH authentication key to your account on
+            GitHub.com, you can reconfigure any local repositories to use SSH.
+          </p>
+          <p>Copy the SSH public key to your clipboard.</p>
+          <p>
+            If your SSH public key file has a different name than the example
+            code, modify the filename to match your current setup. When copying
+            your key, don't add any newlines or whitespace.
+          </p>
+          <div class="code">
+            <pre><code>$ cat ~/.ssh/id_ed25519.pub
+# Then select and copy the contents of the id_ed25519.pub file
+# displayed in the terminal to your clipboard</code></pre>
+          </div>
+          <p>Now the browser part:</p>
+          <ol>
+            <li>
+              Open <a href="https://github.com">github.com</a> in your web
+              browser
+            </li>
+            <li>
+              In the upper-right corner of any page on GitHub, click your
+              profile picture, then click Settings.
+            </li>
+            <li>
+              In the "Access" section of the sidebar, click SSH and GPG keys.
+            </li>
+            <li>Click New SSH key or Add SSH key.</li>
+            <li>
+              In the "Title" field, add a descriptive label for the new key. For
+              example, if you're using a personal laptop, you might call this
+              key "Personal laptop".
+            </li>
+            <li>Select the type of key, either authentication or signing.</li>
+            <li>In the "Key" field, paste your public key.</li>
+            <li>Click Add SSH key.</li>
+            <li>If prompted, confirm access to your account on GitHub.</li>
+          </ol>
+        </div>
+        <div class="stepv">
+          <h3>v. Testing your SSH connection</h3>
+          <p>1. Open Terminal, enter the following:</p>
+          <div class="code">
+            <pre><code>$ ssh -T git@github.com
+# Attempts to ssh to GitHub</code></pre>
+          </div>
+          <p>You may see a warning like this:</p>
+          <div class="code">
+            <pre><code>&gt; The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+&gt; ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+&gt; Are you sure you want to continue connecting (yes/no)?</code></pre>
+          </div>
+          <p>
+            2. Verify that the fingerprint in the message you see matches
+            <a
+              href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints"
+              >GitHub's public key fingerprint</a
+            >. If it does, then type yes:
+          </p>
+          <div class="code">
+            <pre><code>&gt; Hi USERNAME! You've successfully authenticated, but GitHub does not
+&gt; provide shell access.</code></pre>
+          </div>
+          <p>3. Verify that the resulting message contains your username.</p>
+        </div>
+      </section>
+      <h4>Congrats, you have successfully setup your connection.</h4>
+    </main>
+    <footer>
+      <p>developed by a lazy dev</p>
+    </footer>
+  </body>
+</html>
